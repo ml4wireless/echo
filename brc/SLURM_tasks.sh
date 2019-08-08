@@ -30,5 +30,5 @@ fi;
 
 module load python/3.6 gcc openmpi
 #mkdir -p "${BRC_DIR}/brc/out/${folder}"
-mkdir -p "${BRC_DIR}/brc/out/work"
+mkdir -p "${BRC_DIR}/out/work"
 ht_helper.sh -v -m "python/3.6" -t "$TASKFILE" -r "$N" -w "./brc/out/work"
