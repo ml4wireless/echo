@@ -15,8 +15,10 @@ with open(jobs_json, "r") as jf:
 #     suffix = str(i)
 
 
-# assert os.path.isdir('/global/scratch/'), "ARE YOU SURE YOU ARE LOGGED INTO THE BRC?"
+assert os.path.isdir('/global/scratch/'), "ARE YOU SURE YOU ARE LOGGED INTO THE BRC?"
 echo_symlink_dir = '/global/scratch/%s/echo/' % (getpass.getuser())
+os.makedirs(echo_symlink_dir, exist_ok=True)
+assert os.path.isdir(echo_symlink_dir)
 
 total_num_jobs = len(jobs)
 batch_sizes = [total_num_jobs // number_nodes] * number_nodes
