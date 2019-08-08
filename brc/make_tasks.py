@@ -36,7 +36,7 @@ for j in range(number_nodes):
         njf.write(json.dumps(node_jobs, indent=4, sort_keys=False))
 
     with open(node_task_file, "w") as tf:
-        tf.write("python %s/run_experiment.py --jobs_json=%s --job_id=$HT_TASK_ID --echo_symlink_to=%s\n" % (
+        tf.write("python %s/run_experiment.py --jobs_file=%s --job_id=$HT_TASK_ID --echo_symlink_to=%s\n" % (
             ECHO_DIR, node_jobs_json, echo_symlink_dir))
 
     print(node_task_file)
