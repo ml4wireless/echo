@@ -45,7 +45,7 @@ gen_jobs() {
         esac
     done
 }
-
+mkdir -p _tmp_
 g
 echo -e "Are you on the BRC cluster?"; n;
 select yn in "Yes" "No"; do
@@ -118,7 +118,7 @@ if [[ "$ONBRC" = true ]] ; then
       taskfile=${tasks[$((2 * i))]}
       n=${tasks[$(((2 * i)+1))]}
 #      echo "$taskfile $n"
-      sbatch "${ECHO_DIR}/brc/SLURM_tasks.sh ${taskfile} ${n}"
+      sbatch ${ECHO_DIR}/brc/SLURM_tasks.sh ${taskfile} ${n}
   done
   # sbatch "${ECHO_DIR}/brc/SLURM_tasks.sh ${taskfile} ${numtasks}"
 else
