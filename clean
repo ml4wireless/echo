@@ -1,0 +1,5 @@
+rm  -f -r -- ./_tmp_/*
+rm  -f -- ./experiments/jobs.json
+rm -f -- ./experiments/*/jobs.json
+rm -f -r -- ./experiments/*/*/
+

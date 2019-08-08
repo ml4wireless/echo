@@ -1,0 +1,15 @@
+## THIS FILE CREATES DEFAULT EXPERIMENTS FOR A SINGLE PROTOCOL
+## AND ALSO CREATES A COMBINED JOB FILE FOR ALL THOSE EXPERIMENTS IN THE experiment/[protocol] folder
+
+#protocol='gradient_passing'
+#protocol='loss_passing'
+#protocol='shared_preamble'
+protocol='private_preamble'
+
+jobsjson=$(python preprocess_experiments.py $protocol | tail -1)
+echo $jobsjson
+if [ "$*" == "" ]; then
+    #if no arguments given... just an optional thing so that you can test
+    echo "Running first job...."
+    python run_experiment.py --jobs_file="${jobsjson}" --job_id=0
+fi

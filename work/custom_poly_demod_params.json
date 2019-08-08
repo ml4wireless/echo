@@ -1,0 +1,9 @@
+{
+        "degree_polynomial" :       3,
+        "loss_type" :               "l2",
+        "stepsize_cross_entropy" :  {   "sample": "Uniform" ,
+                                      "min_val": 1.0e-2,
+                                      "max_val": 1.1e-2  },
+        "lambda_l1": 0.00,
+        "cross_entropy_weight": 1.0
+}

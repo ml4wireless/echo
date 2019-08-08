@@ -1,0 +1,10 @@
+## THIS FILE CREATES DEFAULT EXPERIMENTS FOR ALL PROTOCOLS
+## AND ALSO CREATES A COMBINED JOB FILE FOR ALL THOSE EXPERIMENTS JUST MADE in project folder
+
+jobsjson=$(python preprocess_experiments.py | tail -1)
+echo $jobsjson
+if [ "$*" == "" ]; then
+    #if no arguments given... just an optional thing so that you can test
+    echo "Running first job...."
+    python run_experiment.py --jobs_file="${jobsjson}" --job_id=0
+fi
