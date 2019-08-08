@@ -3,8 +3,8 @@
 
 #protocol='gradient_passing'
 #protocol='loss_passing'
-#protocol='shared_preamble'
-protocol='private_preamble'
+protocol='shared_preamble'
+#protocol='private_preamble'
 
 jobsjson=$(python preprocess_experiments.py $protocol | tail -1)
 echo $jobsjson
