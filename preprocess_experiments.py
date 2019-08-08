@@ -39,7 +39,7 @@ def create_params_for_all_experiments():
   experiments += [[p, o, 'poly', 'poly', 'clone', 'clone'] for p in ["shared_preamble", "private_preamble"] for o in
                   ['qpsk', '8psk', 'qam16']]
   for p, o, m1, d1, m2, d2 in experiments:
-        if not protocol or p == protocol:
+        if not protocol or p == protocol and o.upper() == 'QPSK':
             cmd = 'python %s/experiments/create_experiment_params.py ' \
                   '--protocol %s ' \
                   '--mod_order %s ' \
@@ -68,7 +68,7 @@ def make_trials_for_all_experiments():
                         ["shared_preamble", "private_preamble"] for o in ['qpsk', '8psk', 'qam16']]
     with open(preprocessexpfolderout, 'w') as f:
         for experiment_dir in experiment_dirs:
-            if not protocol or (protocol in experiment_dir):
+            if (not protocol or (protocol in experiment_dir)) and 'QPSK' in experiment_dir:
                 print(experiment_dir, file=f)
     cmd = 'python %s/experiments/make_jobs.py --experiment_folder=all --file=%s --jobs_json_path=%s' %(ECHO_DIR, preprocessexpfolderout, jobsjson)
     print(cmd, file=open(preprocessout, "a"))

@@ -117,7 +117,7 @@ if [[ "$ONBRC" = true ]] ; then
   for i in $(eval echo "{0..$((nodes-1))}"); do
       taskfile=${tasks[$((2 * i))]}
       n=${tasks[$(((2 * i)+1))]}
-#      echo "$taskfile $n"
+      echo "$taskfile $n"
       mkdir -p ${ECHO_DIR}/brc/out/work
       sbatch ${ECHO_DIR}/brc/SLURM_tasks.sh ${taskfile} ${n}
   done
