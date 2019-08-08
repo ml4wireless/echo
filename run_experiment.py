@@ -12,6 +12,8 @@ from utils.util_data import integers_to_symbols, get_grid_2d
 from matplotlib.patches import Ellipse
 from copy import deepcopy
 
+
+
 ##TODO
 # 1. check that make_jobs in a batch  == make_jobs single (seeds are set properly)
 # DONE 2. make sure that rerunning the same job is reproduible
@@ -146,10 +148,15 @@ def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None):
         protocol_dir = os.path.abspath(os.path.join(ECHO_DIR, 'protocols', protocol))
 
         results_dir = os.path.abspath(os.path.join(experiment_dir, 'results'))
-        os.makedirs(results_dir, exist_ok=True)
+
         if echo_symlink_to is not None:
             assert os.path.isdir(echo_symlink_to), "Invalid symlink path"
             if not os.path.islink(results_dir):
+                if os.path.isdir(results_dir):
+                    old_results_dir = os.path.abspath(os.path.join(experiment_dir, 'old_results'))
+                    os.makedirs(old_results_dir, exist_ok=True)
+                    n = len(os.listdir(old_results_dir))
+                    os.rename(results_dir, os.path.abspath(os.path.join(old_results_dir, '%i' % n)))
                 _experiment_dir = os.path.abspath(
                     os.path.join(echo_symlink_to, 'experiments', protocol, experiment_name))
                 _results_dir = os.path.abspath(os.path.join(_experiment_dir, 'results'))
@@ -157,9 +164,11 @@ def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None):
                     _old_results_dir = os.path.abspath(os.path.join(_experiment_dir, 'old_results'))
                     os.makedirs(_old_results_dir, exist_ok=True)
                     n = len(os.listdir(_old_results_dir))
-                    os.rename(_results_dir, os.path.abspath(os.path.join(_old_results_dir, '%i'%n)))
+                    os.rename(_results_dir, os.path.abspath(os.path.join(_old_results_dir, '%i' % n)))
                 os.makedirs(_results_dir)
                 os.symlink(_results_dir, results_dir)
+        else:
+            os.makedirs(results_dir, exist_ok=True)
 
         results_file = '%s/%i.npy' % (results_dir, trial_num)
         if os.path.isfile(results_file) and plot:
