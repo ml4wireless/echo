@@ -51,7 +51,8 @@ echo -e "Are you on the BRC cluster?"; n;
 select yn in "Yes" "No"; do
     case $yn in
         Yes ) ONBRC=true ;
-#              module load python/3.6 gcc; python=python3 ;
+              module load python/3.6 gcc; python=python3 ;
+              #source activate runecho;
               break;;
         No )  ONBRC=false ; break;;
         *) echo "Invalid option. Try another one.";continue;;
@@ -110,6 +111,7 @@ if [[ "$ONBRC" = true ]] ; then
       fi;
       break;
   done;
+#  source deactivate; #dont need jsonnet anymore
   tasks=($(python ${BRC_DIR}/make_tasks.py ${jobsjson} $nodes | tail -$((3 * nodes))))
 #  echo "python ${BRC_DIR}/make_tasks.py ${jobsjson} $nodes | tail -$((2 * nodes))"
   for i in $(eval echo "{0..$((nodes-1))}"); do
