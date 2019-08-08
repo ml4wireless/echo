@@ -170,12 +170,12 @@ def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None):
         else:
             os.makedirs(results_dir, exist_ok=True)
 
-        results_file = '%s/%i.npy' % (results_dir, trial_num)
+        results_file = '%s/%i_%i.npy' % (results_dir, job_id, trial_num)
         if os.path.isfile(results_file) and plot:
             print("result already found")
         else:
             print(results_file)
-            params_file = '%s/%i.json' % (results_dir, trial_num)
+            params_file = '%s/%i_%i.json' % (results_dir, job_id, trial_num)
             with open(params_file, 'w') as pf:
                 pf.write(json.dumps(params_copy, indent=4))
 
