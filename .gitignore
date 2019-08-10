@@ -2,7 +2,11 @@
 .idea/
 _tmp_/
 brc/out/
-experiments/*/results/
+experiments/*/*/results
+experiments/*/*/*.jsonnet
+experiments/jobs.json
+experiments/*/jobs.json
+experiments/*/*/jobs.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
