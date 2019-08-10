@@ -99,10 +99,11 @@ for protocol in ['shared_preamble']:  # 'loss_passing', 'echo_private_preamble',
     print(base_path)
     # print(job_dir_list)
     for folder in dir_list:
-        experiment_dir = os.path.join(base_path, folder)
-        experiment_results = process_experiment(experiment_dir)
-        result_file = os.path.join(BRC_DIR, "results", folder + ".npy")
-        np.save(result_file, experiment_results)
+        if 'QPSK' in folder and 'hyper' not in folder:
+            experiment_dir = os.path.join(base_path, folder)
+            experiment_results = process_experiment(experiment_dir)
+            result_file = os.path.join(BRC_DIR, "results", folder + ".npy")
+            np.save(result_file, experiment_results)
 
     #                 break
     #         print(job_dir_to_filename("%s/../experiments/gradient_passing/"%D+ job_dir))
