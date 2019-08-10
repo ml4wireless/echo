@@ -1,4 +1,4 @@
-from utils.util_data import get_all_unique_symbols, cartesian_2d_to_complex
+from utils.util_data import cartesian_2d_to_complex, integers_to_symbols
 import numpy as np 
 import torch
 from torch import nn
@@ -29,6 +29,7 @@ class Modulator():
         self.lambda_l2=torch.tensor(lambda_l2).float()
         self.lambda_center=torch.tensor(lambda_center).float()
         self.lambda_baseline=torch.tensor(lambda_baseline).float()
+        self.all_symbols = integers_to_symbols(np.arange(0, 2**bits_per_symbol), bits_per_symbol)
         self.std = nn.Parameter(
             torch.from_numpy(np.array([initial_std, initial_std]).astype(np.float32)),
             requires_grad=True
@@ -108,7 +109,7 @@ class Modulator():
         else:
             assert self.optimizer, "Modulator is not initialized with an optimizer"
             if len(actions.shape)==2:
-                cartesian_actions = torch.from_numpy(actions).astype(np.float32)
+                cartesian_actions = torch.from_numpy(actions).float()
             elif len(actions.shape)==1:
                 cartesian_actions = torch.from_numpy(np.stack((actions.real.astype(np.float32), actions.imag.astype(np.float32)), axis=-1))
             reward = torch.from_numpy(-np.sum(symbols ^ received_symbols, axis=1)).float() #correct bits = 0, incorrect bits = -1 #TESTED
@@ -116,9 +117,12 @@ class Modulator():
             log_probs =  self.re_normal.log_prob(cartesian_actions[:,0]) + self.im_normal.log_prob(cartesian_actions[:,1])
             baseline = torch.mean(reward)
             loss = -torch.mean(log_probs * (reward - self.lambda_baseline * baseline))
-            loss +=  self.lambda_center * self.model.location_loss()
-            loss +=  self.lambda_l1 * self.model.l1_loss()
-            loss +=  self.lambda_l2 * self.model.l2_loss()
+            if self.lambda_center > 0:
+                loss +=  self.lambda_center * self.model.location_loss()
+            if self.lambda_l1 > 0:
+                loss +=  self.lambda_l1 * self.model.l1_loss()
+            if self.lambda_l2 > 0:
+                loss +=  self.lambda_l2 * self.model.l2_loss()
             
             self.optimizer.zero_grad()
             loss.backward(retain_graph=True)
@@ -129,21 +133,23 @@ class Modulator():
         if hasattr(self.model, 'mu_parameters'):
             return self.std.data.detach().numpy()
         else:
-            return [0.0,0.0]
+            return [0.0 , 0.0]
 
     def get_constellation(self):
-        symbols = get_all_unique_symbols(bits_per_symbol=self.bits_per_symbol)       
-        cartesian_constellation = self.modulate(symbols, dtype='cartesian')
+        all_unique_symbols = self.all_symbols
+        cartesian_constellation = self.modulate(all_unique_symbols, dtype='cartesian')
         return cartesian_constellation
 
     def get_param_dicts(self):
         return self.param_dicts
 
     def get_regularization_loss(self):
+        r_loss = torch.tensor(0.0).float()
         if not hasattr(self.model, "update"):
-            r_loss =  self.lambda_center * self.model.location_loss()
-            r_loss +=  self.lambda_l1 * self.model.l1_loss()
-            r_loss +=  self.lambda_l2 * self.model.l2_loss()
-        else:
-            r_loss = torch.tensor(0.0).float()
+            if self.lambda_center > 0:
+                r_loss +=  self.lambda_center * self.model.location_loss()
+            if self.lambda_l1 > 0:
+                r_loss +=  self.lambda_l1 * self.model.l1_loss()
+            if self.lambda_l2 > 0:
+                r_loss +=  self.lambda_l2 * self.model.l2_loss()
         return r_loss

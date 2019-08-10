@@ -128,16 +128,17 @@ def create_experiment(
         print("Deleted %s" % experiment_dir)
         return
 
-    param_jsons = []
+    param_jsons = [] #load in param_jsons that have been supplied
     for json_file in [mod1_param_json, demod1_param_json, mod2_param_json, demod2_param_json]:
         param_json = None
         if json_file is not None:
-            old_json_file = os.path.join(CWD, json_file)
-            if old_json_file is not None:
-                new_json_file = os.path.join(experiment_dir, json_file)
-                # copyfile(old_json_file, new_json_file)
-                with open(json_file, 'r') as f:
+            json_file = os.path.join(CWD, json_file)
+            with open(json_file, 'r') as f:
+                try:
                     param_json = json.load(f)
+                except RuntimeError:
+                    print("Error loading json format for: %s"%json_file)
+
         param_jsons += [param_json]
 
     mod1_param_json, demod1_param_json, mod2_param_json, demod2_param_json = param_jsons

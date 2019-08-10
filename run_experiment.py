@@ -11,8 +11,9 @@ import matplotlib.pyplot as plt
 from utils.util_data import integers_to_symbols, get_grid_2d
 from matplotlib.patches import Ellipse
 from copy import deepcopy
+import cProfile as profile
 
-
+pr = profile.Profile()
 
 ##TODO
 # 1. check that make_jobs in a batch  == make_jobs single (seeds are set properly)
@@ -128,6 +129,9 @@ def animated_plot(results=False,
 
 
 def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None):
+    # In section you want to profile
+    pr.enable()
+
     with open(jobs_file) as jfile:
         jobs = json.load(jfile)
     if job_id is not None:  # 0 = False you dummy
@@ -135,7 +139,6 @@ def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None):
     for params in jobs:
         SAVE_PLOTS = False
         params_copy = deepcopy(params)
-
         keys = params.keys()
         agent_keys = [key for key in keys if 'agent' in key]
         meta = params.pop('__meta__')
@@ -145,10 +148,9 @@ def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None):
         protocol = meta['protocol']
         experiment_name = meta['experiment_name']
         experiment_dir = os.path.abspath(os.path.join(ECHO_DIR, 'experiments', protocol, experiment_name))
-        protocol_dir = os.path.abspath(os.path.join(ECHO_DIR, 'protocols', protocol))
 
         results_dir = os.path.abspath(os.path.join(experiment_dir, 'results'))
-
+        # DEAL WITH SYMLINKING FOR RUNNING ON BRC
         if echo_symlink_to is not None:
             assert os.path.isdir(echo_symlink_to), "Invalid symlink path"
             if not os.path.islink(results_dir):
@@ -192,28 +194,14 @@ def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None):
             # Load Protocol and Train (Results callback will collect results)
             module_name = 'protocols.%s.train' % (protocol)
             train = getattr(import_module(module_name), 'train')
-            module_name = 'protocols.%s.evaluate' % (protocol)
-            evaluate = getattr(import_module(module_name), 'evaluate')
 
-            class Results():
-                def __init__(self, func):
-                    self.results = []
-                    self.func = func
-
-                def callback(self, **kwargs):
-                    self.results += [self.func(**kwargs)]
-
-                def make_callback(self):
-                    return self.callback
-
-            evaluation = Results(evaluate)
-            train(**params,
-                  verbose=verbose,
-                  evaluate_callback=evaluation.make_callback(),
-                  plot_callback=lambda **kwargs: None)
+            results = train(**params,
+                            verbose=verbose,
+                            plot_callback=lambda **kwargs: None)
 
             # AFTER DONE TRAINING SAVE RESULTS FILE
-            np.save(open(results_file, 'wb'), evaluation.results)
+            results.insert(0, {'protocol': protocol, 'trial_num': trial_num, 'experiment_name': experiment_name})
+            np.save(open(results_file, 'wb'), results)
 
         # PLOTTING
         if plot:
@@ -294,6 +282,9 @@ def main(argv):
             self.print_help()
             sys.exit(2)
 
+    # In outer section of code
+
+    pr.disable()
     parser = MyParser(
         formatter_class=argparse.RawDescriptionHelpFormatter,
         prog='python run_experiment.py',
@@ -311,6 +302,11 @@ def main(argv):
     parser.add_argument("--echo_symlink_to", required=False, default=None)
     args = parser.parse_args()
     run(jobs_file=args.jobs_file, job_id=args.job_id, plot=args.plot, echo_symlink_to=args.echo_symlink_to)
+    # code of interest
+    pr.disable()
+
+    # Back in outer section of code
+    pr.dump_stats('profile.pstat')
 
 
 if __name__ == '__main__':

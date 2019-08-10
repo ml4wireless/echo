@@ -24,7 +24,7 @@ def make_jobs(list_experiment_params):
                 trial_params['__meta__']['total_trials'] = experiment_params['num_trials']
                 trial_params['__meta__']['job_id'] = index
                 trial_params['__meta__']['SNR_db'] = train_snr
-                trial_params['SNR_db'] = train_snr
+                trial_params['train_SNR_db'] = train_snr
 
                 # SAMPLE (deep) ANY PARAMETERS THAT REQUIRE IT
                 deep_sample(trial_params, rs)

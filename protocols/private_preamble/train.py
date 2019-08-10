@@ -1,6 +1,7 @@
 ###PRIVATE PREAMBLE###
 from utils.util_data import integers_to_symbols
-from utils.util_data import add_complex_awgn as add_awgn
+from utils.util_data import add_cartesian_awgn as add_awgn
+from protocols.roundtrip_evaluate import roundtrip_evaluate as evaluate
 from typing import List
 import numpy as np
 
@@ -20,9 +21,10 @@ def train(*,
           SNR_db: float,
           signal_power=float,
           plot_callback,
-          evaluate_callback,
           **kwargs,
           ):
+    integers_to_symbols_map = integers_to_symbols(np.arange(0, 2 ** bits_per_symbol), bits_per_symbol)
+
     if kwargs['verbose']:
         print("private_preamble train.py")
     A = agents[0]
@@ -31,16 +33,18 @@ def train(*,
     prev_preamble = None
     prev_actions = None
     batches_sent_roundtrip = 0
+    results=[]
     for i in range(num_iterations + 1):
         # A.mod(preamble) |               | B.demod(signal forward)      |==> B has pre-half     |
         #                 |--> channel -->|                              |                       |--> switch (A,B = B,A)
         # A.mod(pre-half) |               | A.demod(signal backward)     |==> B update mod/demod |
 
-        preamble = get_random_preamble(batch_size, bits_per_symbol)  # new shared preamble
+        integers = np.random.randint(low=0, high=2 ** bits_per_symbol, size=[batch_size])
+        preamble = integers_to_symbols_map[integers]  # new private preamble
         # A
         if prev_preamble is not None:
             c_signal_backward = A.mod.modulate(preamble_halftrip, mode='explore')
-        c_signal_forward = A.mod.modulate(preamble, mode='explore', dtype='complex')
+        c_signal_forward = A.mod.modulate(preamble, mode='explore', dtype='cartesian')
 
         # Channel
         if prev_preamble is not None:
@@ -65,7 +69,7 @@ def train(*,
         if i % results_every == 0 or i == num_iterations:
             new_kwargs = {**kwargs,
                           'protocol': "shared_preamble",
-                          'agents': agents,
+                          # 'agents': agents,
                           'bits_per_symbol': bits_per_symbol,
                           'SNR_db': SNR_db,
                           'signal_power': signal_power,
@@ -73,5 +77,6 @@ def train(*,
                           'results_every': results_every, 'batch_size': batch_size,
                           'batches_sent_roundtrip': batches_sent_roundtrip, 'iteration': i,
                           }
-            evaluate_callback(**new_kwargs)
+            results += [evaluate(agent1=agents[0], agent2=agents[1], **new_kwargs)]
             # plot_callback(**new_kwargs)
+    return results

@@ -8,8 +8,8 @@
       "initial_std":              4.0e-1,
       "min_std":                  1.0e-1,
       "max_std":                  100,
-      "lambda_l1":                0.0,
       "restrict_energy":          1.0,
+      "lambda_l1":                0.0,
       "lambda_p":                 0.0,
       "lambda_center":            0.0
   }

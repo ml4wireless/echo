@@ -3,6 +3,7 @@ from utils.util_data import integers_to_symbols
 from utils.util_data import add_complex_awgn as add_awgn
 from typing import List
 import numpy as np
+from protocols.roundtrip_evaluate import roundtrip_evaluate as evaluate
 
 def get_random_preamble(n, bits_per_symbol):
     integers = np.random.randint(low=0,high=2**bits_per_symbol, size=[n])
@@ -18,7 +19,6 @@ def train(*,
         SNR_db:float,
         signal_power=float,
         plot_callback,
-        evaluate_callback,
         **kwargs   
     ):
     if kwargs['verbose']:
@@ -27,6 +27,7 @@ def train(*,
     A = agents[0]
 
     batches_sent = 0
+    results = []
     for i in range(num_iterations+1):
         
         preamble = get_random_preamble(batch_size, bits_per_symbol)
@@ -54,7 +55,7 @@ def train(*,
                 'results_every':results_every,'batch_size':batch_size,
                 'batches_sent':batches_sent, 'iteration':i,
             }
-            evaluate_callback(**new_kwargs)
+            results += [evaluate(agent1=agents[0], agent2=agents[0], **new_kwargs)]
             plot_callback(**new_kwargs)
 
-            
+    return results

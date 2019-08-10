@@ -2,7 +2,7 @@
 ## AND ALSO CREATES A JOB FILE WITHIN THAT EXPERIMENT experiment/[protocol]/[experiment] folder
 
 MODEL=poly
-EXPNAME=QPSK_poly_hyperparam_search
+EXPNAME=QPSK_${MODEL}_hyperparam_search
 python experiments/create_experiment_params.py \
     --protocol shared_preamble\
     --mod_order qpsk\
@@ -13,8 +13,8 @@ python experiments/create_experiment_params.py \
     --num_trials 1\
     --train_snr_db mid\
     --experiment_name ${EXPNAME}\
-    --mod1_param_json='./work/custom_poly_mod_params.json'\
-    --demod1_param_json='./work/custom_poly_demod_params.json'\
+    --mod1_param_json="./work/custom_${MODEL}_mod_params.json"\
+    --demod1_param_json="./work/custom_${MODEL}_demod_params.json"\
 
 #python experiments/make_jobs.py --experiment_folder=./experiments/shared_preamble/QPSK_${MODEL}_vs_clone/
 #python run_experiment.py --jobs_file=./experiments/shared_preamble/QPSK_${MODEL}_vs_clone/jobs.json --job_id=0
@@ -24,6 +24,8 @@ echo ./experiments/shared_preamble/${EXPNAME}/jobs.json
 
 if [ "$*" == "" ]; then
     #if no arguments given ... just an optional thing so that you can test
+    #using runecho to call this will supply a dummy argument
+    #if you run this script directly, you can put no argument so as to run the experiment
     echo "Running...."
     python run_experiment.py --jobs_file=./experiments/shared_preamble/${EXPNAME}/jobs.json --job_id=0
 fi

@@ -1,0 +1,87 @@
+[
+    {
+        "__meta__": {
+            "experiment_name": "QPSK_poly_hyperparam_search",
+            "mod_order": "QPSK",
+            "numpy_seed": 25373,
+            "protocol": "shared_preamble",
+            "random_seed": 72975,
+            "torch_seed": 35212,
+            "verbose": false,
+            "trial_num": 1,
+            "total_trials": 1,
+            "job_id": 0,
+            "SNR_db": 8.4
+        },
+        "agent1": {
+            "bits_per_symbol": 2,
+            "demod_model": "poly",
+            "demod_params": {
+                "cross_entropy_weight": 1,
+                "degree_polynomial": 3,
+                "lambda_l1": 0,
+                "loss_type": "l2",
+                "stepsize_cross_entropy": 0.010903482214419273,
+                "bits_per_symbol": 2,
+                "max_amplitude": 1,
+                "optimizer": "adam"
+            },
+            "max_amplitude": 1,
+            "mod_model": "poly",
+            "mod_params": {
+                "initial_std": 0.4,
+                "lambda_center": 0,
+                "lambda_l1": 0,
+                "lambda_p": 0,
+                "max_std": 100,
+                "min_std": 0.1,
+                "restrict_energy": 1,
+                "stepsize_mu": 0.010393080506650242,
+                "stepsize_sigma": 5.0623969961297757e-05,
+                "bits_per_symbol": 2,
+                "max_amplitude": 1,
+                "optimizer": "adam"
+            },
+            "optimizer": "adam"
+        },
+        "agent2": {
+            "bits_per_symbol": 2,
+            "demod_model": "poly",
+            "max_amplitude": 1,
+            "mod_model": "poly",
+            "optimizer": "adam",
+            "mod_params": {
+                "initial_std": 0.4,
+                "lambda_center": 0,
+                "lambda_l1": 0,
+                "lambda_p": 0,
+                "max_std": 100,
+                "min_std": 0.1,
+                "restrict_energy": 1,
+                "stepsize_mu": 0.010393080506650242,
+                "stepsize_sigma": 5.0623969961297757e-05,
+                "bits_per_symbol": 2,
+                "max_amplitude": 1,
+                "optimizer": "adam"
+            },
+            "demod_params": {
+                "cross_entropy_weight": 1,
+                "degree_polynomial": 3,
+                "lambda_l1": 0,
+                "loss_type": "l2",
+                "stepsize_cross_entropy": 0.010903482214419273,
+                "bits_per_symbol": 2,
+                "max_amplitude": 1,
+                "optimizer": "adam"
+            }
+        },
+        "batch_size": 32,
+        "bits_per_symbol": 2,
+        "num_iterations": 5000,
+        "results_every": 250,
+        "signal_power": 1,
+        "test_SNR_db_type": "ber_roundtrip",
+        "test_batch_size": 100000,
+        "train_SNR_db": 8.4
+    }
+]
