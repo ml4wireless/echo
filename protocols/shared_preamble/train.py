@@ -1,11 +1,8 @@
 ###SHARED PREAMBLE###
-from utils.util_data import integers_to_symbols
-from utils.util_data import add_cartesian_awgn as add_awgn
+from utils.util_data import integers_to_symbols, add_cartesian_awgn as add_awgn
+from utils.util_lookup_table import BER_lookup_table
 from protocols.roundtrip_evaluate import roundtrip_evaluate as evaluate
-from typing import List
 import numpy as np
-from utils.util_lookup_table import load_lookup_table, BER_lookup_table
-
 
 ###SHARED PREAMBLE###
 def train(*,
@@ -16,25 +13,24 @@ def train(*,
           results_every: int,
           train_SNR_db: float,
           signal_power: float,
-          early_stopping_db_off: float = 1.0,
-          plot_callback,
+          early_stopping: bool = False,
+          early_stopping_db_off: float = 1,
+          verbose: bool = False,
           **kwargs
           ):
-
     br = BER_lookup_table()
+    early_stop = False
     integers_to_symbols_map = integers_to_symbols(np.arange(0, 2 ** bits_per_symbol), bits_per_symbol)
-
-    if kwargs['verbose']:
+    if verbose:
         print("shared_preamble train.py")
 
     Amod = agents[0].mod
     Ademod = agents[0].demod
     Bmod = agents[1].mod
     Bdemod = agents[1].demod
-
     prev_preamble = None
     prev_actions = None
-    batches_sent_roundtrip = 0
+    batches_sent = 0
     results = []
     for i in range(num_iterations + 1):
         # A.mod(preamble) |               | B.demod(signal forward)      |==> B update demod     |
@@ -56,7 +52,7 @@ def train(*,
             preamble_roundtrip = Bdemod.demodulate(c_signal_backward_noisy)
             # Update mod after a roundtrip pass
             Bmod.update(prev_preamble, prev_actions, preamble_roundtrip)
-            batches_sent_roundtrip += 1
+            batches_sent += 2
 
         # guess of new preamble
         preamble_halftrip = Bdemod.demodulate(c_signal_forward_noisy)
@@ -72,39 +68,41 @@ def train(*,
 
         ############### STATS ##########################
         if i % results_every == 0 or i == num_iterations:
-            new_kwargs = {**kwargs,
-                          'protocol': "shared_preamble",
-                          # 'agents': agents,
-                          'bits_per_symbol': bits_per_symbol,
-                          'train_SNR_db': train_SNR_db,
-                          'signal_power': signal_power,
-                          'num_iterations': num_iterations,
-                          'results_every': results_every, 'iteration': i,
-                          }
-            result = evaluate(agent1=agents[0], agent2=agents[1], **new_kwargs)
-            result['train_SNR_db'] = train_SNR_db
-            result['iteration'] = i
-            result['roundtrip_batches'] = batches_sent_roundtrip
-            result['batch_size'] = batch_size
+            if verbose:
+                print("ITER %i: Train SNR_db:% 5.1f" % (i, train_SNR_db))
 
-            test_snr_dbs = result.get('test_SNR_dbs', None)
-            if test_snr_dbs is not None:
-                test_bers = result['test_bers']
-                db_off_for_each_test_snr = list(map(lambda test:
-                                            test[0] - br.get_optimal_SNR_for_BER_roundtrip(test[1], bits_per_symbol),
-                                            zip(test_snr_dbs, test_bers)))
-                result['db_off'] = db_off_for_each_test_snr
+            result = evaluate(agent1=agents[0],
+                              agent2=agents[1],
+                              bits_per_symbol=bits_per_symbol,
+                              signal_power=signal_power,
+                              verbose=verbose or i == num_iterations,
+                              total_iterations=num_iterations // results_every,
+                              completed_iterations=i//results_every,
+                              **kwargs)
+
+            test_SNR_dbs = result['test_SNR_dbs']
+            test_bers = result['test_bers']
+            db_off_for_test_snr = [testSNR - br.get_optimal_SNR_for_BER_roundtrip(testBER, bits_per_symbol)
+                                   for testSNR, testBER in zip(test_SNR_dbs, test_bers)]
+            ###ADD TO RESULT
+            result['batches_sent'] = batches_sent
+            result['db_off'] = db_off_for_test_snr
             results += [result]
-            try:
-                if all(np.array(db_off_for_each_test_snr) <= early_stopping_db_off):
-                    print("STOPPED AT ITERATION: %i"%i)
-                    print(['training SNR', '0 BER', '1e-5 BER', '1e-4 BER', '1e-3 BER', '1e-2 BER', '1e-1 BER'])
-                    print("TEST SNR dBs : ", test_snr_dbs)
-                    print("dB off Optimal : ", db_off_for_each_test_snr)
-                    print("Early Stopping dBs off: %d"%early_stopping_db_off)
-                    return results
-            except NameError:
-                continue
-
-            # plot_callback(new_kwargs)
-    return results
+            if early_stopping and all(np.array(db_off_for_test_snr) <= early_stopping_db_off):
+                print("STOPPED AT ITERATION: %i" % i)
+                print(['0 BER', '1e-5 BER', '1e-4 BER', '1e-3 BER', '1e-2 BER', '1e-1 BER'])
+                print("TEST SNR dBs : ", test_SNR_dbs)
+                print("dB off Optimal : ", db_off_for_test_snr)
+                print("Early Stopping dBs off: %d" % early_stopping_db_off)
+                early_stop = True
+                break
+    info = {
+        'bits_per_symbol': bits_per_symbol,
+        'train_SNR_db': train_SNR_db,
+        'num_results': len(results),
+        'early_stop': early_stop,
+        'early_stop_threshold_db_off': early_stopping_db_off,
+        'batch_size': batch_size,
+        'num_agents': 2,
+    }
+    return info, results

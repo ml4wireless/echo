@@ -28,14 +28,15 @@ gen_jobs() {
     g
     echo -e "Pick an option:"
     n
-    options=("Specify a script to generate jobs.json file (i.e: echo/single, echo/all) OR"
+    options=("Specify a script to generate jobs.json file (i.e: scripts/single, scripts/all) OR"
     "Specify an experiment folder (i.e. echo/experiments/[protocol]/[experiment name]) OR"
     "Help":)
 
     select opt in "${options[@]}"; do
         case "$REPLY" in
-            1 ) g; echo  -n "Path of script: ";n; read -e script;
-                jobs=$(bash $script dummyarg || exit 1 | tail -1); break;;
+            1 ) g; echo -n "Found these scripts: "; n; echo $(ls scripts | sed 's/^/scripts\//;s/$/\, /') ;g;
+                   echo  -n "Path of script: ";n; read -e script;
+                jobs=$(bash $script make | tail -1); break;;
             2 ) g; echo -n "Path of experiment folder: ";n; read -e ef;
                 echo "RUNNING: python ${ECHO_DIR}/experiments/make_jobs.py --experiment_folder=${ef}..."
                 python "${ECHO_DIR}/experiments/make_jobs.py --experiment_folder=${ef}" ; jobs=$ef; break;;

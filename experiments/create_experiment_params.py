@@ -75,6 +75,8 @@ def create_experiment(
         demod1_param_json=None,
         mod2_param_json=None,
         demod2_param_json=None,
+        early_stopping=False,
+
         delete=False,
         verbose=False,
 ):
@@ -153,7 +155,9 @@ def create_experiment(
             'numpy_seed': "placeholder",
             'torch_seed': "placeholder",
             'verbose': bool(verbose),
+
         },
+        'early_stopping': early_stopping,
         'optimizer' if protocol == 'gradient_passing' else None: "$opt$",
         'test_batch_size': 100000,
         'test_SNR_db_type': 'ber_roundtrip',
@@ -280,9 +284,10 @@ def main(argv):
     parser.add_argument("--mod2_param_json", help='optional, can construct from --mod2 and --mod_order', required=False)
     parser.add_argument("--demod2_param_json", help='optional, can construct from --demod2 and --mod_order',
                         required=False)
-    parser.add_argument('--delete', dest='delete', action='store_true', help="deletes experiment instead of creating")
+    parser.add_argument('--delete', action='store_true', help="deletes experiment instead of creating")
     parser.add_argument('--verbose', action='store_true', help="verbose")
-    parser.set_defaults(delete=False)
+    parser.add_argument('--early_stopping', action='store_true',
+                        help="agents will stop training early if they are close to optimal")
 
     args = parser.parse_args()
 
@@ -323,6 +328,8 @@ def main(argv):
                       experiment_name=args.experiment_name,
                       batch_size=args.batch_size,
                       num_iterations=args.num_iterations,
+                      early_stopping=args.early_stopping,
+
                       mod1_param_key=args.mod1_param_key,
                       demod1_param_key=args.demod1_param_key,
                       mod2_param_key=args.mod2_param_key,

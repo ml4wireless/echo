@@ -2,6 +2,7 @@ from utils.util_data import cartesian_2d_to_complex, integers_to_symbols
 import numpy as np 
 import torch
 from torch import nn
+from torch.distributions.normal import Normal
 from typing import Union, Optional
 
 class Modulator():
@@ -12,9 +13,9 @@ class Modulator():
                 lambda_center:float = 0.0,   #used in update method
                 lambda_l1:float = 0.0,       #used in update method
                 lambda_l2:float = 0.0,       #used in update method
-                std_min:float = 1e-3,
-                std_max:float = 1e2,
-                initial_std:float = 5e-1,
+                min_std:float = 1e-5,
+                max_std:float = 1e2,
+                initial_std:float = 0.0,
                 optimizer:Optional[str] = 'adam',
                 stepsize_mu:float=    0.0,
                 stepsize_sigma:float= 0.0,
@@ -23,31 +24,29 @@ class Modulator():
         self.model = model(bits_per_symbol = bits_per_symbol, **kwargs)
         self.name = self.model.name
         self.bits_per_symbol = bits_per_symbol
-        self.std_min=torch.tensor(std_min).float()
-        self.std_max=torch.tensor(std_max).float()
+        self.log_std_min=np.log(min_std) * torch.ones(2)
+        self.log_std_max=np.log(max_std) * torch.ones(2)
         self.lambda_l1=torch.tensor(lambda_l1).float()
         self.lambda_l2=torch.tensor(lambda_l2).float()
         self.lambda_center=torch.tensor(lambda_center).float()
         self.lambda_baseline=torch.tensor(lambda_baseline).float()
-        self.all_symbols = integers_to_symbols(np.arange(0, 2**bits_per_symbol), bits_per_symbol)
-        self.std = nn.Parameter(
-            torch.from_numpy(np.array([initial_std, initial_std]).astype(np.float32)),
-            requires_grad=True
-        )
+        self.all_symbols = integers_to_symbols(np.arange(
+            0, 2**bits_per_symbol), bits_per_symbol)
+        self.log_std = nn.Parameter(np.log(initial_std) * torch.ones(2))
+        # self.std.register_hook(lambda grad: print(grad))
 
         optimizers = {
             'adam': torch.optim.Adam,
             'sgd': torch.optim.SGD,
         }
 
-        
         if optimizer and hasattr(self.model, "mu_parameters") and not hasattr(self.model, "update"):
             assert optimizer.lower() in optimizers.keys(), "modulator optimizer=%s not supported"%optimizer
             optimizer = optimizers[optimizer.lower()]
             print("Modulator %s initialized with %s optimizer."%(self.model.name, optimizer.__name__))
             self.param_dicts = [\
                     {'params': self.model.mu_parameters(), 'lr':stepsize_mu},
-                    {'params': self.std, 'lr':stepsize_sigma}]
+                    {'params': self.log_std, 'lr':stepsize_sigma}]
             self.optimizer = optimizer(self.param_dicts)
         else:
             print("Modulator %s initialized WITHOUT an optimizer"%(self.model.name))
@@ -55,7 +54,7 @@ class Modulator():
             if hasattr(self.model, "mu_parameters"):
                 self.param_dicts = [\
                     {'params': self.model.mu_parameters(), 'lr':stepsize_mu},
-                    {'params': self.std, 'lr':stepsize_sigma}]
+                    {'params': self.log_std, 'lr':stepsize_sigma}]
             else:
                 self.param_dicts = []
 
@@ -66,11 +65,9 @@ class Modulator():
         symbols = torch.from_numpy(symbols).float()
         if mode == 'explore' and not self.model.name.lower() == 'classic':
             means = self.model(symbols)
-            std_bounded = nn.functional.relu(self.std-self.std_min)+self.std_min
-            std_bounded = self.std_max-nn.functional.relu(-(std_bounded-self.std_max))
-            self.re_normal = torch.distributions.normal.Normal(means[:,0], std_bounded[0])
-            self.im_normal = torch.distributions.normal.Normal(means[:,1], std_bounded[1])
-            cartesian_points = torch.stack((self.re_normal.sample(), self.im_normal.sample()),1)
+            # log_std = torch.min(torch.max(self.log_std_min, self.log_std), self.log_std_max)
+            self.policy = Normal(means, self.log_std.exp())
+            cartesian_points = self.policy.sample()
         elif self.model.name.lower() == 'classic' or mode == 'exploit':
             cartesian_points = self.model(symbols)
         else:
@@ -87,11 +84,8 @@ class Modulator():
     def modulate_tensor(self, symbols:torch.Tensor, mode:str='exploit') -> torch.Tensor:
         if mode == 'explore' and not self.model.name.lower() == 'classic':
             means = self.model(symbols)
-            std_bounded = nn.functional.relu(self.std-self.std_min)+self.std_min
-            std_bounded = self.std_max-nn.functional.relu(-(self.std_bounded-self.std_max))
-            self.re_normal = torch.distributions.normal.Normal(means[:,0], self.std_bounded[0])
-            self.im_normal = torch.distributions.normal.Normal(means[:,1], self.std_bounded[1])
-            cartesian_points = torch.stack((self.re_normal.sample(), self.im_normal.sample()),1)
+            self.policy = Normal(means, self.log_std.exp())
+            cartesian_points = self.policy.sample()
         elif self.model.name.lower() == 'classic' or mode == 'exploit':
             cartesian_points = self.model(symbols)
         else:
@@ -99,6 +93,7 @@ class Modulator():
         return cartesian_points
 
     #input bit symbols, cartesian/complex actions, bit symbols
+    #Vanilla PG, fine for simulation
     def update(self, symbols:np.ndarray, actions:np.ndarray, received_symbols:np.ndarray, **kwargs):
         if hasattr(self.model, "update"):
             kwargs['symbols'] = symbols
@@ -113,8 +108,8 @@ class Modulator():
             elif len(actions.shape)==1:
                 cartesian_actions = torch.from_numpy(np.stack((actions.real.astype(np.float32), actions.imag.astype(np.float32)), axis=-1))
             reward = torch.from_numpy(-np.sum(symbols ^ received_symbols, axis=1)).float() #correct bits = 0, incorrect bits = -1 #TESTED
-            #reward = np.sum(1 - 2 * (symbols ^ received_symbols), axis=1) #correct bits = 1, incorrect bits = -1 #NOT TESTED
-            log_probs =  self.re_normal.log_prob(cartesian_actions[:,0]) + self.im_normal.log_prob(cartesian_actions[:,1])
+            # reward =torch.from_numpy(np.sum(1 - 2 * (symbols ^ received_symbols), axis=1)).float() #correct bits = 1, incorrect bits = -1 #NOT TESTED
+            log_probs = self.policy.log_prob(cartesian_actions).sum(dim=1)
             baseline = torch.mean(reward)
             loss = -torch.mean(log_probs * (reward - self.lambda_baseline * baseline))
             if self.lambda_center > 0:
@@ -127,11 +122,61 @@ class Modulator():
             self.optimizer.zero_grad()
             loss.backward(retain_graph=True)
             self.optimizer.step()
+            # self.log_std = nn.functional.relu(self.log_std-self.log_std_min)+self.log_std_min
+            # self.log_std = self.log_std_max-nn.functional.relu(-(self.log_std-self.log_std_max))
             return -np.average(reward)
+
+    #input bit symbols, cartesian/complex actions, bit symbols
+    #PPO instead of Vanilla Policy Gradient, Why? for efficiency when we are over the air... we can train more on the
+    #single preamble we get. So sending a large preamble and training mini-batches over it.
+    #lots of overhead to sending over air!
+    def updatePPO(self, symbols: np.ndarray,
+                        actions: np.ndarray,
+                        received_symbols: np.ndarray,
+                        clip_ratio = 0.2,
+                        epochs = 5, **kwargs):
+        if hasattr(self.model, "update"):
+            kwargs['symbols'] = symbols
+            kwargs['actions'] = actions
+            kwargs['received_symbols'] = received_symbols
+            self.model.update(**kwargs)
+            return
+        else:
+            assert self.optimizer, "Modulator is not initialized with an optimizer"
+            if len(actions.shape) == 2:
+                cartesian_actions = torch.from_numpy(actions).float()
+            elif len(actions.shape) == 1:
+                cartesian_actions = torch.from_numpy(
+                    np.stack((actions.real.astype(np.float32), actions.imag.astype(np.float32)), axis=-1))
+        prev_log_prob = self.policy.log_prob(cartesian_actions).sum(dim=1).detach()
+        reward = torch.from_numpy(-np.sum(symbols ^ received_symbols,
+                                          axis=1)).float()  # correct bits = 0, incorrect bits = -1 #TESTED
+        baseline = torch.mean(reward)
+        adv = reward - self.lambda_baseline * baseline
+        for i in range(epochs):
+            log_prob = self.policy.log_prob(cartesian_actions).sum(dim=1)
+            ratio = (log_prob - prev_log_prob).exp()
+            min_adv = torch.where(adv > 0, (1 + clip_ratio) * adv,
+                                  (1 - clip_ratio) * adv)
+            loss = -(torch.min(ratio * adv, min_adv)).mean()
+            if self.lambda_center > 0:
+                loss += self.lambda_center * self.model.location_loss()
+            if self.lambda_l1 > 0:
+                loss += self.lambda_l1 * self.model.l1_loss()
+            if self.lambda_l2 > 0:
+                loss += self.lambda_l2 * self.model.l2_loss()
+
+            self.optimizer.zero_grad()
+            loss.backward(retain_graph=True)
+            self.optimizer.step()
+
+        # self.log_std = nn.functional.relu(self.log_std-self.log_std_min)+self.log_std_min
+        # self.log_std = self.log_std_max-nn.functional.relu(-(self.log_std-self.log_std_max))
+        return -np.average(reward)
 
     def get_std(self):
         if hasattr(self.model, 'mu_parameters'):
-            return self.std.data.detach().numpy()
+            return self.log_std.exp().data.detach().numpy()
         else:
             return [0.0 , 0.0]
 

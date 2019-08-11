@@ -1,12 +1,13 @@
 #
 .idea/
-_tmp_/
+_tmp_/*
 brc/out/
 experiments/*/*/results
 experiments/*/*/*.jsonnet
 experiments/jobs.json
 experiments/*/jobs.json
 experiments/*/*/jobs.json
+*.pstat
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -45,7 +46,7 @@ MANIFEST
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Unit test / coverage reports
+# Unit singlecustom / coverage reports
 htmlcov/
 .tox/
 .coverage

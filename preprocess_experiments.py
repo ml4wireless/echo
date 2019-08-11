@@ -12,6 +12,7 @@ if len(sys.argv) == 2:
 ###############SO THAT WE DON'T HAVE CONCURRENCY ERRORS###############
 suff = ""
 i = 0
+os.makedirs("%s/_tmp_/" %ECHO_DIR, exist_ok=True)
 preprocessout = "%s/_tmp_/preprocess%s.out " % (ECHO_DIR, suff)
 while os.path.exists(preprocessout):
     i += 1

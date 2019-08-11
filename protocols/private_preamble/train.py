@@ -1,8 +1,7 @@
 ###PRIVATE PREAMBLE###
-from utils.util_data import integers_to_symbols
-from utils.util_data import add_cartesian_awgn as add_awgn
+from utils.util_data import integers_to_symbols, add_cartesian_awgn as add_awgn
+from utils.util_lookup_table import BER_lookup_table
 from protocols.roundtrip_evaluate import roundtrip_evaluate as evaluate
-from typing import List
 import numpy as np
 
 
@@ -18,22 +17,27 @@ def train(*,
           batch_size: int,
           num_iterations: int,
           results_every: int,
-          SNR_db: float,
-          signal_power=float,
-          plot_callback,
+          train_SNR_db: float,
+          signal_power: float,
+          early_stopping: bool = False,
+          early_stopping_db_off: float = 1,
+          verbose: bool = False,
           **kwargs,
           ):
+    br = BER_lookup_table()
+    early_stop = False
     integers_to_symbols_map = integers_to_symbols(np.arange(0, 2 ** bits_per_symbol), bits_per_symbol)
-
-    if kwargs['verbose']:
+    if verbose:
         print("private_preamble train.py")
-    A = agents[0]
-    B = agents[1]
 
+    Amod = agents[0].mod
+    Ademod = agents[0].demod
+    Bmod = agents[1].mod
+    Bdemod = agents[1].demod
     prev_preamble = None
     prev_actions = None
-    batches_sent_roundtrip = 0
-    results=[]
+    batches_sent = 0
+    results = []
     for i in range(num_iterations + 1):
         # A.mod(preamble) |               | B.demod(signal forward)      |==> B has pre-half     |
         #                 |--> channel -->|                              |                       |--> switch (A,B = B,A)
@@ -43,40 +47,66 @@ def train(*,
         preamble = integers_to_symbols_map[integers]  # new private preamble
         # A
         if prev_preamble is not None:
-            c_signal_backward = A.mod.modulate(preamble_halftrip, mode='explore')
-        c_signal_forward = A.mod.modulate(preamble, mode='explore', dtype='cartesian')
+            c_signal_backward = Amod.modulate(preamble_halftrip, mode='explore', dtype='cartesian')
+        c_signal_forward = Amod.modulate(preamble, mode='explore', dtype='cartesian')
 
         # Channel
         if prev_preamble is not None:
-            c_signal_backward_noisy = add_awgn(c_signal_backward, SNR_db=SNR_db, signal_power=signal_power)
-        c_signal_forward_noisy = add_awgn(c_signal_forward, SNR_db=SNR_db, signal_power=signal_power)
+            c_signal_backward_noisy = add_awgn(c_signal_backward, SNR_db=train_SNR_db, signal_power=signal_power)
+        c_signal_forward_noisy = add_awgn(c_signal_forward, SNR_db=train_SNR_db, signal_power=signal_power)
 
         if prev_preamble is not None:
             # Update mod and demod after a roundtrip pass
-            B.demod.update(c_signal_backward_noisy, preamble)
-            preamble_roundtrip = B.demod.demodulate(c_signal_backward_noisy)
-            B.mod.update(prev_preamble, prev_actions, preamble_roundtrip)
-            batches_sent_roundtrip += 1
+            Bdemod.update(c_signal_backward_noisy, preamble)
+            preamble_roundtrip = Bdemod.demodulate(c_signal_backward_noisy)
+            Bmod.update(prev_preamble, prev_actions, preamble_roundtrip)
+            batches_sent += 2
 
-            # guess of new preamble
-        preamble_halftrip = B.demod.demodulate(c_signal_forward_noisy)
+        # guess of new preamble
+        preamble_halftrip = Bdemod.demodulate(c_signal_forward_noisy)
 
         prev_preamble, prev_actions = preamble, c_signal_forward
+
         # SWITCH
-        A, B = B, A
+        Amod, Ademod, Bmod, Bdemod = Bmod, Bdemod, Amod, Ademod
 
         ############### STATS ##########################
         if i % results_every == 0 or i == num_iterations:
-            new_kwargs = {**kwargs,
-                          'protocol': "shared_preamble",
-                          # 'agents': agents,
-                          'bits_per_symbol': bits_per_symbol,
-                          'SNR_db': SNR_db,
-                          'signal_power': signal_power,
-                          'num_iterations': num_iterations,
-                          'results_every': results_every, 'batch_size': batch_size,
-                          'batches_sent_roundtrip': batches_sent_roundtrip, 'iteration': i,
-                          }
-            results += [evaluate(agent1=agents[0], agent2=agents[1], **new_kwargs)]
-            # plot_callback(**new_kwargs)
-    return results
+            if verbose:
+                print("ITER %i: Train SNR_db:% 5.1f" % (i, train_SNR_db))
+
+            result = evaluate(agent1=agents[0],
+                              agent2=agents[1],
+                              bits_per_symbol=bits_per_symbol,
+                              signal_power=signal_power,
+                              verbose=verbose or i == num_iterations,
+                              total_iterations=num_iterations // results_every,
+                              completed_iterations=i // results_every,
+                              **kwargs)
+
+            test_SNR_dbs = result['test_SNR_dbs']
+            test_bers = result['test_bers']
+            db_off_for_test_snr = [testSNR - br.get_optimal_SNR_for_BER_roundtrip(testBER, bits_per_symbol)
+                                   for testSNR, testBER in zip(test_SNR_dbs, test_bers)]
+            ###ADD TO RESULT
+            result['batches_sent'] = batches_sent
+            result['db_off'] = db_off_for_test_snr
+            results += [result]
+            if early_stopping and all(np.array(db_off_for_test_snr) <= early_stopping_db_off):
+                print("STOPPED AT ITERATION: %i" % i)
+                print(['0 BER', '1e-5 BER', '1e-4 BER', '1e-3 BER', '1e-2 BER', '1e-1 BER'])
+                print("TEST SNR dBs : ", test_SNR_dbs)
+                print("dB off Optimal : ", db_off_for_test_snr)
+                print("Early Stopping dBs off: %d" % early_stopping_db_off)
+                early_stop = True
+                break
+    info = {
+        'bits_per_symbol': bits_per_symbol,
+        'train_SNR_db': train_SNR_db,
+        'num_results': len(results),
+        'early_stop': early_stop,
+        'early_stop_threshold_db_off': early_stopping_db_off,
+        'batch_size': batch_size,
+        'num_agents': 2,
+    }
+    return info, results

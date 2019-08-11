@@ -24,7 +24,7 @@ def get_awgn(N0, n):
     return noise
 
 
-def get_N0(SNR_db, signal_power):
+def get_N0(SNR_db: float, signal_power: float) -> float:
     '''
     SNR_db: The desired signal to noise ratio in db scale
     signal_power: The signal power in linear scale
