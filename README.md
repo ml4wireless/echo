@@ -126,7 +126,7 @@ export JOB_DIR=gs://$BUCKET_NAME/$MODEL_DIR
 export REGION=us-west1
 export IMAGE_URI=gcr.io/$PROJECT_ID/$IMAGE_REPO_NAME:$IMAGE_TAG
 ```
-# Prepare the container
+## Prepare the container
 Build the Dockerfile
 Test it locally
 Push it onto Google Cloud
@@ -135,7 +135,7 @@ docker build -f Dockerfile -t $IMAGE_URI ./
 docker run $IMAGE_URI --total-batches 10 --log-interval 2 
 docker push $IMAGE_URI
 ```
-# Submit job
+## Submit job
 Run on Google Cloud
 ```
 gcloud beta ai-platform jobs submit training $JOB_NAME \
@@ -145,5 +145,5 @@ gcloud beta ai-platform jobs submit training $JOB_NAME \
   --config=config.yaml \
   --scale-tier BASIC
   ```
- # Customize
+ ## Customize
  `config.yaml` and `trainer/task.py` will be of interest to you
