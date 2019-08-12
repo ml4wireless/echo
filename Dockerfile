@@ -1,22 +1,20 @@
-#The following makes a 1.89GB image without jupyter notebook 2.35GB with:
 FROM continuumio/miniconda3
+
+WORKDIR /root
 ARG CONDA_DIR=/opt/conda
 ENV PATH $CONDA_DIR/bin:$PATH
-RUN conda install --yes --quiet -c conda-forge jsonnet
-RUN conda install --yes --quiet nomkl
 RUN conda install --yes --quiet -c conda-forge pytorch-cpu
-RUN conda install --yes --quiet --freeze-installed matplotlib
-RUN conda install --yes --quiet --freeze-installed jupyter \
-    && mkdir /opt/notebooks
-RUN conda clean -afy \
-    && find /opt/conda/ -follow -type f -name '*.a' -delete \
-    && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
-    && find /opt/conda/ -follow -type f -name '*.js.map' -delete
+RUN pip install google-cloud-storage cloudml-hypertune
 
 
-#The following creates a 2.45 GB image:
-# FROM ufoym/deepo:pytorch-py36-cpu
-# USER root
-# RUN pip install --no-cache-dir jsonnet
+# Path configuration
+ENV PATH $PATH:/root/tools/google-cloud-sdk/bin
+# Make sure gsutil will use the default service account
+RUN echo '[GoogleCompute]\nservice_account = default' > /etc/boto.cfg
 
-COPY . /echo
+
+COPY . /root/echo
+WORKDIR /root/echo
+
+# Sets up the entry point to invoke the trainer.
+ENTRYPOINT ["python", "trainer/task.py"]

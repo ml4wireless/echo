@@ -8,17 +8,17 @@ from typing import Union, Optional
 class Modulator():
     def __init__(self,*, 
                 model,
-                bits_per_symbol:Union[float,int] ,
+                bits_per_symbol:Union[float,int],
+                 optimizer: Optional[str] = 'adam',
+                stepsize_mu: float = 0.0,
+                stepsize_sigma: float = 0.0,
+                initial_std: float = 0.0,
+                min_std: float = 1e-5,
+                max_std: float = 1e2,
                 lambda_baseline:float = 0.0, #used in update method
                 lambda_center:float = 0.0,   #used in update method
                 lambda_l1:float = 0.0,       #used in update method
                 lambda_l2:float = 0.0,       #used in update method
-                min_std:float = 1e-5,
-                max_std:float = 1e2,
-                initial_std:float = 0.0,
-                optimizer:Optional[str] = 'adam',
-                stepsize_mu:float=    0.0,
-                stepsize_sigma:float= 0.0,
                 **kwargs):
 
         self.model = model(bits_per_symbol = bits_per_symbol, **kwargs)
@@ -65,8 +65,8 @@ class Modulator():
         symbols = torch.from_numpy(symbols).float()
         if mode == 'explore' and not self.model.name.lower() == 'classic':
             means = self.model(symbols)
-            # log_std = torch.min(torch.max(self.log_std_min, self.log_std), self.log_std_max)
-            self.policy = Normal(means, self.log_std.exp())
+            log_std = torch.min(torch.max(self.log_std_min, self.log_std), self.log_std_max)
+            self.policy = Normal(means, log_std.exp())
             cartesian_points = self.policy.sample()
         elif self.model.name.lower() == 'classic' or mode == 'exploit':
             cartesian_points = self.model(symbols)
@@ -84,7 +84,8 @@ class Modulator():
     def modulate_tensor(self, symbols:torch.Tensor, mode:str='exploit') -> torch.Tensor:
         if mode == 'explore' and not self.model.name.lower() == 'classic':
             means = self.model(symbols)
-            self.policy = Normal(means, self.log_std.exp())
+            log_std = torch.min(torch.max(self.log_std_min, self.log_std), self.log_std_max)
+            self.policy = Normal(means, log_std.exp())
             cartesian_points = self.policy.sample()
         elif self.model.name.lower() == 'classic' or mode == 'exploit':
             cartesian_points = self.model(symbols)

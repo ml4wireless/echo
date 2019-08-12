@@ -15,7 +15,8 @@ from importlib import import_module
 class Agent():
     def __init__(self,  *, agent_dict, name):
         self.name = name
-        
+        self.to_echo = None
+        self.actions = None
         for function in ['mod', 'demod']:
             model = agent_dict['%s_model'%function]
             params = agent_dict.get('%s_params'%function, False)
@@ -30,6 +31,5 @@ class Agent():
                 self.demod = Demodulator(model=model_class, **params) 
             else: # function == 'mod'
                 self.mod = Modulator(model=model_class, **params)
-
  
 

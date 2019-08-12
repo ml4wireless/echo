@@ -10,6 +10,6 @@
       "max_std":                  100,
       "restrict_energy":          1.0,
       "lambda_l1":                0.0,
-      "lambda_p":                 0.0,
+      "lambda_l2":                0.0,
       "lambda_center":            0.0
   }

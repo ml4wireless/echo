@@ -1,0 +1,53 @@
+trainingInput:
+  hyperparameters:
+    goal: MINIMIZE
+    hyperparameterMetricTag: "roundtrip_ber"
+    maxTrials: 10
+    maxParallelTrials: 2
+    enableTrialEarlyStopping: True
+    params:
+    - parameterName: stepsize-mu
+      type: DOUBLE
+      minValue: 0.00001
+      maxValue: 0.5
+      scaleType: UNIT_LOG_SCALE
+    - parameterName: stepsize-sigma
+      type: DOUBLE
+      minValue: 0.00001
+      maxValue: 0.5
+      scaleType: UNIT_LOG_SCALE
+    - parameterName: stepsize-cross-entropy
+      type: DOUBLE
+      minValue: 0.00001
+      maxValue: 0.5
+      scaleType: UNIT_LOG_SCALE
+    - parameterName: degree-polynomial
+      type: INTEGER
+      minValue: 2
+      maxValue: 5
+      scaleType: UNIT_LINEAR_SCALE
+    - parameterName: lambda-center
+      type: DOUBLE
+      minValue: 0.0001
+      maxValue: 100
+      scaleType: UNIT_LOG_SCALE
+    - parameterName: lambda-l1-mod
+      type: DOUBLE
+      minValue: 0.0000001
+      maxValue: 0.1
+      scaleType: UNIT_LOG_SCALE
+    - parameterName: lambda-l1-demod
+      type: DOUBLE
+      minValue: 0.0000001
+      maxValue: 0.1
+      scaleType: UNIT_LOG_SCALE
+#    - parameterName: lambda-l2-mod
+#      type: DOUBLE
+#      minValue: 0.0000001
+#      maxValue: 0.1
+#      scaleType: UNIT_LOG_SCALE
+#    - parameterName: lambda-l2-demod
+#      type: DOUBLE
+#      minValue: 0.0000001
+#      maxValue: 0.1
+#      scaleType: UNIT_LOG_SCALE
