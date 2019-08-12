@@ -65,8 +65,8 @@ class Modulator():
         symbols = torch.from_numpy(symbols).float()
         if mode == 'explore' and not self.model.name.lower() == 'classic':
             means = self.model(symbols)
-            log_std = torch.min(torch.max(self.log_std_min, self.log_std), self.log_std_max)
-            self.policy = Normal(means, log_std.exp())
+            # log_std = torch.min(torch.max(self.log_std_min, self.log_std), self.log_std_max)
+            self.policy = Normal(means, self.log_std.exp())
             cartesian_points = self.policy.sample()
         elif self.model.name.lower() == 'classic' or mode == 'exploit':
             cartesian_points = self.model(symbols)
@@ -84,8 +84,8 @@ class Modulator():
     def modulate_tensor(self, symbols:torch.Tensor, mode:str='exploit') -> torch.Tensor:
         if mode == 'explore' and not self.model.name.lower() == 'classic':
             means = self.model(symbols)
-            log_std = torch.min(torch.max(self.log_std_min, self.log_std), self.log_std_max)
-            self.policy = Normal(means, log_std.exp())
+            # log_std = torch.min(torch.max(self.log_std_min, self.log_std), self.log_std_max)
+            self.policy = Normal(means, self.log_std.exp())
             cartesian_points = self.policy.sample()
         elif self.model.name.lower() == 'classic' or mode == 'exploit':
             cartesian_points = self.model(symbols)

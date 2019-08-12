@@ -8,7 +8,8 @@ sys.path.append(ECHO_DIR)
 from models.agent import Agent
 from utils.util_data import get_test_SNR_dbs, integers_to_symbols
 from utils.util_data import add_cartesian_awgn as add_awgn
-from protocols.shared_preamble.trainer import trainer
+# from protocols.shared_preamble.trainer import trainer
+from protocols.private_preamble.trainer import trainer
 
 BPS_TO_MOD_ORDER = {
     2: 'QPSK',
@@ -104,6 +105,7 @@ def main():
             "lambda_l2": args.lambda_l2_demod,
         },
     }
+    print(agent_dict)
 
     agent1 = Agent(agent_dict=agent_dict, name='Poly')
     agent2 = Agent(agent_dict=agent_dict, name='Clone')
@@ -116,7 +118,7 @@ def main():
     test_SNR = test_SNR_dbs[5]
     batches_interval = 0
     while total_batches_sent <= args.total_batches:
-        if batches_interval == 0 or batches_interval - args.log_interval >= 0:
+        if batches_interval == 0 or batches_interval - args.log_interval >= 0 or total_batches_sent == args.total_batches:
             batches_interval = 0
             roundtrip_ber = test(
                 agent1=agent1,
@@ -132,23 +134,23 @@ def main():
                 metric_value=roundtrip_ber,
                 global_step=args.batch_size * total_batches_sent
             )
-            hpt.report_hyperparameter_tuning_metric(
-                hyperparameter_metric_tag='agent1_centering_loss',
-                metric_value=agent1.mod.model.location_loss(),
-                global_step=args.batch_size * total_batches_sent
-            )
-            hpt.report_hyperparameter_tuning_metric(
-                hyperparameter_metric_tag='agent2_centering_loss',
-                metric_value=agent2.mod.model.location_loss(),
-                global_step=args.batch_size * total_batches_sent
-            )
+            # hpt.report_hyperparameter_tuning_metric(
+            #     hyperparameter_metric_tag='agent1_centering_loss',
+            #     metric_value=agent1.mod.model.location_loss(),
+            #     global_step=args.batch_size * total_batches_sent
+            # )
+            # hpt.report_hyperparameter_tuning_metric(
+            #     hyperparameter_metric_tag='agent2_centering_loss',
+            #     metric_value=agent2.mod.model.location_loss(),
+            #     global_step=args.batch_size * total_batches_sent
+            # )
         B, A, batches_sent = trainer(agents=[A, B],
                                      bits_per_symbol=args.bits_per_symbol,
                                      batch_size=args.batch_size,
                                      train_SNR_db=TRAIN_SNRS_FOR_ORDER[BPS_TO_MOD_ORDER[args.bits_per_symbol]][
                                          SNR_LEVEL_TO_INDEX[args.train_snr]],
                                      signal_power=1.0,
-                                     backwards_only=last
+                                     backwards_only=total_batches_sent == args.total_batches
                                      )
         total_batches_sent += batches_sent
         batches_interval += batches_sent

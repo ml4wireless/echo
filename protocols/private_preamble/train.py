@@ -57,7 +57,7 @@ def train(*,
 
         if prev_preamble is not None:
             # Update mod and demod after a roundtrip pass
-            Bdemod.update(c_signal_backward_noisy, preamble)
+            Bdemod.update(c_signal_backward_noisy, prev_preamble)
             preamble_roundtrip = Bdemod.demodulate(c_signal_backward_noisy)
             Bmod.update(prev_preamble, prev_actions, preamble_roundtrip)
             batches_sent += 2
