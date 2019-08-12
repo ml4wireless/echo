@@ -1,20 +1,14 @@
 # To get directory structure working
 import sys
-import os
 import json
-import numpy as np
-import matplotlib
+from typing import Dict, Any, Union
 
-matplotlib.use('agg')
-import matplotlib.pyplot as plt
+import numpy as np
 import os
 
 BRC_DIR = os.path.dirname(os.path.realpath(__file__))
 sys.path.append("%s/../utils" % BRC_DIR)
 sys.path.append("%s/../" % BRC_DIR)
-import utils.util_lookup_table
-
-br = utils.util_lookup_table.BER_lookup_table()
 
 
 def process_experiment(experiment_dir):
@@ -25,81 +19,82 @@ def process_experiment(experiment_dir):
     # list all files in results
     experiment_results = {
     }
-    jobs = [f[:-4] for f in os.listdir(results_dir) if ".npy" in f]
-
-    for job in jobs:
-        trial_num = job.split("_")[-1]
-        result_npy = os.path.join(results_dir, job + ".npy")
-        job_json = os.path.join(results_dir, job + ".json")
-        with open(job_json, 'rb') as f:
-            job_dict = json.load(f)
-        num_iterations = job_dict['num_iterations']
-        results_every = job_dict['results_every']
-        batch_size = job_dict['batch_size']
-        bits_per_symbol = job_dict['bits_per_symbol']
-        train_SNR_db = job_dict["SNR_db"]
+    trials = [f[:-4] for f in os.listdir(results_dir) if ".npy" in f]
+    num_logs = 0
+    for trial in trials:
+        result_npy = os.path.join(results_dir, trial + ".npy")
+        # trial_json = os.path.join(results_dir, trial + ".json")
+        # with open(trial_json, 'rb') as f:
+        #     trial_dict = json.load(f)
         result_array = np.load(result_npy, allow_pickle=True)
-        num_results = len(result_array)
-        training_SNR_dict = experiment_results.get(train_SNR_db, {'num_trials': 0})
+        meta, result_array = result_array[0], result_array[1:]
+        train_SNR_db = meta['train_SNR_db']
+        batch_size = meta['batch_size']
+        num_results = meta['num_results']
+        test_SNR_dbs = meta.get('test_SNR_dbs', result_array[0]['test_SNR_dbs'])
+        training_SNR_dict = experiment_results.get(train_SNR_db,
+                                                   {'num_trials': 0,
+                                                    'symbols_sent': [],
+                                                    '3db_off': [0.0],
+                                                    '5db_off': [0.0],
+                                                    'test_SNR_dbs': test_SNR_dbs,
+                                                    'max_num_logs': 0
+                                                    })
         training_SNR_dict['num_trials'] += 1
-        if training_SNR_dict.get('symbols_sent', None) is None:
-            training_SNR_dict['iterations'] = [i * results_every for i in range((num_iterations // results_every) + 1)]
-            training_SNR_dict['symbols_sent'] = [i * results_every * 2 * batch_size for i in
-                                                 range((num_iterations // results_every) + 1)]
-            training_SNR_dict['3db_off'] = np.zeros([num_results], dtype=np.float32)
-            training_SNR_dict['5db_off'] = np.zeros([num_results], dtype=np.float32)
-        else:
-            # print(training_SNR_dict['3db_off'])
-            assert num_results == len(
-                training_SNR_dict['3db_off']), "something went terribly wrong, trials not same num iters"
+        training_SNR_dict['max_num_logs'] = max(training_SNR_dict['max_num_logs'], num_results)
+        # In order to deal with early stopping, we subtract if didn't converge,
+        # if converged early, then we don't have to fill the array
+        db5off = np.ones(training_SNR_dict['max_num_logs'])
+        db3off = np.ones(training_SNR_dict['max_num_logs'])
+        symbols_sent = training_SNR_dict['symbols_sent']
         for i, result in enumerate(result_array):
-            # other result keys: 'test_sers' 'mod_std_1' 'constellation_1' 'demod_grid_1'
-            # 'mod_std_2' 'constellation_2' 'demod_grid_2'
-            test_SNR_dbs = result['test_SNR_dbs']
-            test_bers = np.mean([result['test_bers'][0], result['test_bers'][1]], axis=0)
-            # print(test_bers)
-            if not training_SNR_dict.get('test_SNR_dbs', False):
-                training_SNR_dict['test_SNR_dbs'] = test_SNR_dbs[1:]
-                training_SNR_dict['convergence_for'] = test_SNR_dbs[5]
-            db_off = test_SNR_dbs[5] - br.get_optimal_SNR_for_BER_roundtrip(test_bers[5], bits_per_symbol)
-            if db_off <= 5.0:
-                training_SNR_dict['5db_off'][i] += 1.0
-            if db_off <= 3.0:
-                training_SNR_dict['3db_off'][i] += 1.0
-        trial_final_bers = np.mean([result_array[-1]['test_bers'][0], result_array[-1]['test_bers'][1]], axis=0)
-        trial_final_bers = trial_final_bers[1:].reshape((len(test_SNR_dbs) - 1, 1))  # last result of your trial;
-        # but ignore first BER b/c 1st result is testing @ the train snr
+            assert i >= len(symbols_sent) or (result['batches_sent'] * batch_size) == symbols_sent[i]
+            symbols_sent += [result['batches_sent'] * batch_size] if i >= len(symbols_sent) else []
+            db_off = result['db_off'][5]
+            if db_off > 5.0:
+                db5off[i] -= 1.0
+            if db_off > 3.0:
+                db3off[i] -= 1.0
+        training_SNR_dict['symbols_sent'] = symbols_sent
+        # Below handles early stopping
+        t5off = training_SNR_dict['5db_off']
+        t3off = training_SNR_dict['5db_off']
+        for j in range(len(t5off), training_SNR_dict['max_num_logs']):
+            t5off = np.append(t5off, t5off[-1])
+            t3off = np.append(t3off, t3off[-1])
+        training_SNR_dict['5db_off'] = t5off + db5off
+        training_SNR_dict['3db_off'] = t3off + db3off
+
+        trial_final_bers = result_array[-1]['test_bers']
         if training_SNR_dict.get('final_bers', None) is None:
-            # for n = num of testing SNRs - 1 (see note above)
-            # collect all the final bers of all trials then at the end, compute the quartiles
-            training_SNR_dict['final_bers'] = trial_final_bers
+            training_SNR_dict['final_bers'] = trial_final_bers[..., np.newaxis]
         else:
-            # print("before", training_SNR_dict['final_bers'].shape)
             training_SNR_dict['final_bers'] = np.append(training_SNR_dict['final_bers'], trial_final_bers, axis=1)
-            # print("after", training_SNR_dict['final_bers'].shape)
         experiment_results[train_SNR_db] = training_SNR_dict
-    # average convergence by num_trials
-    for k in experiment_results:
+
+    for k in experiment_results.keys():
         training_SNR_dict = experiment_results[k]
-        training_SNR_dict['5db_off'] = training_SNR_dict['5db_off'] / training_SNR_dict['num_trials']
-        training_SNR_dict['3db_off'] = training_SNR_dict['3db_off'] / training_SNR_dict['num_trials']
+        num_trials = training_SNR_dict['num_trials']
+        training_SNR_dict['5db_off'] = training_SNR_dict['5db_off'] / num_trials
+        training_SNR_dict['3db_off'] = training_SNR_dict['3db_off'] / num_trials
         sorted_bers = np.sort(training_SNR_dict['final_bers'], axis=1)
-        num_logs = sorted_bers.shape[1]
-        training_SNR_dict['BER_low'] = sorted_bers[:, num_logs * 10 // 100]
-        training_SNR_dict['BER_mid'] = sorted_bers[:, num_logs // 2]
-        training_SNR_dict['BER_high'] = sorted_bers[:, num_logs * 90 // 100]
+        training_SNR_dict['BER_low'] = sorted_bers[:, num_trials * 10 // 100]
+        training_SNR_dict['BER_mid'] = sorted_bers[:, num_trials // 2]
+        training_SNR_dict['BER_high'] = sorted_bers[:, num_trials * 90 // 100]
+
     return experiment_results
+
 
 # #Job file
 # job_dir = '%s/../experiments/echo_shared_preamble/QAM16_poly_vs_cluster'%D
 os.makedirs(os.path.join(BRC_DIR, "results"), exist_ok=True)
 for protocol in ['shared_preamble']:  # 'loss_passing', 'echo_private_preamble','echo_shared_preamble']:
-    base_path = "%s/../experiments/%s" % (BRC_DIR, protocol)
+    base_path = "%s/experiments/%s" % (os.path.dirname(BRC_DIR), protocol)
     dir_list = next(os.walk(base_path))[1]
     print(base_path)
     # print(job_dir_list)
     for folder in dir_list:
-        if 'QPSK' in folder and 'hyper' not in folder:
+        if 'QPSK' in folder:
             experiment_dir = os.path.join(base_path, folder)
             experiment_results = process_experiment(experiment_dir)
             result_file = os.path.join(BRC_DIR, "results", folder + ".npy")
