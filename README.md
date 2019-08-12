@@ -27,15 +27,17 @@ When prompted,
 
 # Code Overview
 
-`experiments/[protocol]/model_params.libsonnet` stores the default model parameters for running an experiment under that protocol
+`./experiments/[protocol]/model_params.libsonnet` stores the default model parameters for running an experiment under that protocol
 
-`experiments/create_experiment.py` is used to create an experiment with default settings or command-line specified settings.
+`./experiments/create_experiment.py` is used to create an experiment with default settings or command-line specified settings. (See examples of usage in `./scripts/single` and `./scripts/singlecustom`.)
 
-`experiments/make_jobs.py` is used to create a jobs.json file containing the parameters to run multiple trials (sampling or generating seeds) for a single experiment. *If you supply a file with multiple experiments (one per line), a single jobs.json will be made containing jobs for all of the experiments listed.*
+`./experiments/make_jobs.py` is used to create a jobs.json file containing the parameters to run multiple trials (sampling or generating seeds) for a single experiment. *If you supply a file with multiple experiments (one per line), a single jobs.json will be made containing jobs for all of the experiments listed.* (See examples of usage in `./scripts/single`, `./scripts/singlecustom`, `./utils/preprocess_experiments.py`.)
 
-`run_experiment.py` is used to run experiments from a jobs.json file.
+`./utils/preprocess_experiments.py` creates and makes jobs for ALL of the default experiments. Or for a specific protocol. (See examples of usage in `./scripts/singleprotocol` and `./scripts/all`.)
 
-`plot_experiment.py` is used to plot the results of a single job output.
+`./run_experiment.py` is used to run experiments from a jobs.json file.
+
+`./plot_experiment.py` is used to plot the results of a single job output.
 
 # Useful commands
 `./utils/clean` : cleans out results, experiments and temporary files. 
