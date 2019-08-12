@@ -11,6 +11,30 @@ When prompted,
 - yes it should have made and returned the corrent jobs.json file
 - run one job for job id = 0
 
+# Setup 
+
+Please install a virtual env manager, Anaconda is suggested with Python 3. Create a new environment and set up there!
+```
+> conda create -n echo_env python=3.6
+> source activate echo_env
+> pip install --user --requirement requirements.txt
+> ./runecho
+```
+
+(in progress) A Dockerfile is also supplied. With the current Dockerfile, you can run jupyter notebook. Please edit it to fit your usage. 
+```
+> docker build . -t ECHO
+> docker run -it -p 8888:8888 ECHO /bin/bash -c "jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root"
+```
+Go to localhost:8888 and copy and paste the token over.
+
+Don't forget to shutdown your containers.
+```
+> docker ps -a 
+> docker rm [NAME]
+```
+Here's a useful command to rm all containers that are Exited (usually because of an error...), if you, like me are bad with Docker: ` docker rm $(docker ps -a | grep Exited | awk '{print $1}')`
+
 # Terminology
 
 **protocol** - the information protocol (i.e. `gradient_passing`,`loss_passing`,`shared_preamble`,`private_preamble`) 
