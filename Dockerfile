@@ -13,12 +13,10 @@ RUN conda clean -afy \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
     && find /opt/conda/ -follow -type f -name '*.js.map' -delete
 
-# Command line to run jupyter notebook
-# docker run -it -p 8888:8888 caryn /bin/bash -c \
-"jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root"
 
 #The following creates a 2.45 GB image:
 # FROM ufoym/deepo:pytorch-py36-cpu
 # USER root
 # RUN pip install --no-cache-dir jsonnet
 
+COPY . /echo
