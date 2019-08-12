@@ -89,4 +89,61 @@ Examples: `experiments/gradient_passing/QPSK_neural_and_classic/` or `experiment
 * `scancel [job-id]`: Cancel a job
 * `sinfo -p savio2`: See nodes available and being used
 * `wwall -j [job-id]`: See the utilization of the nodes
- ```
+ 
+# Running on Google Cloud Platform
+
+Resources:
+ * [https://cloud.google.com/ml-engine/docs/tensorflow/getting-started-training-prediction]
+ * **[https://cloud.google.com/ml-engine/docs/custom-containers-training]**
+ * **[https://github.com/GoogleCloudPlatform/cloudml-samples/tree/master/pytorch/containers/hp_tuning]**
+ * [https://github.com/GoogleCloudPlatform/cloudml-samples/tree/master/pytorch]
+ * [https://cloud.google.com/ml-engine/docs/tensorflow/getting-started-keras]
+ 
+## Prerequisites
+1. Make GCloud Account
+2. Install cloud sdk, docker 
+3. Make a project + enable billing
+4. Make a bucket 
+5. Enable APIs: AI Platform ("Cloud Machine Learning Engine"), Compute Engine, and Google Container Registry API
+
+## Setup
+Set these environment variables to make your life easy. Replace bracketed values with UNIQUE identifiers.
+These must correspond to the project_id and bucket_name you created on GCloud console.
+``` 
+export PROJECT_ID=[torch-echo]
+export BUCKET_NAME=[sahai_echo]
+```
+These can be whatever you want:
+```
+export BASE_NAME=[echo_tuning]
+export IMAGE_REPO_NAME=$BASE_NAME_pytorch_container
+export IMAGE_TAG=$BASE_NAME_pytorch
+
+export NOW=$(date +%Y%m%d_%H%M%S)
+export JOB_NAME=$BASE_NAME_container_job_${NOW}
+export MODEL_DIR=$BASE_NAME_pytorch_model_${NOW}
+export JOB_DIR=gs://$BUCKET_NAME/$MODEL_DIR
+export REGION=us-west1
+export IMAGE_URI=gcr.io/$PROJECT_ID/$IMAGE_REPO_NAME:$IMAGE_TAG
+```
+# Prepare the container
+Build the Dockerfile
+Test it locally
+Push it onto Google Cloud
+```
+docker build -f Dockerfile -t $IMAGE_URI ./
+docker run $IMAGE_URI --total-batches 10 --log-interval 2 
+docker push $IMAGE_URI
+```
+# Submit job
+Run on Google Cloud
+```
+gcloud beta ai-platform jobs submit training $JOB_NAME \
+  --job-dir=$JOB_DIR \
+  --region=$REGION \
+  --master-image-uri $IMAGE_URI \
+  --config=config.yaml \
+  --scale-tier BASIC
+  ```
+ # Customize
+ `config.yaml` and `trainer/task.py` will be of interest to you
