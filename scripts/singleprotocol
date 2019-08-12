@@ -14,7 +14,7 @@ fi;
 protocol='shared_preamble'
 #protocol='private_preamble'
 
-jobsjson=$(python preprocess_experiments.py $protocol | tail -1)
+jobsjson=$(python utils/preprocess_experiments.py $protocol | tail -1)
 echo $jobsjson
 if [ "$*" == "" ]; then
     #if no arguments given... just an optional thing so that you can singlecustom

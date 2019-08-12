@@ -76,7 +76,6 @@ def client_dispatch(job_description):
     protocol = meta['protocol']
     experiment_name = meta['experiment_name']
     experiment_dir = os.path.abspath(os.path.join(ECHO_DIR, 'experiments', protocol, experiment_name))
-    protocol_dir = os.path.abspath(os.path.join(ECHO_DIR, 'protocols', protocol))
     results_dir = os.path.abspath(os.path.join(experiment_dir, 'results'))
     print(protocol, experiment_name)
     prepare_environment(meta)

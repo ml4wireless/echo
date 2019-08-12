@@ -9,7 +9,7 @@ if [[ $ECHO_DIR != */echo ]]; then
   return 0 2> /dev/null || exit 0
 fi;
 
-jobsjson=$(python preprocess_experiments.py | tail -1)
+jobsjson=$(python utils/preprocess_experiments.py | tail -1)
 echo $jobsjson
 if [ "$*" == "" ]; then
     #if no arguments given... just an optional thing so that you can singlecustom
