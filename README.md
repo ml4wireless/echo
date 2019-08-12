@@ -19,7 +19,8 @@ When prompted,
 
 **mod_order** - `QPSK`,`8PSK`,`QAM16` for 2, 3, or 4 bits per symbol
 
-**experiment** - protocol + mod_order + agent model(s) (e.g. `experiments/gradient_passing/QPSK_neural_and_classic/` or `experiments/shared_preamble/QPSK_neural_vs_clone/`
+**experiment** - protocol + mod_order + agent model(s) 
+Examples: `experiments/gradient_passing/QPSK_neural_and_classic/` or `experiments/shared_preamble/QPSK_neural_vs_clone/`
 
 **trial** - an instantiation of a single experiment via sampling and generating new seeds
 
