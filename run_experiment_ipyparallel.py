@@ -1,10 +1,9 @@
 import getpass
 import json
 import os
-import random
 import sys
-import torch
 from copy import deepcopy
+
 import numpy as np
 
 ECHO_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -56,6 +55,7 @@ def execute_parallel(jobs_file, echo_symlink_to=None):
     # replace these executes with a direct view synchronous mapping to a function that handles imports
     # check this works...this let's us ensure that all imports are completed before running other code
     dv.execute('import sys')
+    dv.push(dict(ECHO_DIR=ECHO_DIR))
     dv.execute('sys.path.append(\'%s\')' % ECHO_DIR)
     print('sys.path.append(\'%s\')' % ECHO_DIR)
     res = lv.map_sync(client_dispatch, jobs_dispatch)
@@ -64,6 +64,7 @@ def execute_parallel(jobs_file, echo_symlink_to=None):
 def client_dispatch(job_description):
     from importlib import import_module
     import numpy as np
+    import os
     params_copy = deepcopy(job_description)
     meta = job_description.pop('__meta__')
     params = job_description
@@ -110,6 +111,7 @@ def client_dispatch(job_description):
 
 
 def prepare_environment(params):
+    import torch, random, sys
     seed = params.pop("random_seed", 13370)
     numpy_seed = params.pop("numpy_seed", 1337)
     torch_seed = params.pop("pytorch_seed", 133)
