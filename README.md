@@ -78,3 +78,15 @@ Examples: `experiments/gradient_passing/QPSK_neural_and_classic/` or `experiment
 `./scripts/all`: see the file, creates the default experiments for all protocols, makes jobs into a single jobs.json file, runs the first job.
 
 `./runecho`: command-line helper for running experiments. 
+
+# Running on BRC
+
+`./runecho`: Use this tool to help you. It knows what to do. 
+`./utils/clrbrc`: Use this tool to clean up after you've finished up running to clean up intermediate files
+
+ Useful commands:
+* `squeue -u  caryntran`: Jobs on the queue / being run
+* `scancel [job-id]`: Cancel a job
+* `sinfo -p savio2`: See nodes available and being used
+* `wwall -j [job-id]`: See the utilization of the nodes
+ ```
