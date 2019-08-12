@@ -7,8 +7,7 @@ Lost? Try running:
 When prompted, 
 - you are not on the BRC
 - you do not have a jobs.json
-- you want to run a script
-- input scripts/single
+- you want to run a script: `scripts/single`
 - yes it should have made and returned the corrent jobs.json file
 - run one job for job id = 0
 
