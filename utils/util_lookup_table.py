@@ -1,6 +1,8 @@
-import numpy as np
-import pickle, os
+import os
+import pickle
 from bisect import bisect_left
+
+import numpy as np
 
 UTILS_DIR = os.path.dirname(os.path.realpath(__file__))
 def load_lookup_table():

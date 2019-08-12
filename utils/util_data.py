@@ -5,10 +5,10 @@
 
 # Contains functions for data generation and manipulations
 
+import itertools
+
 import numpy as np
 import torch
-import sys
-import itertools
 
 
 ##############################################################################

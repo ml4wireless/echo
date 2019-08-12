@@ -1,5 +1,13 @@
 ## THIS FILE CREATES A SINGLE EXPERIMENT
 ## AND ALSO CREATES A JOB FILE WITHIN THAT EXPERIMENT experiment/[protocol]/[experiment] folder
+ECHO_DIR=$(pwd)
+if [[ $ECHO_DIR == */echo/scripts ]]; then
+  cd ..
+fi;
+if [[ $ECHO_DIR != */echo ]]; then
+  echo -e "Please run this script from the 'echo' directory";
+  return 0 2> /dev/null || exit 0
+fi;
 
 MODEL=neural
 PROTOCOL=shared_preamble

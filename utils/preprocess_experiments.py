@@ -1,7 +1,8 @@
 import os
 import sys
 
-ECHO_DIR = os.path.dirname(os.path.realpath(__file__))
+ECHO_DIR = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+os.chdir(ECHO_DIR)
 assert os.path.basename(ECHO_DIR) == 'echo'
 
 protocol = False

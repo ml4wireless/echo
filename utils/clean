@@ -1,0 +1,13 @@
+ECHO_DIR=$(pwd)
+if [[ $ECHO_DIR == */echo/utils ]]; then
+  cd ..
+fi;
+if [[ $ECHO_DIR != */echo ]]; then
+  echo -e "Please run this script from the 'echo' directory";
+  return 0 2> /dev/null || exit 0
+fi;
+rm  -f -r -- ./_tmp_/*
+rm  -f -- ./experiments/jobs.json
+rm -f -- ./experiments/*/jobs.json
+rm -f -r -- ./experiments/*/*/
+

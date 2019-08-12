@@ -38,7 +38,7 @@ def process_experiment(experiment_dir):
         batch_size = job_dict['batch_size']
         bits_per_symbol = job_dict['bits_per_symbol']
         train_SNR_db = job_dict["SNR_db"]
-        result_array = np.load(result_npy)
+        result_array = np.load(result_npy, allow_pickle=True)
         num_results = len(result_array)
         training_SNR_dict = experiment_results.get(train_SNR_db, {'num_trials': 0})
         training_SNR_dict['num_trials'] += 1

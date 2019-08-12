@@ -1,8 +1,11 @@
-import os, glob, sys, json, textwrap, importlib
+import json
+import os
+import sys
+import textwrap
+from copy import deepcopy
+
 import _jsonnet
 import numpy as np
-from pprint import pprint
-from copy import deepcopy
 
 CWD = os.getcwd()
 SEED = 2019

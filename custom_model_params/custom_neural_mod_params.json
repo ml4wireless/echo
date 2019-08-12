@@ -13,5 +13,5 @@
       "lambda_prob":              1.0e-10,
       "restrict_energy":          1,
       "lambda_p":                 0.0,
-      "lambda_center":            0.0
+      "lambda_center":            2.0
 }

@@ -29,18 +29,18 @@ gen_jobs() {
     echo -e "Pick an option:"
     n
     options=("Specify a script to generate jobs.json file (i.e: scripts/single, scripts/all) OR"
-    "Specify an experiment folder (i.e. echo/experiments/[protocol]/[experiment name]) OR"
-    "Help":)
+    "Specify an experiment folder (must have run create_experiment_params first) OR"
+    "Help")
 
     select opt in "${options[@]}"; do
         case "$REPLY" in
-            1 ) g; echo -n "Found these scripts: "; n; echo $(ls scripts | sed 's/^/scripts\//;s/$/\, /') ;g;
+            1 ) g; echo -n "Found these scripts: "; n; echo $(ls scripts | sed 's/^/scripts\//;s/$/\ , /') ;g;
                    echo  -n "Path of script: ";n; read -e script;
                 jobs=$(bash $script make | tail -1); break;;
-            2 ) g; echo -n "Path of experiment folder: ";n; read -e ef;
+            2 ) g; echo -n "Path of experiment folder (i.e experiments/gradient_passing/QPSK_neural_and_neural): ";n; read -e ef;
                 echo "RUNNING: python ${ECHO_DIR}/experiments/make_jobs.py --experiment_folder=${ef}..."
                 python "${ECHO_DIR}/experiments/make_jobs.py --experiment_folder=${ef}" ; jobs=$ef; break;;
-            3 ) echo "try running python ${ECHO_DIR}/experiments/create_experiment_params.py to make an experiment";
+            3 ) echo "try running python experiments/create_experiment_params.py to make an experiment";
                 exit 0;;
             *)  echo "Invalid option. Try another one.";continue;;
         esac
@@ -51,11 +51,11 @@ g
 echo -e "Are you on the BRC cluster?"; n;
 select yn in "Yes" "No"; do
     case $yn in
-        Yes ) ONBRC=true ;
+        Yes ) ONBRC=true ; echo "You are on the BRC.";
               module load python/3.6 gcc; python=python3 ;
               #source activate runecho;
               break;;
-        No )  ONBRC=false ; break;;
+        No )  ONBRC=false ; echo "You are not on the BRC.";  break;;
         *) echo "Invalid option. Try another one.";continue;;
     esac
 done
@@ -130,7 +130,7 @@ else
   select howmany in "all" "one"; do
       case $howmany in
           all ) python ${ECHO_DIR}/run_experiment.py --jobs_file=${jobsjson}; break;;
-          one ) g; echo -n "Specify the job_id of the job you want to run: ";n; read -e jid;
+          one ) g; jid=0; echo -n "Specify the job_id of the job you want to run: ";n; read -e jid;
               python ${ECHO_DIR}/run_experiment.py --jobs_file=${jobsjson} --job_id=${jid} --plot; break;;
           *) echo "Invalid option. Try another one.";continue;;
       esac

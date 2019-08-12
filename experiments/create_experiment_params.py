@@ -1,6 +1,8 @@
-import os, sys, json, textwrap
 # from shutil import copyfile
 import json
+import os
+import sys
+import textwrap
 
 CWD = os.getcwd()
 
