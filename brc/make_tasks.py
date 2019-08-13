@@ -1,4 +1,7 @@
-import json, sys, os, getpass
+import getpass
+import json
+import os
+import sys
 
 BRC_DIR = os.path.dirname(os.path.realpath(__file__))
 ECHO_DIR = os.path.dirname(BRC_DIR)

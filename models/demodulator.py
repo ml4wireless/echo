@@ -1,8 +1,10 @@
+from typing import Optional
+
 import numpy as np
 import torch
 from torch import nn
+
 from utils.util_data import integers_to_symbols, symbols_to_integers
-from typing import Union, Optional
 
 
 class Demodulator():

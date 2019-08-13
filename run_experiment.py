@@ -1,12 +1,13 @@
 import json
 import os
-import random
 import sys
+import random
 from copy import deepcopy
-import importlib
 from importlib import import_module
+
 import numpy as np
 import torch
+
 from models.agent import Agent
 
 #FOR PROFILING SPEED OF CODE
@@ -28,7 +29,6 @@ def rm_mkdir(dir):
         shutil.rmtree(dir)
     os.makedirs(dir)
     return
-
 
 def prepare_environment(params):
     """
@@ -61,7 +61,6 @@ def prepare_environment(params):
     torch.set_num_threads(1)
 
     sys.path.append(ECHO_DIR)
-
 
 # animated_plot()
 
@@ -146,7 +145,7 @@ def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None):
                                'trial_num': trial_num,
                                'experiment_name': experiment_name,
                                **info})
-            np.save(open(results_file, 'wb'), results)
+            np.save(results_file, results)
             print("Params for this job have been saved into:")
             print(params_file)
             print("Results for this job have been saved into:")
@@ -154,7 +153,8 @@ def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None):
         # pr.disable()
         # pr.dump_stats('%s%i.pstat'% (experiment_name,job_id) )
         if plot:
-            if importlib.find_spec('matplotlib') is not None:
+            from importlib import util
+            if util.find_spec('matplotlib') is not None:
                 from plot_experiment import animated_plot
                 animated_plot(results=results)
             else:

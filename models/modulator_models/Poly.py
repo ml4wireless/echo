@@ -1,9 +1,11 @@
+from itertools import product
+from typing import Union
+
 import numpy as np
-from utils.util_data import get_all_unique_symbols
 import torch
 from torch import nn
-from typing import Union
-from itertools import product
+
+from utils.util_data import get_all_unique_symbols
 
 
 class Poly(nn.Module):

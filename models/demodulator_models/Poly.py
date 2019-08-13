@@ -1,7 +1,9 @@
+import math
+
+import numpy as np
 import torch
 from torch import nn
-import numpy as np
-import math
+
 
 def nCr(n,r):
     f = math.factorial

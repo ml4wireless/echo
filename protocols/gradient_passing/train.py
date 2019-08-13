@@ -1,9 +1,10 @@
 ###GRADIENT PASSING###
+import numpy as np
+import torch
+
+from protocols.roundtrip_evaluate import roundtrip_evaluate as evaluate
 from utils.util_data import integers_to_symbols, get_N0, get_awgn
 from utils.util_lookup_table import BER_lookup_table
-from protocols.roundtrip_evaluate import roundtrip_evaluate as evaluate
-import torch
-import numpy as np
 
 
 def get_random_preamble(n, bits_per_symbol):

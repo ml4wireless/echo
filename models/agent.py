@@ -1,9 +1,11 @@
-from models.demodulator import Demodulator
-from models.modulator import Modulator
 # import models.modulator_models
 # import models.demodulator_models
 # print(models.modulator_models)
 from importlib import import_module
+
+from models.demodulator import Demodulator
+from models.modulator import Modulator
+
 
 # def my_import(name):
 #     components = name.split('.')

@@ -1,8 +1,9 @@
 ###PRIVATE PREAMBLE###
+import numpy as np
+
+from protocols.roundtrip_evaluate import roundtrip_evaluate as evaluate
 from utils.util_data import integers_to_symbols, add_cartesian_awgn as add_awgn
 from utils.util_lookup_table import BER_lookup_table
-from protocols.roundtrip_evaluate import roundtrip_evaluate as evaluate
-import numpy as np
 
 
 def get_random_preamble(n, bits_per_symbol):

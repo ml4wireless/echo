@@ -1,6 +1,7 @@
 import numpy as np
-from utils.util_data import get_grid_2d, get_test_SNR_dbs, integers_to_symbols
+
 from utils.util_data import add_cartesian_awgn as add_awgn
+from utils.util_data import get_grid_2d, get_test_SNR_dbs, integers_to_symbols
 
 
 def get_random_preamble(n, bits_per_symbol):

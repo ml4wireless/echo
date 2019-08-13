@@ -1,8 +1,9 @@
 from typing import List, Optional
-from torch import nn
-import torch
+
 import numpy as np
-from typing import List, Optional
+import torch
+from torch import nn
+
 
 class Neural(nn.Module):
     def __init__(self,*,

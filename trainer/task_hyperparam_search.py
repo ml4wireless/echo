@@ -1,8 +1,11 @@
 import argparse
-import sys, os
+import os
+import sys
+
 import hypertune
-import torch
 import numpy as np
+import torch
+
 ECHO_DIR = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 sys.path.append(ECHO_DIR)
 from models.agent import Agent

@@ -1,10 +1,13 @@
-import numpy as np
-from utils.util_data import get_all_unique_symbols
-import torch
-from torch import nn
 from typing import Union, List, Optional
 
-class Neural(nn.Module):    
+import numpy as np
+import torch
+from torch import nn
+
+from utils.util_data import get_all_unique_symbols
+
+
+class Neural(nn.Module):
     def __init__(self, *, 
                  bits_per_symbol:Union[float,int],
                  hidden_layers:List[int] = [50],

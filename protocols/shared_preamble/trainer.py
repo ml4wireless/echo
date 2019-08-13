@@ -1,6 +1,8 @@
 ###SHARED PREAMBLE###
-from utils.util_data import integers_to_symbols, add_cartesian_awgn as add_awgn
 import numpy as np
+
+from utils.util_data import integers_to_symbols, add_cartesian_awgn as add_awgn
+
 
 ###SHARED PREAMBLE###
 def trainer(*,

@@ -1,8 +1,7 @@
-
-import numpy as np
 import torch
+
 from utils import util_modulation
-from utils.util_data import cartesian_2d_to_complex, symbols_to_integers
+from utils.util_data import symbols_to_integers
 
 
 class Classic():

@@ -17,4 +17,4 @@ COPY . /root/echo
 WORKDIR /root/echo
 
 # Sets up the entry point to invoke the trainer.
-ENTRYPOINT ["python", "trainer/task.py"]
+# ENTRYPOINT ["python", "trainer/task.py"]

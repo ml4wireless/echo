@@ -1,14 +1,12 @@
 # To get directory structure working
+import os
 import sys
-import json
-from typing import Dict, Any, Union
 
 import numpy as np
-import os
 
-BRC_DIR = os.path.dirname(os.path.realpath(__file__))
-sys.path.append("%s/../utils" % BRC_DIR)
-sys.path.append("%s/../" % BRC_DIR)
+ANALYSIS_DIR = os.path.dirname(os.path.realpath(__file__))
+sys.path.append("%s/../utils" % ANALYSIS_DIR)
+sys.path.append("%s/../" % ANALYSIS_DIR)
 
 
 def process_experiment(experiment_dir):
@@ -34,6 +32,7 @@ def process_experiment(experiment_dir):
         test_SNR_dbs = meta.get('test_SNR_dbs', result_array[0]['test_SNR_dbs'])
         training_SNR_dict = experiment_results.get(train_SNR_db,
                                                    {'num_trials': 0,
+                                                    'SNR_db_off_for': test_SNR_dbs[4],
                                                     'symbols_sent': [],
                                                     '3db_off': [0.0],
                                                     '5db_off': [0.0],
@@ -50,7 +49,7 @@ def process_experiment(experiment_dir):
         for i, result in enumerate(result_array):
             assert i >= len(symbols_sent) or (result['batches_sent'] * batch_size) == symbols_sent[i]
             symbols_sent += [result['batches_sent'] * batch_size] if i >= len(symbols_sent) else []
-            db_off = result['db_off'][5]
+            db_off = result['db_off'][4]
             if db_off > 5.0:
                 db5off[i] -= 1.0
             if db_off > 3.0:
@@ -87,9 +86,9 @@ def process_experiment(experiment_dir):
 
 # #Job file
 # job_dir = '%s/../experiments/echo_shared_preamble/QAM16_poly_vs_cluster'%D
-os.makedirs(os.path.join(BRC_DIR, "results"), exist_ok=True)
-for protocol in ['shared_preamble']:  # 'loss_passing', 'echo_private_preamble','echo_shared_preamble']:
-    base_path = "%s/experiments/%s" % (os.path.dirname(BRC_DIR), protocol)
+os.makedirs(os.path.join(ANALYSIS_DIR, "results"), exist_ok=True)
+for protocol in ['private_preamble']:  # 'loss_passing', 'echo_private_preamble','echo_shared_preamble']:
+    base_path = "%s/experiments/%s" % (os.path.dirname(ANALYSIS_DIR), protocol)
     dir_list = next(os.walk(base_path))[1]
     print(base_path)
     # print(job_dir_list)
@@ -97,7 +96,7 @@ for protocol in ['shared_preamble']:  # 'loss_passing', 'echo_private_preamble',
         if 'QPSK' in folder:
             experiment_dir = os.path.join(base_path, folder)
             experiment_results = process_experiment(experiment_dir)
-            result_file = os.path.join(BRC_DIR, "results", folder + ".npy")
+            result_file = os.path.join(ANALYSIS_DIR, "results", folder + ".npy")
             np.save(result_file, experiment_results)
 
     #                 break

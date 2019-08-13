@@ -1,13 +1,16 @@
 #
 .idea/
 _tmp_/*
-brc/out/
+brc/
+analysis/
+custom_model_params/
+experiments/
+scripts/
 experiments/*/*/results
 experiments/*/*/*.jsonnet
-experiments/jobs.json
 experiments/*/jobs.json
 experiments/*/*/jobs.json
-trainer/work/
+
 *.pstat
 
 # Byte-compiled / optimized / DLL files

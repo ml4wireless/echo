@@ -1,8 +1,12 @@
 import matplotlib
 import matplotlib.transforms as transforms
+import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.patches import Ellipse
+
 from utils.util_data import integers_to_symbols, get_grid_2d
+
+
 # matplotlib.use('GTKAgg')
 
 

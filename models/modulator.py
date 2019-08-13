@@ -1,9 +1,12 @@
-from utils.util_data import cartesian_2d_to_complex, integers_to_symbols
-import numpy as np 
+from typing import Union, Optional
+
+import numpy as np
 import torch
 from torch import nn
 from torch.distributions.normal import Normal
-from typing import Union, Optional
+
+from utils.util_data import cartesian_2d_to_complex, integers_to_symbols
+
 
 class Modulator():
     def __init__(self,*, 
@@ -12,7 +15,7 @@ class Modulator():
                  optimizer: Optional[str] = 'adam',
                 stepsize_mu: float = 0.0,
                 stepsize_sigma: float = 0.0,
-                initial_std: float = 0.0,
+                initial_std: float = 0.1,
                 min_std: float = 1e-5,
                 max_std: float = 1e2,
                 lambda_baseline:float = 0.0, #used in update method
