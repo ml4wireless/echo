@@ -1,0 +1,83 @@
+ datalab connect --zone us-central1-c --port 8081 echo-datalab
+
+export PROJECT_ID=torch-echo
+export BUCKET_NAME=sahai_echo
+export BUCKET_NAME=bucket-of-joy-iowa
+export IMAGE_REPO_NAME=echo_htc_container
+export NOW=$(date +%Y%m%d_%H%M%S)
+
+export PROJECT_ID=torch-echo
+export REGION=us-central1
+FILES_SOURCE=${PROJECT_ID}-data-source
+gsutil mb -c regional -l ${REGION} gs://${FILES_SOURCE}
+FUNCTIONS_BUCKET=${PROJECT_ID}-functions
+
+export JOB_NAME=echo_job_${NOW}
+export JOB_DIR=gs://$BUCKET_NAME/echo_${NOW}
+export REGION=us-central1
+export IMAGE_URI=gcr.io/$PROJECT_ID/$IMAGE_REPO_NAME
+
+docker build -f Dockerfile -t $IMAGE_URI ./
+docker run $IMAGE_URI --total-batches 10 --log-interval 2
+docker push $IMAGE_URI
+
+export JOB_DIR=gs://bucket-of-joy-iowa/echo_20190813_013732
+
+dsub \
+--name ${PROJECT_ID}-pipeline \
+--project ${PROJECT_ID} \
+--image ${IMAGE_URI}:latest \
+--retries 3 \
+--wait \
+--logging "${JOB_DIR}/logging" \
+--script ./trainer/pipeline_task.py \
+--regions $REGION \
+--machine-type n1-standard-4 \
+--preemptible \
+--tasks ./trainer/pipeline-tasks.tsv 2-3
+
+750-2249 : shared + private preamble
+
+
+dsub \
+  --provider local \
+  --project ${PROJECT_ID} \
+  --regions ${REGION} \
+  --logging "tmp/echo/logging" \
+  --disk-size 100 \
+  --image ${IMAGE_URI}:latest \
+  --env INDEX=0 \
+  --output OUTPUT_FILE="./0.npy" \
+  --command 'python ./trainer/pipeline_task.py' \
+
+dsub \
+  --provider google-v2 \
+  --project ${PROJECT_ID} \
+  --regions ${REGION} \
+  --logging "${JOB_DIR}/logging" \
+  --image ${IMAGE_URI}:latest \
+  --output OUT="${JOB_DIR}/logging/out.txt" \
+  --command 'echo "Hello World" > "${OUT}"' \
+  --wait
+
+
+google-pipelines-worker-27582211a50331c3e4c9efe577e7029c
+us-west1-c
+
+gcloud compute \
+      --project torch-echo ssh \
+      --zone us-west1-c google-pipelines-worker-27582211a50331c3e4c9efe577e7029c
+
+
+gcloud alpha genomics pipelines run --pipeline-file echo-pipeline.yaml --logging gs://sahai_echo/test/logs/test.log
+
+bq query \
+--destination_table output_echo_08142019.results_081419 \
+--replace \
+--use_legacy_sql=false \
+'SELECT
+  * EXCEPT(constellation_1, mod_std_1, constellation_2, mod_std_2, demod_grid_2, demod_grid_1)
+FROM
+  output_echo_08142019.results_081419'
+
+

@@ -14,6 +14,34 @@ from utils.util_data import add_cartesian_awgn as add_awgn
 # from protocols.shared_preamble.trainer import trainer
 from protocols.private_preamble.trainer import trainer
 
+BER_TO_SNR = np.array([[1.00e-03, 1.04e+01],
+                       [1.10e-02, 8.20e+00],
+                       [2.10e-02, 7.40e+00],
+                       [3.10e-02, 6.80e+00],
+                       [4.10e-02, 6.20e+00],
+                       [5.10e-02, 5.80e+00],
+                       [6.10e-02, 5.40e+00],
+                       [7.10e-02, 5.20e+00],
+                       [8.10e-02, 4.80e+00],
+                       [9.10e-02, 4.60e+00],
+                       [1.01e-01, 4.20e+00],
+                       [1.11e-01, 4.00e+00],
+                       [1.21e-01, 3.80e+00],
+                       [1.31e-01, 3.40e+00],
+                       [1.41e-01, 3.20e+00],
+                       [1.51e-01, 3.00e+00],
+                       [1.61e-01, 2.80e+00],
+                       [1.71e-01, 2.60e+00],
+                       [1.81e-01, 2.20e+00],
+                       [1.91e-01, 2.00e+00]])
+
+def ber_to_snr(ber):
+    if ber >= BER_TO_SNR[-1,0]:
+        return 0
+    bers = BER_TO_SNR[:, 0]
+    index = np.argmin(np.abs(bers - ber))
+    return bers[index][1]  # here is your result
+
 BPS_TO_MOD_ORDER = {
     2: 'QPSK',
     3: '8PSK',
@@ -41,7 +69,7 @@ def test(*,
          bits_per_symbol,
          test_SNR_db,
          signal_power=1.0,
-         test_batch_size=10000,
+         test_batch_size=5000,
          ):
     integers = np.random.randint(low=0, high=2 ** bits_per_symbol, size=[test_batch_size])
     preamble = integers_to_symbols(integers, bits_per_symbol=bits_per_symbol)
@@ -61,7 +89,7 @@ def test(*,
     _c_signal_backward_noisy = add_awgn(_c_signal_backward, SNR_db=test_SNR_db, signal_power=signal_power)
     _preamble_roundtrip = B.demod.demodulate(_c_signal_backward_noisy)
 
-    return float(get_ber(preamble, preamble_roundtrip)) + float(get_ber(preamble, _preamble_roundtrip))
+    return (float(get_ber(preamble, preamble_roundtrip)) + float(get_ber(preamble, _preamble_roundtrip)))/2.0
 
 
 def main():
@@ -93,6 +121,7 @@ def main():
             "lambda_center": args.lambda_center,
             "lambda_l1": args.lambda_l1_mod,
             "lambda_l2": args.lambda_l2_mod,
+            "lambda_baseline": args.lambda_baseline,
             "restrict_energy": 1,
             "max_amplitude": 1.0,
             "optimizer": "adam"
@@ -118,7 +147,7 @@ def main():
     last = False
     total_batches_sent = 0
     test_SNR_dbs = get_test_SNR_dbs()[args.bits_per_symbol]['ber_roundtrip']
-    test_SNR = test_SNR_dbs[5]
+    test_SNR = test_SNR_dbs[4]
     batches_interval = 0
     while total_batches_sent <= args.total_batches:
         if batches_interval == 0 or batches_interval - args.log_interval >= 0 or total_batches_sent == args.total_batches:
@@ -135,6 +164,11 @@ def main():
             hpt.report_hyperparameter_tuning_metric(
                 hyperparameter_metric_tag='roundtrip_ber',
                 metric_value=roundtrip_ber,
+                global_step=args.batch_size * total_batches_sent
+            )
+            hpt.report_hyperparameter_tuning_metric(
+                hyperparameter_metric_tag='db_off',
+                metric_value=test_SNR-ber_to_snr(roundtrip_ber),
                 global_step=args.batch_size * total_batches_sent
             )
             # hpt.report_hyperparameter_tuning_metric(
@@ -199,6 +233,12 @@ def add_mod_args(parser):
         metavar='L',
         help='Weight penalizing un-centered constellations (default: 0.0)')
     parser.add_argument(
+        '--lambda-baseline',
+        type=float,
+        default=0.0,
+        metavar='L',
+        help='Weight adding a baseline (default: 0.0)')
+    parser.add_argument(
         '--lambda-l1-mod',
         type=float,
         default=0.0,
@@ -231,7 +271,7 @@ def add_demod_args(parser):
     parser.add_argument(
         '--epochs',
         type=int,
-        default=5,
+        default=2,
         metavar='N',
         help='Num epochs (default: 5)')
     parser.add_argument(
@@ -276,13 +316,13 @@ def add_experiment_args(parser):
     parser.add_argument(
         '--log-interval',
         type=int,
-        default=250,
+        default=600,
         metavar='N',
         help='how many batches to wait before logging training status (default: 250)')
     parser.add_argument(
         '--total-batches',
         type=int,
-        default=10000,
+        default=20000,
         metavar='N',
         help='how many batches to train for (default: 10000)')
     parser.add_argument(

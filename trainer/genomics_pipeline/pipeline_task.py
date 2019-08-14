@@ -11,10 +11,22 @@ TRAINER_DIR = os.path.dirname(os.path.realpath(__file__))
 ECHO_DIR = os.path.dirname(TRAINER_DIR)
 sys.path.append(ECHO_DIR)
 from models.agent import Agent
+from google.cloud import storage
 
-RESULT_FILE = os.environ['RESULT_FILE']
-INDEX = os.environ['INDEX']
+def save_file(job_dir, file):
+    # Example: job_dir = 'gs://BUCKET_ID/hptuning_sonar/1'
+    job_dir = job_dir.replace('gs://', '')  # Remove the 'gs://'
+    # Get the Bucket Id
+    bucket_id = job_dir.split('/')[0]
+    # Get the path. Example: 'hptuning_sonar/1'
+    bucket_path = job_dir.lstrip('{}/'.format(bucket_id))
 
+    # Upload the model to GCS
+    bucket = storage.Client().bucket(bucket_id)
+    blob = bucket.blob('{}/{}'.format(
+        bucket_path,
+        file))
+    blob.upload_from_filename(file)
 
 
 
@@ -34,7 +46,7 @@ def prepare_environment(params):
     sys.path.append(ECHO_DIR)
 
 
-def run(params):
+def run(params, task_id, job_dir):
     keys = params.keys()
     agent_keys = [key for key in keys if 'agent' in key]
     meta = params.pop('__meta__')
@@ -62,14 +74,21 @@ def run(params):
                        'protocol': protocol,
                        'trial_num': trial_num,
                        **info})
-    np.save(RESULT_FILE, results)
+    result_file = '%i.npy'%task_id
+    np.save(result_file, results)
+    save_file(job_dir, result_file)
 
 
-def main():
-    with open('%s/work/%s.json'%(TRAINER_DIR, INDEX), 'r') as file:
+def main(args):
+    with open('%s/work/%s.json'%(TRAINER_DIR, args.task_id), 'r') as file:
         params = json.load(file)
-    run(params)
+    run(params, args.task_id, args.job_dir)
 
 
 if __name__ == '__main__':
-    main()
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--task-id', type=int)
+    parser.add_argument('--job-dir', type=str)
+    args = parser.parse_args()
+    main(args)

@@ -9,16 +9,13 @@ sys.path.append("%s/../utils" % ANALYSIS_DIR)
 sys.path.append("%s/../" % ANALYSIS_DIR)
 
 
-def process_experiment(experiment_dir):
-    print("experiment dir: ", experiment_dir)
-    results_dir = os.path.join(experiment_dir, "results")
+def process_experiment(results_dir):
     if not os.path.isdir(results_dir):
         return
     # list all files in results
     experiment_results = {
     }
     trials = [f[:-4] for f in os.listdir(results_dir) if ".npy" in f]
-    num_logs = 0
     for trial in trials:
         result_npy = os.path.join(results_dir, trial + ".npy")
         # trial_json = os.path.join(results_dir, trial + ".json")
@@ -57,20 +54,20 @@ def process_experiment(experiment_dir):
         training_SNR_dict['symbols_sent'] = symbols_sent
         # Below handles early stopping
         t5off = training_SNR_dict['5db_off']
-        t3off = training_SNR_dict['5db_off']
+        t3off = training_SNR_dict['3db_off']
         for j in range(len(t5off), training_SNR_dict['max_num_logs']):
             t5off = np.append(t5off, t5off[-1])
             t3off = np.append(t3off, t3off[-1])
         training_SNR_dict['5db_off'] = t5off + db5off
         training_SNR_dict['3db_off'] = t3off + db3off
-
-        trial_final_bers = result_array[-1]['test_bers']
+        
+        trial_final_bers = np.array(result_array[-1]['test_bers'])
+        trial_final_bers = trial_final_bers[..., np.newaxis]
         if training_SNR_dict.get('final_bers', None) is None:
-            training_SNR_dict['final_bers'] = trial_final_bers[..., np.newaxis]
+            training_SNR_dict['final_bers'] = trial_final_bers
         else:
             training_SNR_dict['final_bers'] = np.append(training_SNR_dict['final_bers'], trial_final_bers, axis=1)
         experiment_results[train_SNR_db] = training_SNR_dict
-
     for k in experiment_results.keys():
         training_SNR_dict = experiment_results[k]
         num_trials = training_SNR_dict['num_trials']
@@ -80,25 +77,25 @@ def process_experiment(experiment_dir):
         training_SNR_dict['BER_low'] = sorted_bers[:, num_trials * 10 // 100]
         training_SNR_dict['BER_mid'] = sorted_bers[:, num_trials // 2]
         training_SNR_dict['BER_high'] = sorted_bers[:, num_trials * 90 // 100]
-
     return experiment_results
 
+def main():
+    # #Job file
+    # job_dir = '%s/../experiments/echo_shared_preamble/QAM16_poly_vs_cluster'%D
+    os.makedirs(os.path.join(ANALYSIS_DIR, "results"), exist_ok=True)
+    for protocol in ['private_preamble']:  # 'loss_passing', 'echo_private_preamble','echo_shared_preamble']:
+        base_path = "%s/experiments/%s" % (os.path.dirname(ANALYSIS_DIR), protocol)
+        dir_list = next(os.walk(base_path))[1]
+        print(base_path)
+        # print(job_dir_list)
+        for folder in dir_list:
+            if 'QPSK' in folder:
+                experiment_dir = os.path.join(base_path, folder)
+                results_dir = os.path.join(experiment_dir, "results")
+                experiment_results = process_experiment(results_dir)
+                result_file = os.path.join(ANALYSIS_DIR, "results", folder + ".npy")
+                np.save(result_file, experiment_results)
 
-# #Job file
-# job_dir = '%s/../experiments/echo_shared_preamble/QAM16_poly_vs_cluster'%D
-os.makedirs(os.path.join(ANALYSIS_DIR, "results"), exist_ok=True)
-for protocol in ['private_preamble']:  # 'loss_passing', 'echo_private_preamble','echo_shared_preamble']:
-    base_path = "%s/experiments/%s" % (os.path.dirname(ANALYSIS_DIR), protocol)
-    dir_list = next(os.walk(base_path))[1]
-    print(base_path)
-    # print(job_dir_list)
-    for folder in dir_list:
-        if 'QPSK' in folder:
-            experiment_dir = os.path.join(base_path, folder)
-            experiment_results = process_experiment(experiment_dir)
-            result_file = os.path.join(ANALYSIS_DIR, "results", folder + ".npy")
-            np.save(result_file, experiment_results)
-
-    #                 break
-    #         print(job_dir_to_filename("%s/../experiments/gradient_passing/"%D+ job_dir))
-    #                 plot_using_results(job_dir)
+        #                 break
+        #         print(job_dir_to_filename("%s/../experiments/gradient_passing/"%D+ job_dir))
+        #                 plot_using_results(job_dir)

@@ -10,9 +10,9 @@ if [[ $ECHO_DIR != */echo ]]; then
 fi;
 
 MODEL=neural
-PROTOCOL=shared_preamble
-MOD_ORDER=QAM16
-mod_order=qam16
+PROTOCOL=private_preamble
+MOD_ORDER=QPSK
+mod_order=qpsk
 #EXPNAME=QPSK_${MODEL}_hyperparam_search
 python experiments/create_experiment_params.py \
     --protocol ${PROTOCOL} \
@@ -24,6 +24,7 @@ python experiments/create_experiment_params.py \
     --train_snr_db mid \
     --num_trials 1 \
     --early_stopping \
+#    --verbose
 #    --early_stopping \
     #--verbose \
     #--delete <--- this won't run anything it will just clean up the experiment folder
