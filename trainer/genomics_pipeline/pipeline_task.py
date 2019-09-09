@@ -7,11 +7,14 @@ import random
 from importlib import import_module
 import numpy as np
 import torch
-TRAINER_DIR = os.path.dirname(os.path.realpath(__file__))
+TRAINER_DIR = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 ECHO_DIR = os.path.dirname(TRAINER_DIR)
 sys.path.append(ECHO_DIR)
 from models.agent import Agent
 from google.cloud import storage
+
+
+
 
 def save_file(job_dir, file):
     # Example: job_dir = 'gs://BUCKET_ID/hptuning_sonar/1'
@@ -46,7 +49,7 @@ def prepare_environment(params):
     sys.path.append(ECHO_DIR)
 
 
-def run(params, task_id, job_dir):
+def run(params, task_id, job_dir, name=None):
     keys = params.keys()
     agent_keys = [key for key in keys if 'agent' in key]
     meta = params.pop('__meta__')
@@ -74,21 +77,37 @@ def run(params, task_id, job_dir):
                        'protocol': protocol,
                        'trial_num': trial_num,
                        **info})
-    result_file = '%i.npy'%task_id
+    if name is not None:
+        result_file = '%s.npy' % name
+    else:
+        result_file = '%i.npy' % task_id
     np.save(result_file, results)
     save_file(job_dir, result_file)
 
 
 def main(args):
-    with open('%s/work/%s.json'%(TRAINER_DIR, args.task_id), 'r') as file:
+    prefix = '%i_poly_vs_%s'%(args.task_id, args.exp_id)
+    with os.scandir('%s/work/'%TRAINER_DIR) as it:
+        print(prefix)
+        for entry in it:
+            if prefix == entry.name[:len(prefix)]:
+                job_json = '%s/work/%s'%(TRAINER_DIR, entry.name)
+                break
+
+    with open(job_json, 'r') as file:
         params = json.load(file)
-    run(params, args.task_id, args.job_dir)
+        run(params, args.task_id, args.job_dir, name=prefix)
+
+
+
 
 
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--task-id', type=int)
+    parser.add_argument('--exp-id', type=str)
     parser.add_argument('--job-dir', type=str)
     args = parser.parse_args()
     main(args)
+

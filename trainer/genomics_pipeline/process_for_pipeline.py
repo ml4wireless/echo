@@ -1,5 +1,8 @@
 import csv, os, json
-
+import string
+import random
+def random_generator(size=6, chars=string.ascii_uppercase):
+    return ''.join(random.choice(chars) for x in range(size))
 
 def rm_mkdir(dir):
     if os.path.isdir(dir):
@@ -9,22 +12,23 @@ def rm_mkdir(dir):
     return
 
 
-JOB_DIR = os.environ['JOB_DIR']
-TRAINER_DIR = os.path.dirname(os.path.realpath(__file__))
-ECHO_DIR = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+# JOB_DIR = os.environ['JOB_DIR']???
+TRAINER_DIR = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+ECHO_DIR = os.path.dirname(TRAINER_DIR)
 WORK_DIR = os.path.join(TRAINER_DIR, 'work')
 
-# rm_mkdir(WORK_DIR)
 print(ECHO_DIR)
+# os.makedirs(WORK_DIR)
+jobs = []
+for j, s in enumerate(['fneural','fpoly']):
+    with open('%s/experiments/private_preamble/QPSK_poly_vs_clone_custom_%s/jobs.json' % (ECHO_DIR, s)) as jfile:
+        jobs = json.load(jfile)
 
-with open('%s/experiments/jobs.json' % ECHO_DIR) as jfile:
-    jobs = json.load(jfile)
+    NUM_JOBS = len(jobs)
 
-NUM_JOBS = len(jobs)
-
-for i, job in enumerate(jobs):
-    with open('%s/%i.json' % (WORK_DIR, i), 'w') as jf:
-        json.dump(job, jf)
+    for i, job in enumerate(jobs):
+        with open('%s/%i_poly_vs_clone_%i_%s.json' % (WORK_DIR, i, j, random_generator()), 'w') as jf:
+            json.dump(job, jf)
 
 #THIS PART IS ONLY NEEDED IF YOU ARE RUNNING A PIPELINE AND NOT JUST A BUNCH OF OPERATIONS
 #FOR DSUBBBB tool... not as fast :(

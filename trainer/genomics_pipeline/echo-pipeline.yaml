@@ -2,10 +2,12 @@ name: echo-pipeline
 inputParameters:
   - name: TASK_ID
     defaultValue: "0"
+  - name: EXP_ID
+    defaultValue: "clone_1"
   - name: JOB_DIR
     defaultValue: "gs://sahai_echo/echo"
 docker:
   imageName: gcr.io/torch-echo/echo_htc_container:latest
-  cmd: "python ./trainer/pipeline_task.py --task-id ${TASK_ID} --job-dir ${JOB_DIR}"
+  cmd: "python ./trainer/genomics_pipeline/pipeline_task.py --task-id ${TASK_ID} --exp-id ${EXP_ID} --job-dir ${JOB_DIR}"
 resources:
   preemptible: true

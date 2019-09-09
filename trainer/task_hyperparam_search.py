@@ -14,6 +14,7 @@ from utils.util_data import add_cartesian_awgn as add_awgn
 # from protocols.shared_preamble.trainer import trainer
 from protocols.private_preamble.trainer import trainer
 
+
 BER_TO_SNR = np.array([[1.00e-03, 1.04e+01],
                        [1.10e-02, 8.20e+00],
                        [2.10e-02, 7.40e+00],
@@ -40,7 +41,7 @@ def ber_to_snr(ber):
         return 0
     bers = BER_TO_SNR[:, 0]
     index = np.argmin(np.abs(bers - ber))
-    return bers[index][1]  # here is your result
+    return BER_TO_SNR[index, 1]  # here is your result
 
 BPS_TO_MOD_ORDER = {
     2: 'QPSK',
@@ -138,6 +139,22 @@ def main():
         },
     }
     print(agent_dict)
+
+    neural_dict = {
+        "bits_per_symbol": args.bits_per_symbol,
+        "optimizer": "adam",
+        "max_amplitude": 1.0,
+        "demod_model": "neural",
+        "demod_params": {"activation_fn_hidden": "tanh", "cross_entropy_weight": 1, "hidden_layers": [50],
+                         "loss_type": "l2", "stepsize_cross_entropy": 0.0010505808840839148,
+                         "bits_per_symbol": 2, "max_amplitude": 1, "optimizer": "adam"},
+        "max_amplitude": 1, "mod_model": "neural",
+        "mod_params": {"activation_fn_hidden": "tanh", "hidden_layers": [50], "initial_std": 0.2,
+                       "lambda_center": 0, "lambda_p": 0, "lambda_prob": 1e-10, "max_std": 100,
+                       "min_std": 0.001, "restrict_energy": 1, "stepsize_mu": 0.0010887608407154701,
+                       "stepsize_sigma": 0.00020228467654117958, "bits_per_symbol": 2, "max_amplitude": 1,
+                       "optimizer": "adam"}, "optimizer": "adam"
+    }
 
     agent1 = Agent(agent_dict=agent_dict, name='Poly')
     agent2 = Agent(agent_dict=agent_dict, name='Clone')

@@ -1,0 +1,6314 @@
+{
+  "completedTrialCount": "390",
+  "trials": [
+    {
+      "trialId": "69",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "293",
+        "stepsize-sigma": "0.00049169237243806634",
+        "stepsize-cross-entropy": "0.024786375927725313",
+        "lambda-baseline": "0.00010108045374392304",
+        "lambda-center": "0.084624467814218632",
+        "stepsize-mu": "0.28756108373313105"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0098
+      }
+    },
+    {
+      "trialId": "231",
+      "hyperparameters": {
+        "stepsize-mu": "0.3601362649986683",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.0013261378779347928",
+        "seed": "478",
+        "stepsize-cross-entropy": "0.033640800802639807",
+        "lambda-baseline": "0.0012832187945603234",
+        "lambda-center": "0.85795217062910045"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01075
+      }
+    },
+    {
+      "trialId": "272",
+      "hyperparameters": {
+        "stepsize-sigma": "0.0015597245468176488",
+        "seed": "229",
+        "stepsize-cross-entropy": "0.0022984448440123936",
+        "lambda-baseline": "0.0010997028493252231",
+        "lambda-center": "0.44646641154006372",
+        "stepsize-mu": "0.3106153852153194",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01125
+      }
+    },
+    {
+      "trialId": "61",
+      "hyperparameters": {
+        "lambda-center": "0.0037496495182702842",
+        "lambda-baseline": "0.00015101097299451764",
+        "stepsize-mu": "0.0258504269958581",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.00030135007832274904",
+        "seed": "853",
+        "stepsize-cross-entropy": "0.00033059181499954358"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.011300000000000001
+      }
+    },
+    {
+      "trialId": "370",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.042437670842878278",
+        "lambda-baseline": "0.061154211249875357",
+        "lambda-center": "0.56071576941266776",
+        "stepsize-mu": "0.04528431125748892",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0019859113419366955",
+        "seed": "70"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0114
+      }
+    },
+    {
+      "trialId": "183",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.014332054147998692",
+        "lambda-center": "0.72249576392713533",
+        "lambda-baseline": "0.0013147213365866624",
+        "stepsize-mu": "0.406958100387252",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.00091511008317280047",
+        "seed": "721"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0115
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "288",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "seed": "245",
+        "stepsize-sigma": "0.0010585453337343665",
+        "stepsize-cross-entropy": "0.032386148096644918",
+        "lambda-center": "0.37746677816858076",
+        "lambda-baseline": "0.0014929662264801689",
+        "stepsize-mu": "0.34534044804594877"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0116
+      }
+    },
+    {
+      "trialId": "221",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.010353728231060203",
+        "lambda-center": "0.45551379925052221",
+        "lambda-baseline": "0.0010793568628287521",
+        "stepsize-mu": "0.34320297629863827",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0020238885180255128",
+        "seed": "682"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01165
+      }
+    },
+    {
+      "trialId": "335",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0016849614854286797",
+        "seed": "616",
+        "stepsize-cross-entropy": "0.027006748914309004",
+        "lambda-baseline": "0.0011560107094109092",
+        "lambda-center": "0.0033452592823788444",
+        "stepsize-mu": "0.42247661360258321"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.012
+      }
+    },
+    {
+      "trialId": "358",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.0042172969486935072",
+        "seed": "333",
+        "stepsize-cross-entropy": "0.04117449287801072",
+        "lambda-center": "0.77796472557882546",
+        "lambda-baseline": "0.00031542463909298569",
+        "stepsize-mu": "0.47896657163458922"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01205
+      }
+    },
+    {
+      "trialId": "319",
+      "hyperparameters": {
+        "seed": "519",
+        "stepsize-sigma": "0.0029138802658778555",
+        "stepsize-cross-entropy": "0.007385548154638392",
+        "lambda-center": "0.020693227612619509",
+        "lambda-baseline": "0.0014387216147970403",
+        "stepsize-mu": "0.27396056701423971",
+        "degree-polynomial": "3"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.012199999999999999
+      }
+    },
+    {
+      "trialId": "111",
+      "hyperparameters": {
+        "lambda-baseline": "0.0001308349596459464",
+        "lambda-center": "0.05334083496947644",
+        "stepsize-mu": "0.23449714478137273",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0037312874174832062",
+        "seed": "629",
+        "stepsize-cross-entropy": "0.038017191784038187"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01235
+      }
+    },
+    {
+      "trialId": "241",
+      "hyperparameters": {
+        "stepsize-mu": "0.37245714267796615",
+        "degree-polynomial": "3",
+        "seed": "386",
+        "stepsize-sigma": "0.0014346057710201471",
+        "stepsize-cross-entropy": "0.024106638346153182",
+        "lambda-center": "0.17739976600569163",
+        "lambda-baseline": "0.0010438576116548926"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01245
+      }
+    },
+    {
+      "trialId": "187",
+      "hyperparameters": {
+        "stepsize-sigma": "0.00058458650325797674",
+        "seed": "87",
+        "stepsize-cross-entropy": "0.015770018756378883",
+        "lambda-baseline": "0.0010796365653808996",
+        "lambda-center": "0.012279315870130491",
+        "stepsize-mu": "0.3875118265889001",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.012549999999999999
+      }
+    },
+    {
+      "trialId": "96",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.00049692154928549458",
+        "seed": "552",
+        "stepsize-cross-entropy": "0.03092354919478",
+        "lambda-center": "0.029237549376680678",
+        "lambda-baseline": "0.00303632782020098",
+        "stepsize-mu": "0.2703044114733591"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.012650000000000002
+      }
+    },
+    {
+      "trialId": "299",
+      "hyperparameters": {
+        "stepsize-sigma": "0.00064905306476523725",
+        "seed": "287",
+        "stepsize-cross-entropy": "0.055171087951693211",
+        "lambda-baseline": "0.0014420942388028511",
+        "lambda-center": "0.0014387818970729416",
+        "stepsize-mu": "0.44194180070810335",
+        "degree-polynomial": "3"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01285
+      }
+    },
+    {
+      "trialId": "389",
+      "hyperparameters": {
+        "stepsize-sigma": "0.00082011492987095079",
+        "seed": "367",
+        "stepsize-cross-entropy": "0.085077141009464022",
+        "lambda-center": "0.041604679108101152",
+        "lambda-baseline": "0.0010386357507712498",
+        "stepsize-mu": "0.22552444110445857",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01295
+      }
+    },
+    {
+      "trialId": "167",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.017083150237507321",
+        "lambda-center": "0.81357561639745468",
+        "lambda-baseline": "0.0012952379481391233",
+        "stepsize-mu": "0.38233429754743448",
+        "degree-polynomial": "2",
+        "seed": "753",
+        "stepsize-sigma": "0.0039077830578819308"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.013000000000000001
+      }
+    },
+    {
+      "trialId": "371",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.062353703680726118",
+        "lambda-center": "0.047402479515240931",
+        "lambda-baseline": "0.00011010013409265598",
+        "stepsize-mu": "0.10070407245949546",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0014833753334332301",
+        "seed": "831"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0133
+      }
+    },
+    {
+      "trialId": "257",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.0009348781808944485",
+        "seed": "677",
+        "stepsize-cross-entropy": "0.00057345632672748379",
+        "lambda-baseline": "0.0019495523339068744",
+        "lambda-center": "0.0057145215711766183",
+        "stepsize-mu": "0.39071319096720381"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01335
+      }
+    },
+    {
+      "trialId": "55",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "974",
+        "stepsize-sigma": "0.0078483737009987856",
+        "stepsize-cross-entropy": "0.00010000000005219805",
+        "lambda-baseline": "0.00030112239704543182",
+        "lambda-center": "0.0019223906665339259",
+        "stepsize-mu": "0.031996133468674359"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.013399999999999999
+      }
+    },
+    {
+      "trialId": "379",
+      "hyperparameters": {
+        "stepsize-mu": "0.24968747879765568",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0016167587996791597",
+        "seed": "108",
+        "stepsize-cross-entropy": "0.0044673855925402312",
+        "lambda-baseline": "0.0010686521926181163",
+        "lambda-center": "0.022455653496689251"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01345
+      }
+    },
+    {
+      "trialId": "230",
+      "hyperparameters": {
+        "lambda-baseline": "0.011295617178278882",
+        "lambda-center": "0.011563754868516865",
+        "stepsize-mu": "0.22474529138431248",
+        "degree-polynomial": "2",
+        "seed": "684",
+        "stepsize-sigma": "0.0022069637232034465",
+        "stepsize-cross-entropy": "0.033874899599189358"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01355
+      }
+    },
+    {
+      "trialId": "181",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0035991071232595118",
+        "seed": "924",
+        "stepsize-cross-entropy": "0.021810127020992526",
+        "lambda-center": "0.1411805184172775",
+        "lambda-baseline": "0.0017931418982079796",
+        "stepsize-mu": "0.40341568035203"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.013600000000000001
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "180",
+      "hyperparameters": {
+        "lambda-center": "0.99233384860130935",
+        "lambda-baseline": "0.00096364478040819916",
+        "stepsize-mu": "0.35781732706537134",
+        "degree-polynomial": "2",
+        "seed": "351",
+        "stepsize-sigma": "0.0049021362175204978",
+        "stepsize-cross-entropy": "0.016890131451765766"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0137
+      }
+    },
+    {
+      "trialId": "283",
+      "hyperparameters": {
+        "seed": "608",
+        "stepsize-sigma": "0.0017068427884421053",
+        "stepsize-cross-entropy": "0.0028891492447151658",
+        "lambda-center": "0.046476246778702469",
+        "lambda-baseline": "0.00012801471470742863",
+        "stepsize-mu": "0.27921532646480829",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0138
+      }
+    },
+    {
+      "trialId": "141",
+      "hyperparameters": {
+        "seed": "49",
+        "stepsize-sigma": "0.0011870352144903312",
+        "stepsize-cross-entropy": "0.00139835166697515",
+        "lambda-baseline": "0.00010221317966839348",
+        "lambda-center": "0.038904256558773484",
+        "stepsize-mu": "0.23010274382203005",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.013850000000000001
+      }
+    },
+    {
+      "trialId": "126",
+      "hyperparameters": {
+        "stepsize-mu": "0.29972583211904796",
+        "degree-polynomial": "2",
+        "seed": "18",
+        "stepsize-sigma": "1.3674910148126698e-05",
+        "stepsize-cross-entropy": "0.02565143750983798",
+        "lambda-baseline": "0.0010328430655800603",
+        "lambda-center": "0.030813637566025419"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.014
+      }
+    },
+    {
+      "trialId": "317",
+      "hyperparameters": {
+        "lambda-center": "0.29773652566315445",
+        "lambda-baseline": "0.0011162876569172754",
+        "stepsize-mu": "0.49660568468823318",
+        "degree-polynomial": "4",
+        "seed": "147",
+        "stepsize-sigma": "0.0093319456127079238",
+        "stepsize-cross-entropy": "0.13248279557443224"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0141
+      }
+    },
+    {
+      "trialId": "71",
+      "hyperparameters": {
+        "seed": "898",
+        "stepsize-sigma": "0.004142036990864819",
+        "stepsize-cross-entropy": "0.066429854872739447",
+        "lambda-center": "0.093416325867033745",
+        "lambda-baseline": "0.00010925030624108997",
+        "stepsize-mu": "0.10878837573013296",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.014249999999999999
+      }
+    },
+    {
+      "trialId": "85",
+      "hyperparameters": {
+        "lambda-center": "0.0973875365025017",
+        "lambda-baseline": "0.00010008974569702725",
+        "stepsize-mu": "0.12153872546263442",
+        "degree-polynomial": "2",
+        "seed": "648",
+        "stepsize-sigma": "0.0017298870935730523",
+        "stepsize-cross-entropy": "0.08745711844656473"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01425
+      }
+    },
+    {
+      "trialId": "255",
+      "hyperparameters": {
+        "stepsize-sigma": "0.003176903724444268",
+        "seed": "913",
+        "stepsize-cross-entropy": "0.01740854839675068",
+        "lambda-center": "0.007740771026546721",
+        "lambda-baseline": "0.00077746657305035488",
+        "stepsize-mu": "0.368634883898299",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0143
+      }
+    },
+    {
+      "trialId": "287",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.013390263107036272",
+        "seed": "476",
+        "stepsize-cross-entropy": "0.041229688171978224",
+        "lambda-center": "0.38762937508565681",
+        "lambda-baseline": "0.017020080426963312",
+        "stepsize-mu": "0.21610179050637421"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01435
+      }
+    },
+    {
+      "trialId": "270",
+      "hyperparameters": {
+        "stepsize-sigma": "0.018726028534867951",
+        "seed": "556",
+        "stepsize-cross-entropy": "0.015600236641010038",
+        "lambda-baseline": "0.0078954521529226614",
+        "lambda-center": "0.89522342067836325",
+        "stepsize-mu": "0.13904882947848132",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01435
+      }
+    },
+    {
+      "trialId": "280",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "788",
+        "stepsize-sigma": "0.00039759453458934027",
+        "stepsize-cross-entropy": "0.042940223008087787",
+        "lambda-center": "0.011634577191139346",
+        "lambda-baseline": "0.00010504116306657828",
+        "stepsize-mu": "0.26388595709769791"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0144
+      }
+    },
+    {
+      "trialId": "293",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.091347038396882574",
+        "lambda-center": "0.064771919966227234",
+        "lambda-baseline": "0.0008698382400970392",
+        "stepsize-mu": "0.4534593397710554",
+        "degree-polynomial": "2",
+        "seed": "554",
+        "stepsize-sigma": "0.0035362862672777056"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.014499999999999999
+      }
+    },
+    {
+      "trialId": "315",
+      "hyperparameters": {
+        "stepsize-sigma": "0.0049711115111856878",
+        "seed": "494",
+        "stepsize-cross-entropy": "0.090119608982734217",
+        "lambda-center": "0.02045069113244935",
+        "lambda-baseline": "0.001381339275312069",
+        "stepsize-mu": "0.47178934411174567",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0145
+      }
+    },
+    {
+      "trialId": "173",
+      "hyperparameters": {
+        "stepsize-mu": "0.47048626521708986",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.00064986249153523219",
+        "seed": "499",
+        "stepsize-cross-entropy": "0.069772580195702913",
+        "lambda-center": "0.75552322272035655",
+        "lambda-baseline": "0.001181505681690911"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0146
+      }
+    },
+    {
+      "trialId": "264",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0072215008006548233",
+        "lambda-baseline": "0.001615168855489388",
+        "lambda-center": "0.0086464696097135543",
+        "stepsize-mu": "0.46086654025527174",
+        "degree-polynomial": "4",
+        "seed": "142",
+        "stepsize-sigma": "0.0011818830597185358"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01465
+      }
+    },
+    {
+      "trialId": "290",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.036615883088057327",
+        "lambda-baseline": "0.00030439092096380617",
+        "lambda-center": "0.52112572178731087",
+        "stepsize-mu": "0.11695924075650704",
+        "degree-polynomial": "2",
+        "seed": "528",
+        "stepsize-sigma": "0.013345393610019256"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01485
+      }
+    },
+    {
+      "trialId": "364",
+      "hyperparameters": {
+        "stepsize-mu": "0.49343996221101277",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0046557875669257917",
+        "seed": "468",
+        "stepsize-cross-entropy": "0.13148691310367969",
+        "lambda-center": "0.040827270215561824",
+        "lambda-baseline": "0.0013884505241770972"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01495
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "127",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.0019094036817624278",
+        "seed": "610",
+        "stepsize-cross-entropy": "0.078440735554061225",
+        "lambda-baseline": "0.00016244984918207679",
+        "lambda-center": "0.21823103898617327",
+        "stepsize-mu": "0.39750190312288597"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01545
+      }
+    },
+    {
+      "trialId": "237",
+      "hyperparameters": {
+        "stepsize-mu": "0.47903965356207157",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.0012217698188895078",
+        "seed": "19",
+        "stepsize-cross-entropy": "0.0094472234353177",
+        "lambda-baseline": "0.0011687727140596148",
+        "lambda-center": "0.023413701753690605"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01585
+      }
+    },
+    {
+      "trialId": "263",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0837338319437442",
+        "lambda-center": "0.1555668518797948",
+        "lambda-baseline": "0.00014069011147115786",
+        "stepsize-mu": "0.22760352364979503",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.00094629781164943659",
+        "seed": "727"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.016050000000000002
+      }
+    },
+    {
+      "trialId": "258",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.0035813966311774646",
+        "seed": "908",
+        "stepsize-cross-entropy": "0.063939999710059564",
+        "lambda-baseline": "0.0013189586178372992",
+        "lambda-center": "0.92337343606767064",
+        "stepsize-mu": "0.45961733146097161"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.016050000000000002
+      }
+    },
+    {
+      "trialId": "204",
+      "hyperparameters": {
+        "stepsize-mu": "0.3152597249590004",
+        "degree-polynomial": "2",
+        "seed": "250",
+        "stepsize-sigma": "0.0011740114473448233",
+        "stepsize-cross-entropy": "0.00017603415373914375",
+        "lambda-center": "0.055040952593408951",
+        "lambda-baseline": "0.010057122053328118"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01615
+      }
+    },
+    {
+      "trialId": "134",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.014931041698873264",
+        "lambda-center": "0.045013562889274016",
+        "lambda-baseline": "0.00078273134651859664",
+        "stepsize-mu": "0.33546477792614293",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "3.8830055469180734e-05",
+        "seed": "626"
+      },
+      "finalMetric": {
+        "trainingStep": "614400",
+        "objectiveValue": 0.0164
+      }
+    },
+    {
+      "trialId": "211",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.010109838310263793",
+        "lambda-baseline": "0.0015299683532385047",
+        "lambda-center": "0.22894698995039389",
+        "stepsize-mu": "0.4142220784486812",
+        "degree-polynomial": "2",
+        "seed": "795",
+        "stepsize-sigma": "0.0073347445697402921"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01645
+      }
+    },
+    {
+      "trialId": "200",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0886212578020555",
+        "lambda-baseline": "0.0002392199551619383",
+        "lambda-center": "0.1840154463699068",
+        "stepsize-mu": "0.46898344515300705",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.00059309818207587284",
+        "seed": "40"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01655
+      }
+    },
+    {
+      "trialId": "98",
+      "hyperparameters": {
+        "stepsize-sigma": "0.0027445243119367103",
+        "seed": "241",
+        "stepsize-cross-entropy": "0.00051300603635887651",
+        "lambda-baseline": "0.0067067855637538689",
+        "lambda-center": "0.049951607767618741",
+        "stepsize-mu": "0.32607903230029622",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0167
+      }
+    },
+    {
+      "trialId": "157",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0026402974561742327",
+        "seed": "721",
+        "stepsize-cross-entropy": "0.013923445862127719",
+        "lambda-center": "0.033015445424107434",
+        "lambda-baseline": "0.00020933638474808858",
+        "stepsize-mu": "0.31561299975822188"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01675
+      }
+    },
+    {
+      "trialId": "67",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "753",
+        "stepsize-sigma": "0.0018264473393760547",
+        "stepsize-cross-entropy": "0.061631310396468623",
+        "lambda-baseline": "0.00010180383973558249",
+        "lambda-center": "0.06831309867357295",
+        "stepsize-mu": "0.060045749876061205"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.016800000000000002
+      }
+    },
+    {
+      "trialId": "223",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0024772154842431036",
+        "seed": "534",
+        "stepsize-cross-entropy": "0.069834377500991224",
+        "lambda-center": "0.21574653953572218",
+        "lambda-baseline": "0.00011190176507342926",
+        "stepsize-mu": "0.2112304068411725"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.017050000000000003
+      }
+    },
+    {
+      "trialId": "131",
+      "hyperparameters": {
+        "lambda-center": "0.14975942573887507",
+        "lambda-baseline": "0.00011929100045804709",
+        "stepsize-mu": "0.1759161870085362",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0017285788561676241",
+        "seed": "568",
+        "stepsize-cross-entropy": "0.068405555479837427"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.017300000000000003
+      }
+    },
+    {
+      "trialId": "238",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "427",
+        "stepsize-sigma": "0.0010696942630551039",
+        "stepsize-cross-entropy": "0.0192741130886853",
+        "lambda-center": "0.0087690946559506131",
+        "lambda-baseline": "0.00013532136155186108",
+        "stepsize-mu": "0.30673224854463"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0174
+      }
+    },
+    {
+      "trialId": "366",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0079734215471144888",
+        "seed": "249",
+        "stepsize-cross-entropy": "0.011098373097092787",
+        "lambda-center": "0.92388946424183915",
+        "lambda-baseline": "0.00024823138669668879",
+        "stepsize-mu": "0.47732119241777693"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01745
+      }
+    },
+    {
+      "trialId": "380",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "519",
+        "stepsize-sigma": "0.004485466446095961",
+        "stepsize-cross-entropy": "0.15884505215401418",
+        "lambda-center": "0.098360346677096644",
+        "lambda-baseline": "0.00091932687139690975",
+        "stepsize-mu": "0.4479279543346239"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01765
+      }
+    },
+    {
+      "trialId": "149",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.015889592450515303",
+        "lambda-center": "0.036466636494580817",
+        "lambda-baseline": "0.001813537897395658",
+        "stepsize-mu": "0.34630116905481656",
+        "degree-polynomial": "2",
+        "seed": "456",
+        "stepsize-sigma": "0.0035027780905940286"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01765
+      }
+    },
+    {
+      "trialId": "90",
+      "hyperparameters": {
+        "seed": "777",
+        "stepsize-sigma": "0.004845534100964311",
+        "stepsize-cross-entropy": "0.072997367112552766",
+        "lambda-baseline": "0.00010363617683803031",
+        "lambda-center": "0.075820669689000184",
+        "stepsize-mu": "0.13567410894788556",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01785
+      }
+    },
+    {
+      "trialId": "368",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "786",
+        "stepsize-sigma": "0.0021418360322318824",
+        "stepsize-cross-entropy": "0.0632974930386269",
+        "lambda-baseline": "0.00012196851909585107",
+        "lambda-center": "0.1799414724166836",
+        "stepsize-mu": "0.17766171507849815"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01795
+      }
+    },
+    {
+      "trialId": "132",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.075201660364220616",
+        "lambda-baseline": "0.00010061235405573992",
+        "lambda-center": "0.092367902291682971",
+        "stepsize-mu": "0.10767165479453294",
+        "degree-polynomial": "2",
+        "seed": "871",
+        "stepsize-sigma": "0.0060311352961683745"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01795
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "177",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0085076290671070517",
+        "lambda-baseline": "0.0011520456534933555",
+        "lambda-center": "0.18808082433413392",
+        "stepsize-mu": "0.12844268072055184",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0035926786270513026",
+        "seed": "728"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.018099999999999998
+      }
+    },
+    {
+      "trialId": "273",
+      "hyperparameters": {
+        "stepsize-mu": "0.3174146045427238",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0011690434111471539",
+        "seed": "926",
+        "stepsize-cross-entropy": "0.0034116649843876383",
+        "lambda-center": "0.039261995484297409",
+        "lambda-baseline": "0.00011305277211147354"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0182
+      }
+    },
+    {
+      "trialId": "252",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.059488954572923733",
+        "lambda-baseline": "0.00017525725976905282",
+        "lambda-center": "0.2062671596755094",
+        "stepsize-mu": "0.42038142339202583",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.0012387248841862521",
+        "seed": "352"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0183
+      }
+    },
+    {
+      "trialId": "137",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0031156815655811756",
+        "seed": "857",
+        "stepsize-cross-entropy": "0.016613468350319703",
+        "lambda-baseline": "0.0001972786556320206",
+        "lambda-center": "0.044898972241190292",
+        "stepsize-mu": "0.2488109273630133"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0183
+      }
+    },
+    {
+      "trialId": "182",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.081097942041387733",
+        "lambda-center": "0.11690596469920293",
+        "lambda-baseline": "0.00094210447325198516",
+        "stepsize-mu": "0.45825716508520847",
+        "degree-polynomial": "2",
+        "seed": "935",
+        "stepsize-sigma": "0.0052002032802310905"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01865
+      }
+    },
+    {
+      "trialId": "95",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.07086311688200804",
+        "lambda-baseline": "0.00012752439422566744",
+        "lambda-center": "0.065287729564320052",
+        "stepsize-mu": "0.12249709134612002",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0015629777310171543",
+        "seed": "467"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01865
+      }
+    },
+    {
+      "trialId": "269",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "406",
+        "stepsize-sigma": "0.0023135742321459532",
+        "stepsize-cross-entropy": "0.0690117684605383",
+        "lambda-center": "0.010470173671154029",
+        "lambda-baseline": "0.016447985102466416",
+        "stepsize-mu": "0.22411278842611415"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0187
+      }
+    },
+    {
+      "trialId": "260",
+      "hyperparameters": {
+        "seed": "836",
+        "stepsize-sigma": "0.0042092734916236363",
+        "stepsize-cross-entropy": "0.057107689500814268",
+        "lambda-baseline": "0.030252077311615513",
+        "lambda-center": "0.0087002783936213236",
+        "stepsize-mu": "0.23141446356427867",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.018799999999999997
+      }
+    },
+    {
+      "trialId": "43",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.027077166919188132",
+        "lambda-baseline": "0.00021051694421709964",
+        "lambda-center": "0.070169197797581517",
+        "stepsize-mu": "0.068403098530926354",
+        "degree-polynomial": "2",
+        "seed": "971",
+        "stepsize-sigma": "0.0058381947614057966"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01935
+      }
+    },
+    {
+      "trialId": "138",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.04813010130952023",
+        "lambda-center": "0.033690781147512776",
+        "lambda-baseline": "0.0010245145907685021",
+        "stepsize-mu": "0.24806189857154221",
+        "degree-polynomial": "2",
+        "seed": "699",
+        "stepsize-sigma": "0.007068574536572083"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0194
+      }
+    },
+    {
+      "trialId": "367",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.017569476178271624",
+        "seed": "640",
+        "stepsize-cross-entropy": "0.0027316208907055351",
+        "lambda-center": "0.04008247990717579",
+        "lambda-baseline": "0.01437331633066005",
+        "stepsize-mu": "0.08762321794576515"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0199
+      }
+    },
+    {
+      "trialId": "153",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0344154155354667",
+        "lambda-center": "0.919268447082457",
+        "lambda-baseline": "0.00057436989050933611",
+        "stepsize-mu": "0.36296870901242329",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0066173573299745953",
+        "seed": "355"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0199
+      }
+    },
+    {
+      "trialId": "327",
+      "hyperparameters": {
+        "stepsize-mu": "0.39207354817350104",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0056088767669466716",
+        "seed": "957",
+        "stepsize-cross-entropy": "0.00018131003209750598",
+        "lambda-center": "0.010228328918836807",
+        "lambda-baseline": "0.0010072266860339611"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01995
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "303",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.052165605427654312",
+        "lambda-center": "0.82815944018944743",
+        "lambda-baseline": "0.00051481293207853015",
+        "stepsize-mu": "0.49439843192252553",
+        "degree-polynomial": "3",
+        "seed": "242",
+        "stepsize-sigma": "0.0046027148812143454"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.01995
+      }
+    },
+    {
+      "trialId": "340",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.00085459851558733566",
+        "lambda-center": "0.0052690756161450532",
+        "lambda-baseline": "0.0010260924950977921",
+        "stepsize-mu": "0.28243206095846585",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0040836587245189019",
+        "seed": "318"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02015
+      }
+    },
+    {
+      "trialId": "353",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "408",
+        "stepsize-sigma": "0.005529771173021703",
+        "stepsize-cross-entropy": "0.13871534747195691",
+        "lambda-center": "0.10773204634602963",
+        "lambda-baseline": "0.0017338229929393738",
+        "stepsize-mu": "0.494968305436038"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0203
+      }
+    },
+    {
+      "trialId": "125",
+      "hyperparameters": {
+        "stepsize-sigma": "0.012495775819559114",
+        "seed": "106",
+        "stepsize-cross-entropy": "0.086216859152809869",
+        "lambda-center": "0.18980050569154633",
+        "lambda-baseline": "0.00017572257852512842",
+        "stepsize-mu": "0.4661168207759675",
+        "degree-polynomial": "4"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0203
+      }
+    },
+    {
+      "trialId": "360",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.017174207924306972",
+        "seed": "989",
+        "stepsize-cross-entropy": "0.013333663379600385",
+        "lambda-baseline": "0.013463324196883121",
+        "lambda-center": "0.82021383612393683",
+        "stepsize-mu": "0.079185376453661971"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02035
+      }
+    },
+    {
+      "trialId": "239",
+      "hyperparameters": {
+        "stepsize-mu": "0.15229743224557646",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0059095983890975843",
+        "seed": "57",
+        "stepsize-cross-entropy": "0.067055743732584439",
+        "lambda-baseline": "0.010815439337638415",
+        "lambda-center": "0.0041885858883850286"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02045
+      }
+    },
+    {
+      "trialId": "159",
+      "hyperparameters": {
+        "stepsize-sigma": "0.010225876444608551",
+        "seed": "246",
+        "stepsize-cross-entropy": "0.0081174152373490079",
+        "lambda-baseline": "0.00052042926206789764",
+        "lambda-center": "0.0013766955172288193",
+        "stepsize-mu": "0.039809960965360949",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02055
+      }
+    },
+    {
+      "trialId": "53",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "309",
+        "stepsize-sigma": "0.0018373841029391226",
+        "stepsize-cross-entropy": "0.045110117660686344",
+        "lambda-baseline": "0.00011860189609171811",
+        "lambda-center": "0.11139419810282843",
+        "stepsize-mu": "0.22935978920301572"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02075
+      }
+    },
+    {
+      "trialId": "326",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0055363036890749258",
+        "seed": "288",
+        "stepsize-cross-entropy": "0.11991252942664432",
+        "lambda-center": "0.005427189383453707",
+        "lambda-baseline": "0.0010537195689494033",
+        "stepsize-mu": "0.4339206118630759"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02085
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "362",
+      "hyperparameters": {
+        "stepsize-mu": "0.41342187164712307",
+        "degree-polynomial": "2",
+        "seed": "804",
+        "stepsize-sigma": "0.0050427322004358011",
+        "stepsize-cross-entropy": "0.11010606714627896",
+        "lambda-center": "0.010200348484234713",
+        "lambda-baseline": "0.00070042591314350706"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0211
+      }
+    },
+    {
+      "trialId": "307",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.053635063807658645",
+        "lambda-baseline": "0.00080229260177115626",
+        "lambda-center": "0.86188962287002391",
+        "stepsize-mu": "0.38860522965201666",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.012777067830395745",
+        "seed": "253"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.021249999999999998
+      }
+    },
+    {
+      "trialId": "110",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.013781254155118969",
+        "seed": "159",
+        "stepsize-cross-entropy": "0.0021747494280632902",
+        "lambda-center": "0.0016781707670437786",
+        "lambda-baseline": "0.00034767434552075688",
+        "stepsize-mu": "0.064484381714309855"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02145
+      }
+    },
+    {
+      "trialId": "337",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "51",
+        "stepsize-sigma": "0.0069325907596647224",
+        "stepsize-cross-entropy": "0.0840163433409165",
+        "lambda-center": "0.014912278136517835",
+        "lambda-baseline": "0.0012091031944958931",
+        "stepsize-mu": "0.45431158451747378"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0215
+      }
+    },
+    {
+      "trialId": "377",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.14255352878572417",
+        "lambda-center": "0.080148809982337851",
+        "lambda-baseline": "0.0014807101985973507",
+        "stepsize-mu": "0.48530700747654315",
+        "degree-polynomial": "2",
+        "seed": "450",
+        "stepsize-sigma": "0.0048114661279374171"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0218
+      }
+    },
+    {
+      "trialId": "79",
+      "hyperparameters": {
+        "stepsize-mu": "0.2377428659595906",
+        "degree-polynomial": "2",
+        "seed": "106",
+        "stepsize-sigma": "0.023686981369552277",
+        "stepsize-cross-entropy": "0.029940555399043067",
+        "lambda-center": "0.91290640343821339",
+        "lambda-baseline": "0.00032406526708089343"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0219
+      }
+    },
+    {
+      "trialId": "145",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "970",
+        "stepsize-sigma": "0.011029703741544088",
+        "stepsize-cross-entropy": "0.0328521723938684",
+        "lambda-center": "0.035703771511426723",
+        "lambda-baseline": "0.0004928232993805055",
+        "stepsize-mu": "0.2649133362128967"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.021900000000000003
+      }
+    },
+    {
+      "trialId": "365",
+      "hyperparameters": {
+        "stepsize-mu": "0.25845628794742342",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.00014720001517794503",
+        "seed": "229",
+        "stepsize-cross-entropy": "0.036474978059221931",
+        "lambda-baseline": "0.0011501615511262941",
+        "lambda-center": "0.0013653061438261961"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02215
+      }
+    },
+    {
+      "trialId": "13",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0038716134163232548",
+        "lambda-baseline": "0.00017560571887102744",
+        "lambda-center": "0.021389365380009979",
+        "stepsize-mu": "0.16549497267708629",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.023995348147667819",
+        "seed": "801"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0224
+      }
+    },
+    {
+      "trialId": "66",
+      "hyperparameters": {
+        "stepsize-sigma": "0.023557788882047973",
+        "seed": "890",
+        "stepsize-cross-entropy": "0.032723410891089558",
+        "lambda-baseline": "0.0002026046929896328",
+        "lambda-center": "0.9664512672265605",
+        "stepsize-mu": "0.095552439045039073",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.022449999999999998
+      }
+    },
+    {
+      "trialId": "281",
+      "hyperparameters": {
+        "seed": "911",
+        "stepsize-sigma": "0.0078366974774728045",
+        "stepsize-cross-entropy": "0.0025355631853625879",
+        "lambda-baseline": "0.00080258101529802567",
+        "lambda-center": "0.017419991828322635",
+        "stepsize-mu": "0.45979315269230153",
+        "degree-polynomial": "3"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.022600000000000002
+      }
+    },
+    {
+      "trialId": "344",
+      "hyperparameters": {
+        "stepsize-sigma": "0.010438057290569744",
+        "seed": "289",
+        "stepsize-cross-entropy": "0.05412920605394151",
+        "lambda-center": "0.36942985865263339",
+        "lambda-baseline": "0.0022839610893761377",
+        "stepsize-mu": "0.34255862332760073",
+        "degree-polynomial": "3"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02305
+      }
+    },
+    {
+      "trialId": "294",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.037058649613873472",
+        "lambda-center": "0.75466488665860854",
+        "lambda-baseline": "0.00057426132919578344",
+        "stepsize-mu": "0.43561272535527962",
+        "degree-polynomial": "3",
+        "seed": "14",
+        "stepsize-sigma": "0.0069888005237556585"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0231
+      }
+    },
+    {
+      "trialId": "199",
+      "hyperparameters": {
+        "stepsize-mu": "0.24547219657081651",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.00066644588799173992",
+        "seed": "569",
+        "stepsize-cross-entropy": "0.084663595737316077",
+        "lambda-center": "0.03160891297490212",
+        "lambda-baseline": "0.00078452699106559387"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0232
+      }
+    },
+    {
+      "trialId": "83",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.011491474616045471",
+        "seed": "356",
+        "stepsize-cross-entropy": "0.065005092149471325",
+        "lambda-baseline": "0.00013158379516041798",
+        "lambda-center": "0.034656170607881648",
+        "stepsize-mu": "0.044426686323977081"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0232
+      }
+    },
+    {
+      "trialId": "222",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0021512027644693273",
+        "seed": "338",
+        "stepsize-cross-entropy": "0.039239095350506084",
+        "lambda-center": "0.3653756690852723",
+        "lambda-baseline": "0.0016200524140253798",
+        "stepsize-mu": "0.43423068069074683"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02335
+      }
+    },
+    {
+      "trialId": "323",
+      "hyperparameters": {
+        "stepsize-mu": "0.49261986189960905",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.0041039784307578143",
+        "seed": "924",
+        "stepsize-cross-entropy": "0.10751220764644832",
+        "lambda-baseline": "0.00088199622255408011",
+        "lambda-center": "0.17127140797408466"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02355
+      }
+    },
+    {
+      "trialId": "248",
+      "hyperparameters": {
+        "lambda-center": "0.0047912735726353111",
+        "lambda-baseline": "0.00092020756732894558",
+        "stepsize-mu": "0.40303715801019113",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.00040209403299039674",
+        "seed": "608",
+        "stepsize-cross-entropy": "0.00036782934930574271"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02365
+      }
+    },
+    {
+      "trialId": "115",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.083273653392224548",
+        "lambda-center": "0.17875914321643324",
+        "lambda-baseline": "0.00021694953824485369",
+        "stepsize-mu": "0.43284168511806043",
+        "degree-polynomial": "3",
+        "seed": "934",
+        "stepsize-sigma": "0.0078415785927442774"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02385
+      }
+    },
+    {
+      "trialId": "193",
+      "hyperparameters": {
+        "lambda-baseline": "0.00041416135621265087",
+        "lambda-center": "0.64953981353517709",
+        "stepsize-mu": "0.27482666595601163",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.019056855964983393",
+        "seed": "127",
+        "stepsize-cross-entropy": "0.052229434187883936"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.024050000000000002
+      }
+    },
+    {
+      "trialId": "52",
+      "hyperparameters": {
+        "stepsize-mu": "0.048668080162134107",
+        "degree-polynomial": "4",
+        "seed": "955",
+        "stepsize-sigma": "0.016671960281292825",
+        "stepsize-cross-entropy": "0.0068940337689875385",
+        "lambda-center": "0.0010768578820110296",
+        "lambda-baseline": "0.0002169965507027483"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0242
+      }
+    },
+    {
+      "trialId": "38",
+      "hyperparameters": {
+        "lambda-baseline": "0.00023481608127625539",
+        "lambda-center": "0.0021128722875577463",
+        "stepsize-mu": "0.050564680784627204",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.017397173454857803",
+        "seed": "877",
+        "stepsize-cross-entropy": "0.0034520129052663983"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0245
+      }
+    },
+    {
+      "trialId": "359",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "204",
+        "stepsize-sigma": "0.00348922546174305",
+        "stepsize-cross-entropy": "0.12606231939935539",
+        "lambda-baseline": "0.00088765916477076046",
+        "lambda-center": "0.011860866727073724",
+        "stepsize-mu": "0.45182464832401303"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0249
+      }
+    },
+    {
+      "trialId": "341",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "5.3533751526757028e-05",
+        "seed": "718",
+        "stepsize-cross-entropy": "0.0072279625437432762",
+        "lambda-center": "0.053415115892047553",
+        "lambda-baseline": "0.0001000025134352542",
+        "stepsize-mu": "0.22928608679922036"
+      },
+      "finalMetric": {
+        "trainingStep": "96000",
+        "objectiveValue": 0.0249
+      }
+    },
+    {
+      "trialId": "45",
+      "hyperparameters": {
+        "lambda-center": "0.77344477225873387",
+        "lambda-baseline": "0.00019017492408862695",
+        "stepsize-mu": "0.11971575947010306",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.012995546654477677",
+        "seed": "221",
+        "stepsize-cross-entropy": "0.043444747595120757"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0249
+      }
+    },
+    {
+      "trialId": "375",
+      "hyperparameters": {
+        "lambda-baseline": "0.0014850696795120938",
+        "lambda-center": "0.08066545718264935",
+        "stepsize-mu": "0.4957418641853123",
+        "degree-polynomial": "2",
+        "seed": "449",
+        "stepsize-sigma": "0.0045872106049525156",
+        "stepsize-cross-entropy": "0.14245178790295426"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.025
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "107",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.072516835078494324",
+        "lambda-center": "0.058291953561441547",
+        "lambda-baseline": "0.00010216568213075242",
+        "stepsize-mu": "0.048618416604819879",
+        "degree-polynomial": "2",
+        "seed": "781",
+        "stepsize-sigma": "0.00028421440687079078"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02505
+      }
+    },
+    {
+      "trialId": "254",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.010383499014328529",
+        "seed": "943",
+        "stepsize-cross-entropy": "0.024049303920510422",
+        "lambda-baseline": "0.0021703998474811004",
+        "lambda-center": "0.35897872393042268",
+        "stepsize-mu": "0.4697385020396353"
+      },
+      "finalMetric": {
+        "trainingStep": "96000",
+        "objectiveValue": 0.0252
+      }
+    },
+    {
+      "trialId": "310",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.01521195923403899",
+        "lambda-baseline": "0.0013500880735134591",
+        "lambda-center": "0.012034036264525974",
+        "stepsize-mu": "0.42771427595970929",
+        "degree-polynomial": "2",
+        "seed": "971",
+        "stepsize-sigma": "0.003219378612573336"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02525
+      }
+    },
+    {
+      "trialId": "329",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.09777964477569287",
+        "lambda-baseline": "0.041329070494624219",
+        "lambda-center": "0.014628288231723836",
+        "stepsize-mu": "0.11040434062149801",
+        "degree-polynomial": "3",
+        "seed": "141",
+        "stepsize-sigma": "0.00082525230660279963"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.025349999999999998
+      }
+    },
+    {
+      "trialId": "196",
+      "hyperparameters": {
+        "seed": "670",
+        "stepsize-sigma": "0.0038389260103970806",
+        "stepsize-cross-entropy": "0.00796874357454507",
+        "lambda-center": "0.49221551295603655",
+        "lambda-baseline": "0.0015949568254730194",
+        "stepsize-mu": "0.45017725082855681",
+        "degree-polynomial": "3"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0254
+      }
+    },
+    {
+      "trialId": "175",
+      "hyperparameters": {
+        "lambda-baseline": "0.0012821423080376512",
+        "lambda-center": "0.48446192519850839",
+        "stepsize-mu": "0.41117556287260626",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.016082550616343387",
+        "seed": "672",
+        "stepsize-cross-entropy": "0.017781642177188691"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0254
+      }
+    },
+    {
+      "trialId": "108",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.0066389728007423326",
+        "seed": "487",
+        "stepsize-cross-entropy": "0.071439414574190174",
+        "lambda-center": "0.22161741368693166",
+        "lambda-baseline": "0.00015589077762242297",
+        "stepsize-mu": "0.43092407640015634"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02595
+      }
+    },
+    {
+      "trialId": "347",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.00073430164133779009",
+        "lambda-baseline": "0.00049355583870236061",
+        "lambda-center": "0.0015538802643309051",
+        "stepsize-mu": "0.068210870959909034",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.013778192222216252",
+        "seed": "367"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0265
+      }
+    },
+    {
+      "trialId": "129",
+      "hyperparameters": {
+        "lambda-baseline": "0.00010000000820698084",
+        "lambda-center": "0.076988872970100444",
+        "stepsize-mu": "0.20618291940922415",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "1.0002130474583811e-05",
+        "seed": "650",
+        "stepsize-cross-entropy": "0.064358057552846015"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0276
+      }
+    },
+    {
+      "trialId": "109",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0012678157009690634",
+        "seed": "116",
+        "stepsize-cross-entropy": "0.053104631703894956",
+        "lambda-center": "0.014053905760524274",
+        "lambda-baseline": "0.0044970957261518587",
+        "stepsize-mu": "0.29908043208033563"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0276
+      }
+    },
+    {
+      "trialId": "218",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "seed": "547",
+        "stepsize-sigma": "0.0027471840199742754",
+        "stepsize-cross-entropy": "0.1621163771211554",
+        "lambda-center": "0.11164589198515869",
+        "lambda-baseline": "0.00074277575533191473",
+        "stepsize-mu": "0.46432195761627215"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0278
+      }
+    },
+    {
+      "trialId": "150",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "990",
+        "stepsize-sigma": "0.011348258458295788",
+        "stepsize-cross-entropy": "0.0070546044101252705",
+        "lambda-center": "0.0018329303764013239",
+        "lambda-baseline": "0.00050944838315850863",
+        "stepsize-mu": "0.16134269968007434"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0284
+      }
+    },
+    {
+      "trialId": "170",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0076208866060230715",
+        "lambda-baseline": "0.010764006806852716",
+        "lambda-center": "0.10917041400914432",
+        "stepsize-mu": "0.311130894064743",
+        "degree-polynomial": "3",
+        "seed": "482",
+        "stepsize-sigma": "0.009632322323955618"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0285
+      }
+    },
+    {
+      "trialId": "235",
+      "hyperparameters": {
+        "lambda-baseline": "0.00095876389044004555",
+        "lambda-center": "0.11887013794190276",
+        "stepsize-mu": "0.47216133215062145",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.003809831662496101",
+        "seed": "166",
+        "stepsize-cross-entropy": "0.12559876719517846"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0287
+      }
+    },
+    {
+      "trialId": "33",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.024888797101177567",
+        "lambda-baseline": "0.00028356956494975018",
+        "lambda-center": "0.3981266884039994",
+        "stepsize-mu": "0.099999148172770169",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.011919643046583007",
+        "seed": "511"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.028749999999999998
+      }
+    },
+    {
+      "trialId": "296",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0043475232849504285",
+        "seed": "950",
+        "stepsize-cross-entropy": "0.047204298859866108",
+        "lambda-center": "0.0016488453262717502",
+        "lambda-baseline": "0.0011689928386161604",
+        "stepsize-mu": "0.48389386443589127"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02895
+      }
+    },
+    {
+      "trialId": "261",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "59",
+        "stepsize-sigma": "0.005295902169200944",
+        "stepsize-cross-entropy": "0.029347685804835148",
+        "lambda-center": "0.43359446421812031",
+        "lambda-baseline": "0.0016677190901538037",
+        "stepsize-mu": "0.431935042536468"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0291
+      }
+    },
+    {
+      "trialId": "213",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.00015110204299937461",
+        "lambda-center": "0.048574300648079438",
+        "lambda-baseline": "0.00837510047942384",
+        "stepsize-mu": "0.31765771336041354",
+        "degree-polynomial": "3",
+        "seed": "327",
+        "stepsize-sigma": "0.0027719818627002062"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0291
+      }
+    },
+    {
+      "trialId": "285",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0075773222876412624",
+        "seed": "164",
+        "stepsize-cross-entropy": "0.11572511600544713",
+        "lambda-center": "0.11059020782301565",
+        "lambda-baseline": "0.00098755043683851676",
+        "stepsize-mu": "0.49492368037462781"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.029249999999999998
+      }
+    },
+    {
+      "trialId": "160",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.092327895323521592",
+        "lambda-center": "0.13324679455180882",
+        "lambda-baseline": "0.00022815259306640967",
+        "stepsize-mu": "0.42224987099244371",
+        "degree-polynomial": "3",
+        "seed": "921",
+        "stepsize-sigma": "0.0057653977604057525"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.02945
+      }
+    },
+    {
+      "trialId": "186",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.00766416780161475",
+        "seed": "108",
+        "stepsize-cross-entropy": "0.036113128163077587",
+        "lambda-center": "0.41418390039586844",
+        "lambda-baseline": "0.0014297297692232574",
+        "stepsize-mu": "0.38675071770801506"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0295
+      }
+    },
+    {
+      "trialId": "195",
+      "hyperparameters": {
+        "lambda-baseline": "0.0060358424020580358",
+        "lambda-center": "0.0099604653179070825",
+        "stepsize-mu": "0.29473298349622012",
+        "degree-polynomial": "2",
+        "seed": "136",
+        "stepsize-sigma": "1.0020069276918465e-05",
+        "stepsize-cross-entropy": "0.06508910299592606"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0298
+      }
+    },
+    {
+      "trialId": "203",
+      "hyperparameters": {
+        "seed": "404",
+        "stepsize-sigma": "0.018795545584956042",
+        "stepsize-cross-entropy": "0.0025311735625012082",
+        "lambda-center": "0.001586866285498667",
+        "lambda-baseline": "0.00029761585276477708",
+        "stepsize-mu": "0.039422438505621028",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.03075
+      }
+    },
+    {
+      "trialId": "65",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.013589723643297622",
+        "seed": "957",
+        "stepsize-cross-entropy": "0.00040838395618819629",
+        "lambda-center": "0.0018599103025833095",
+        "lambda-baseline": "0.00029278911303766018",
+        "stepsize-mu": "0.17695755629435694"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.03075
+      }
+    },
+    {
+      "trialId": "386",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.14926571086715607",
+        "lambda-baseline": "0.0019011186022355269",
+        "lambda-center": "0.15958642123849229",
+        "stepsize-mu": "0.49893917547702915",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.012133922903829454",
+        "seed": "708"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0308
+      }
+    },
+    {
+      "trialId": "105",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "725",
+        "stepsize-sigma": "0.0034583779276322942",
+        "stepsize-cross-entropy": "0.010403206150708706",
+        "lambda-center": "0.03588950282734539",
+        "lambda-baseline": "0.0019683375592859697",
+        "stepsize-mu": "0.36524761888462431"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0308
+      }
+    },
+    {
+      "trialId": "378",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "seed": "813",
+        "stepsize-sigma": "0.012665108326417159",
+        "stepsize-cross-entropy": "0.020001081297098964",
+        "lambda-center": "0.67444975269196972",
+        "lambda-baseline": "0.01382089923729248",
+        "stepsize-mu": "0.040911445491272277"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.03155
+      }
+    },
+    {
+      "trialId": "51",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "488",
+        "stepsize-sigma": "0.010646618243524164",
+        "stepsize-cross-entropy": "0.00778711553051306",
+        "lambda-center": "0.61687585635744624",
+        "lambda-baseline": "0.00017840316528488511",
+        "stepsize-mu": "0.12284861111653811"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0316
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "267",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.021131858489690479",
+        "lambda-baseline": "0.0010327718682204671",
+        "lambda-center": "0.358231934546224",
+        "stepsize-mu": "0.36392400164247141",
+        "degree-polynomial": "2",
+        "seed": "15",
+        "stepsize-sigma": "0.014340524579403409"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0318
+      }
+    },
+    {
+      "trialId": "100",
+      "hyperparameters": {
+        "stepsize-sigma": "0.026831398784126995",
+        "seed": "136",
+        "stepsize-cross-entropy": "0.013621588837597478",
+        "lambda-center": "0.85541064169531078",
+        "lambda-baseline": "0.011043695216746136",
+        "stepsize-mu": "0.12846197207396967",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.032049999999999995
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "50",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.015712040526972539",
+        "seed": "860",
+        "stepsize-cross-entropy": "0.0005516018039186339",
+        "lambda-center": "0.0016121963128628547",
+        "lambda-baseline": "0.0002408920223609675",
+        "stepsize-mu": "0.017889069830450674"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.032100000000000004
+      }
+    },
+    {
+      "trialId": "249",
+      "hyperparameters": {
+        "lambda-center": "0.00683815811863968",
+        "lambda-baseline": "0.0163934599077283",
+        "stepsize-mu": "0.12544571125965814",
+        "degree-polynomial": "2",
+        "seed": "164",
+        "stepsize-sigma": "0.01446996627884271",
+        "stepsize-cross-entropy": "0.044104489100676145"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.03215
+      }
+    },
+    {
+      "trialId": "201",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.074182053478753174",
+        "lambda-baseline": "0.00011760461333909889",
+        "lambda-center": "0.0035087419331478417",
+        "stepsize-mu": "0.10925038317635374",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.013308126739087576",
+        "seed": "379"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.03215
+      }
+    },
+    {
+      "trialId": "191",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "941",
+        "stepsize-sigma": "0.00926699428480746",
+        "stepsize-cross-entropy": "0.055758079737747664",
+        "lambda-center": "0.0047489401027785722",
+        "lambda-baseline": "0.00011597213851654687",
+        "stepsize-mu": "0.022048335174440378"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0329
+      }
+    },
+    {
+      "trialId": "383",
+      "hyperparameters": {
+        "lambda-center": "0.68086467567505837",
+        "lambda-baseline": "0.024270454222296629",
+        "stepsize-mu": "0.16777721033136325",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0059106357846579393",
+        "seed": "194",
+        "stepsize-cross-entropy": "0.040874462915577919"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.03295
+      }
+    },
+    {
+      "trialId": "207",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.036548611041283208",
+        "lambda-baseline": "0.014441930854824012",
+        "lambda-center": "0.71823768548509137",
+        "stepsize-mu": "0.15558514111579341",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.027382136465829633",
+        "seed": "13"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.033049999999999996
+      }
+    },
+    {
+      "trialId": "77",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0054962807281287778",
+        "lambda-baseline": "0.00074698727725915255",
+        "lambda-center": "0.001874133184662264",
+        "stepsize-mu": "0.038476309547819249",
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.024913540159070047",
+        "seed": "400"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0331
+      }
+    },
+    {
+      "trialId": "101",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.028941885167924671",
+        "lambda-center": "0.86025554023293671",
+        "lambda-baseline": "0.000280279904402741",
+        "stepsize-mu": "0.13738296721430038",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.01588229894875022",
+        "seed": "823"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.03315
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "240",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0048598918497976479",
+        "seed": "144",
+        "stepsize-cross-entropy": "0.070306150936738976",
+        "lambda-center": "0.010988524321483499",
+        "lambda-baseline": "0.0001436567546603972",
+        "stepsize-mu": "0.14306764335432132"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.033299999999999996
+      }
+    },
+    {
+      "trialId": "320",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.12936524465699695",
+        "lambda-baseline": "0.042414975921113915",
+        "lambda-center": "0.0017395597580480043",
+        "stepsize-mu": "0.085812910173858656",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.000562454066740156",
+        "seed": "568"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0338
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "246",
+      "hyperparameters": {
+        "stepsize-mu": "0.42090938946277051",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.00679326890728246",
+        "seed": "178",
+        "stepsize-cross-entropy": "0.02360883463996892",
+        "lambda-baseline": "0.0012652042098845312",
+        "lambda-center": "0.016535626684271811"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.033850000000000005
+      }
+    },
+    {
+      "trialId": "265",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.047876164321379269",
+        "lambda-center": "0.005497066068991324",
+        "lambda-baseline": "0.03411743917097898",
+        "stepsize-mu": "0.13448007254776403",
+        "degree-polynomial": "2",
+        "seed": "296",
+        "stepsize-sigma": "0.0096304250781028243"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.035699999999999996
+      }
+    },
+    {
+      "trialId": "168",
+      "hyperparameters": {
+        "lambda-center": "0.29184717815772238",
+        "lambda-baseline": "0.00054195006502934717",
+        "stepsize-mu": "0.32422976504997131",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.019615012811483121",
+        "seed": "15",
+        "stepsize-cross-entropy": "0.049680179238611955"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0358
+      }
+    },
+    {
+      "trialId": "305",
+      "hyperparameters": {
+        "seed": "87",
+        "stepsize-sigma": "0.0090760450664050737",
+        "stepsize-cross-entropy": "0.058313811306068067",
+        "lambda-baseline": "0.0018036533639996695",
+        "lambda-center": "0.90173307540053893",
+        "stepsize-mu": "0.47220998493781519",
+        "degree-polynomial": "3"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.03615
+      }
+    },
+    {
+      "trialId": "250",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.040275525699270023",
+        "lambda-center": "0.68245237592206842",
+        "lambda-baseline": "0.0093828622794353191",
+        "stepsize-mu": "0.18144317157389925",
+        "degree-polynomial": "2",
+        "seed": "356",
+        "stepsize-sigma": "0.01450970497466181"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0363
+      }
+    },
+    {
+      "trialId": "192",
+      "hyperparameters": {
+        "lambda-center": "0.0048645611477403311",
+        "lambda-baseline": "0.012900552055617943",
+        "stepsize-mu": "0.21632979098130567",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.015861063077180895",
+        "seed": "353",
+        "stepsize-cross-entropy": "0.0011284579785555756"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.03845
+      }
+    },
+    {
+      "trialId": "64",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.090091183363480168",
+        "lambda-baseline": "0.00023799441225343034",
+        "lambda-center": "0.13110367733543718",
+        "stepsize-mu": "0.47082652010419557",
+        "degree-polynomial": "4",
+        "seed": "891",
+        "stepsize-sigma": "0.010716118193423161"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.038900000000000004
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "151",
+      "hyperparameters": {
+        "stepsize-mu": "0.28865901186709086",
+        "degree-polynomial": "2",
+        "seed": "558",
+        "stepsize-sigma": "0.024941659059322059",
+        "stepsize-cross-entropy": "0.017809532210818345",
+        "lambda-center": "0.0010145430866658697",
+        "lambda-baseline": "0.00060451410610994029"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0397
+      }
+    },
+    {
+      "trialId": "92",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.00083360181404463856",
+        "lambda-center": "0.01783927282273538",
+        "lambda-baseline": "0.00018574460875185489",
+        "stepsize-mu": "0.079373282704913714",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0065579293769006744",
+        "seed": "212"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.039900000000000005
+      }
+    },
+    {
+      "trialId": "135",
+      "hyperparameters": {
+        "lambda-center": "0.49947585026602515",
+        "lambda-baseline": "0.010756496698104667",
+        "stepsize-mu": "0.12122301664694159",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.026876199556990849",
+        "seed": "161",
+        "stepsize-cross-entropy": "0.010291852988448731"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.042050000000000004
+      }
+    },
+    {
+      "trialId": "87",
+      "hyperparameters": {
+        "stepsize-mu": "0.080861644270501243",
+        "degree-polynomial": "3",
+        "seed": "208",
+        "stepsize-sigma": "0.014215498244262851",
+        "stepsize-cross-entropy": "0.0058175705918943792",
+        "lambda-center": "0.0030080147004144238",
+        "lambda-baseline": "0.0003949103441755895"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.04235
+      }
+    },
+    {
+      "trialId": "86",
+      "hyperparameters": {
+        "seed": "685",
+        "stepsize-sigma": "0.0050936657151607473",
+        "stepsize-cross-entropy": "0.040942581378850658",
+        "lambda-center": "0.033890895781160175",
+        "lambda-baseline": "0.00018336721040164257",
+        "stepsize-mu": "0.29129661131404044",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.047
+      }
+    },
+    {
+      "trialId": "349",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.036701225273231775",
+        "seed": "259",
+        "stepsize-cross-entropy": "0.0098590436485701972",
+        "lambda-center": "0.0090737502107976174",
+        "lambda-baseline": "0.00017616883726306149",
+        "stepsize-mu": "0.27303317892585516"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.04975
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "10",
+      "hyperparameters": {
+        "seed": "427",
+        "stepsize-sigma": "0.018803666107584455",
+        "stepsize-cross-entropy": "0.0085090131781318142",
+        "lambda-baseline": "0.0001970553038935862",
+        "lambda-center": "0.36327626706413541",
+        "stepsize-mu": "0.14213408062091246",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.05075
+      }
+    },
+    {
+      "trialId": "232",
+      "hyperparameters": {
+        "seed": "855",
+        "stepsize-sigma": "0.0022897479782421483",
+        "stepsize-cross-entropy": "0.014002692774881446",
+        "lambda-center": "0.71291253630048834",
+        "lambda-baseline": "0.0020250749962238252",
+        "stepsize-mu": "0.25439523628616151",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "57600",
+        "objectiveValue": 0.05395
+      }
+    },
+    {
+      "trialId": "174",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "seed": "498",
+        "stepsize-sigma": "0.018824854418630327",
+        "stepsize-cross-entropy": "0.025346651575343722",
+        "lambda-center": "0.69589003676601247",
+        "lambda-baseline": "0.013439842111988261",
+        "stepsize-mu": "0.25898719397701192"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.054150000000000004
+      }
+    },
+    {
+      "trialId": "166",
+      "hyperparameters": {
+        "stepsize-mu": "0.36065878875307344",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0091671244700764851",
+        "seed": "909",
+        "stepsize-cross-entropy": "0.031044714329758943",
+        "lambda-baseline": "0.00087941187224877188",
+        "lambda-center": "0.0049387551638166256"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.05455
+      }
+    },
+    {
+      "trialId": "49",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.00868084042788765",
+        "lambda-center": "0.0029377693107116506",
+        "lambda-baseline": "0.00028796958429259267",
+        "stepsize-mu": "0.11940056079720278",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.023235706848545066",
+        "seed": "821"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0563
+      }
+    },
+    {
+      "trialId": "247",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "142",
+        "stepsize-sigma": "0.013530519915326339",
+        "stepsize-cross-entropy": "0.011181863608921604",
+        "lambda-baseline": "0.00025918639599998959",
+        "lambda-center": "0.010715829591394473",
+        "stepsize-mu": "0.32260482759860154"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0566
+      }
+    },
+    {
+      "trialId": "372",
+      "hyperparameters": {
+        "lambda-baseline": "0.010963206770290525",
+        "lambda-center": "0.84102079746030589",
+        "stepsize-mu": "0.16203269222143912",
+        "degree-polynomial": "2",
+        "seed": "494",
+        "stepsize-sigma": "0.017612343075504189",
+        "stepsize-cross-entropy": "0.006638620552250475"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0589
+      }
+    },
+    {
+      "trialId": "164",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0013595298856560528",
+        "seed": "605",
+        "stepsize-cross-entropy": "0.033785936261569317",
+        "lambda-baseline": "0.0029870430713452353",
+        "lambda-center": "0.02780235408299082",
+        "stepsize-mu": "0.30005643086793821"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.05925
+      }
+    },
+    {
+      "trialId": "197",
+      "hyperparameters": {
+        "lambda-center": "0.18511359563263916",
+        "lambda-baseline": "0.00089423130251660768",
+        "stepsize-mu": "0.40279316327118792",
+        "degree-polynomial": "2",
+        "seed": "472",
+        "stepsize-sigma": "0.0080551598170979614",
+        "stepsize-cross-entropy": "0.031908688760039293"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.05935
+      }
+    },
+    {
+      "trialId": "384",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0021835550436944389",
+        "lambda-baseline": "0.0054337569257056325",
+        "lambda-center": "0.89366514055976121",
+        "stepsize-mu": "0.11786930388806395",
+        "degree-polynomial": "3",
+        "seed": "647",
+        "stepsize-sigma": "0.019313378414905026"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.05945
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "172",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "seed": "912",
+        "stepsize-sigma": "0.0063034374343896131",
+        "stepsize-cross-entropy": "0.022017027812772112",
+        "lambda-center": "0.074381181297602225",
+        "lambda-baseline": "0.0084221697807949775",
+        "stepsize-mu": "0.33561364371895958"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.06025
+      }
+    },
+    {
+      "trialId": "262",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0017374566209468929",
+        "lambda-center": "0.0014441971800194921",
+        "lambda-baseline": "0.00037210218963079275",
+        "stepsize-mu": "0.029107270320893098",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.017258005181623404",
+        "seed": "233"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.06135
+      }
+    },
+    {
+      "trialId": "169",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "597",
+        "stepsize-sigma": "1.0164906189739857e-05",
+        "stepsize-cross-entropy": "0.033459748823994294",
+        "lambda-center": "0.027889634894553584",
+        "lambda-baseline": "0.0029430828536918534",
+        "stepsize-mu": "0.29704379193760705"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.06355
+      }
+    },
+    {
+      "trialId": "210",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.017832641218878471",
+        "seed": "346",
+        "stepsize-cross-entropy": "0.066652079992927341",
+        "lambda-baseline": "0.0003642371154935139",
+        "lambda-center": "0.507905259062958",
+        "stepsize-mu": "0.34626532165944846"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0637
+      }
+    },
+    {
+      "trialId": "81",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0073360401659963654",
+        "seed": "372",
+        "stepsize-cross-entropy": "0.23378533905032309",
+        "lambda-center": "0.058933450185973839",
+        "lambda-baseline": "0.00012983483931563626",
+        "stepsize-mu": "0.12173513961959884"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.06675
+      }
+    },
+    {
+      "trialId": "104",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.029401918707145518",
+        "lambda-center": "0.03699598010847821",
+        "lambda-baseline": "0.0001057710662015692",
+        "stepsize-mu": "0.10922153064962525",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0091935354062253911",
+        "seed": "136"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0681
+      }
+    },
+    {
+      "trialId": "224",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.00084571049176205637",
+        "lambda-center": "0.041667507976099277",
+        "lambda-baseline": "0.008413153950136143",
+        "stepsize-mu": "0.37315804312976236",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.016527086041635053",
+        "seed": "416"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.07005
+      }
+    },
+    {
+      "trialId": "156",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "seed": "596",
+        "stepsize-sigma": "0.00075567204366255088",
+        "stepsize-cross-entropy": "0.10003687010088833",
+        "lambda-center": "0.11207762049881222",
+        "lambda-baseline": "0.00012860832001503969",
+        "stepsize-mu": "0.41939907140020305"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.07505
+      }
+    },
+    {
+      "trialId": "189",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.13913921471929738",
+        "lambda-baseline": "0.00083170059904045873",
+        "lambda-center": "0.0020480113126549408",
+        "stepsize-mu": "0.22389092799664281",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.013292494307484503",
+        "seed": "637"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.08495
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "308",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.020196853054633541",
+        "seed": "404",
+        "stepsize-cross-entropy": "0.012125189210687516",
+        "lambda-baseline": "0.0066359796219737461",
+        "lambda-center": "0.0731273442489758",
+        "stepsize-mu": "0.276706974757336"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.08505
+      }
+    },
+    {
+      "trialId": "30",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0044135778434934618",
+        "lambda-center": "0.046629602647905895",
+        "lambda-baseline": "0.00019124208071017988",
+        "stepsize-mu": "0.12916036000445935",
+        "degree-polynomial": "2",
+        "seed": "584",
+        "stepsize-sigma": "0.02619080847521308"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0869
+      }
+    },
+    {
+      "trialId": "209",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.027915841388029123",
+        "lambda-center": "0.0074973049192595962",
+        "lambda-baseline": "0.0002448143544547836",
+        "stepsize-mu": "0.014272402618527899",
+        "degree-polynomial": "2",
+        "seed": "288",
+        "stepsize-sigma": "0.0016474713085481824"
+      },
+      "finalMetric": {
+        "trainingStep": "38400",
+        "objectiveValue": 0.09255
+      }
+    },
+    {
+      "trialId": "41",
+      "hyperparameters": {
+        "stepsize-mu": "0.3060135017626156",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.0045209374230151559",
+        "seed": "569",
+        "stepsize-cross-entropy": "0.067984676240183839",
+        "lambda-baseline": "0.00013006397570210963",
+        "lambda-center": "0.13137999616720006"
+      },
+      "finalMetric": {
+        "trainingStep": "57600",
+        "objectiveValue": 0.09455
+      }
+    },
+    {
+      "trialId": "24",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0076368380471273679",
+        "lambda-baseline": "0.00020579286928415789",
+        "lambda-center": "0.0011846203491827775",
+        "stepsize-mu": "0.090754724902738448",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.020738133420652043",
+        "seed": "674"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.09565
+      }
+    },
+    {
+      "trialId": "185",
+      "hyperparameters": {
+        "stepsize-mu": "0.36952853579339617",
+        "degree-polynomial": "3",
+        "seed": "269",
+        "stepsize-sigma": "0.019036634826456966",
+        "stepsize-cross-entropy": "0.021923305826368145",
+        "lambda-center": "0.20997823065646068",
+        "lambda-baseline": "0.00974037214250544"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.0991
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "275",
+      "hyperparameters": {
+        "seed": "906",
+        "stepsize-sigma": "0.0068731797464278259",
+        "stepsize-cross-entropy": "0.0020610042661997393",
+        "lambda-baseline": "0.00032556548236366652",
+        "lambda-center": "0.03313633263338514",
+        "stepsize-mu": "0.28769160431911006",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.10039999999999999
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "102",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.01508621061396693",
+        "lambda-center": "0.0011456810350104563",
+        "lambda-baseline": "0.00050491463097774854",
+        "stepsize-mu": "0.096518703359501176",
+        "degree-polynomial": "4",
+        "seed": "283",
+        "stepsize-sigma": "0.01968431361681405"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1006
+      }
+    },
+    {
+      "trialId": "37",
+      "hyperparameters": {
+        "stepsize-mu": "0.067135110821604685",
+        "degree-polynomial": "3",
+        "seed": "133",
+        "stepsize-sigma": "0.028631753166345846",
+        "stepsize-cross-entropy": "0.0013961233296411097",
+        "lambda-baseline": "0.00027138143066337205",
+        "lambda-center": "0.041052223399014841"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1134
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "58",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.0278665236608863",
+        "seed": "993",
+        "stepsize-cross-entropy": "0.0020369811889375156",
+        "lambda-baseline": "0.0003910092082659725",
+        "lambda-center": "0.0014579326574728324",
+        "stepsize-mu": "0.22975392845377599"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.11485000000000001
+      }
+    },
+    {
+      "trialId": "286",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0070087154388014774",
+        "lambda-baseline": "0.0032832619594345218",
+        "lambda-center": "0.889729721730798",
+        "stepsize-mu": "0.4432763324264834",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0064613083202819388",
+        "seed": "672"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12325
+      }
+    },
+    {
+      "trialId": "155",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "seed": "23",
+        "stepsize-sigma": "1.3199378949839404e-05",
+        "stepsize-cross-entropy": "0.059421161698920553",
+        "lambda-baseline": "0.0095736476554052017",
+        "lambda-center": "0.012369782297892679",
+        "stepsize-mu": "0.32836234891778687"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12355
+      }
+    },
+    {
+      "trialId": "282",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "seed": "377",
+        "stepsize-sigma": "0.00036533310536284922",
+        "stepsize-cross-entropy": "0.057603807912083783",
+        "lambda-baseline": "0.00033237934272583604",
+        "lambda-center": "0.2039882257617627",
+        "stepsize-mu": "0.40091028505460335"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12475
+      }
+    },
+    {
+      "trialId": "374",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.00087598248900996325",
+        "lambda-center": "0.019683493165421645",
+        "lambda-baseline": "0.0001083038630768319",
+        "stepsize-mu": "0.32866076609152217",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0018805381276053548",
+        "seed": "341"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12525
+      }
+    },
+    {
+      "trialId": "291",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.010810207067120452",
+        "lambda-baseline": "0.00068258625221047841",
+        "lambda-center": "0.710069778417365",
+        "stepsize-mu": "0.33124143103297582",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.000979781006620257",
+        "seed": "278"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12564999999999998
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "328",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "seed": "72",
+        "stepsize-sigma": "0.00075397541091363086",
+        "stepsize-cross-entropy": "0.077818944351540159",
+        "lambda-center": "0.094406009930407528",
+        "lambda-baseline": "0.0011383457012679105",
+        "stepsize-mu": "0.39487467351162642"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12565
+      }
+    },
+    {
+      "trialId": "297",
+      "hyperparameters": {
+        "stepsize-mu": "0.25247885969283163",
+        "degree-polynomial": "2",
+        "seed": "846",
+        "stepsize-sigma": "0.0020620181983521967",
+        "stepsize-cross-entropy": "0.11413199593652137",
+        "lambda-baseline": "0.030189793317292386",
+        "lambda-center": "0.78518679300089089"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12595
+      }
+    },
+    {
+      "trialId": "268",
+      "hyperparameters": {
+        "stepsize-mu": "0.31463674398311997",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0019371109080661463",
+        "seed": "849",
+        "stepsize-cross-entropy": "0.012383129701753382",
+        "lambda-center": "0.76038456292606915",
+        "lambda-baseline": "0.0017623034762193311"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.126
+      }
+    },
+    {
+      "trialId": "295",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "767",
+        "stepsize-sigma": "0.0016749173355031829",
+        "stepsize-cross-entropy": "0.0029485530189962673",
+        "lambda-baseline": "0.0011025525858996397",
+        "lambda-center": "0.079565994439077609",
+        "stepsize-mu": "0.42199941270208086"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12605
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "118",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.016511050210637663",
+        "lambda-center": "0.026818464388993053",
+        "lambda-baseline": "0.0026804058577665807",
+        "stepsize-mu": "0.41699528243526585",
+        "degree-polynomial": "2",
+        "seed": "624",
+        "stepsize-sigma": "0.00059853014044582457"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12605
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "251",
+      "hyperparameters": {
+        "seed": "678",
+        "stepsize-sigma": "0.00085008194022859684",
+        "stepsize-cross-entropy": "0.0064628339562953357",
+        "lambda-center": "0.28609331148576783",
+        "lambda-baseline": "0.0019054377898100818",
+        "stepsize-mu": "0.37130035696461389",
+        "degree-polynomial": "3"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12635000000000002
+      }
+    },
+    {
+      "trialId": "117",
+      "hyperparameters": {
+        "stepsize-sigma": "0.00445350015103234",
+        "seed": "225",
+        "stepsize-cross-entropy": "0.0044909802092340583",
+        "lambda-center": "0.00645629641287074",
+        "lambda-baseline": "0.00014347148788252078",
+        "stepsize-mu": "0.10393828860123737",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12689999999999999
+      }
+    },
+    {
+      "trialId": "357",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0071982043701197341",
+        "seed": "1000",
+        "stepsize-cross-entropy": "0.060166859162478686",
+        "lambda-center": "0.0011060759841431996",
+        "lambda-baseline": "0.00120675619540316",
+        "stepsize-mu": "0.45502556563114949"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12695
+      }
+    },
+    {
+      "trialId": "88",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.05398625461463688",
+        "lambda-center": "0.091073439467073067",
+        "lambda-baseline": "0.00014332861424668487",
+        "stepsize-mu": "0.31497549530110852",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.00083927413627795",
+        "seed": "931"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1271
+      }
+    },
+    {
+      "trialId": "63",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.0045293468403013884",
+        "seed": "746",
+        "stepsize-cross-entropy": "0.017272480098575425",
+        "lambda-baseline": "0.00030762223737714709",
+        "lambda-center": "0.0014371442298136837",
+        "stepsize-mu": "0.041533638755135979"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1271
+      }
+    },
+    {
+      "trialId": "114",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0017637219387621973",
+        "seed": "9",
+        "stepsize-cross-entropy": "0.011756646314991768",
+        "lambda-center": "0.068068360352506976",
+        "lambda-baseline": "0.0078557180272343582",
+        "stepsize-mu": "0.46000584884015489"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12719999999999998
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "142",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0057839936178991289",
+        "seed": "70",
+        "stepsize-cross-entropy": "0.044255229802650849",
+        "lambda-baseline": "0.0001364926681611743",
+        "lambda-center": "0.10925647311267279",
+        "stepsize-mu": "0.19294474225212474"
+      },
+      "finalMetric": {
+        "trainingStep": "57600",
+        "objectiveValue": 0.12725
+      }
+    },
+    {
+      "trialId": "376",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "175",
+        "stepsize-sigma": "0.0017059592054451814",
+        "stepsize-cross-entropy": "0.0067733531972436131",
+        "lambda-center": "0.31699566193144652",
+        "lambda-baseline": "0.00012263229480451672",
+        "stepsize-mu": "0.45488456014911877"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12764999999999999
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "236",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "452",
+        "stepsize-sigma": "0.0011260704824880791",
+        "stepsize-cross-entropy": "0.041977205977344188",
+        "lambda-center": "0.022311785771205808",
+        "lambda-baseline": "0.010228041183592515",
+        "stepsize-mu": "0.29752413942566258"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12775
+      }
+    },
+    {
+      "trialId": "271",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.024522379480458541",
+        "lambda-baseline": "0.021230723489378437",
+        "lambda-center": "0.014519916032051147",
+        "stepsize-mu": "0.027099328382774613",
+        "degree-polynomial": "2",
+        "seed": "747",
+        "stepsize-sigma": "0.0039849457229004714"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1279
+      }
+    },
+    {
+      "trialId": "354",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.014487702181433831",
+        "lambda-center": "0.017115135725169407",
+        "lambda-baseline": "0.00010400082993671762",
+        "stepsize-mu": "0.26358211347096172",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0020896022890715491",
+        "seed": "650"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12795
+      }
+    },
+    {
+      "trialId": "321",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "seed": "496",
+        "stepsize-sigma": "0.0019058982206024795",
+        "stepsize-cross-entropy": "0.0085414660996126664",
+        "lambda-center": "0.0078104132228203321",
+        "lambda-baseline": "0.0023041430950300323",
+        "stepsize-mu": "0.43909419240526548"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12815
+      }
+    },
+    {
+      "trialId": "233",
+      "hyperparameters": {
+        "lambda-baseline": "0.015768898474756765",
+        "lambda-center": "0.003173404136207742",
+        "stepsize-mu": "0.22606130903872332",
+        "degree-polynomial": "2",
+        "seed": "671",
+        "stepsize-sigma": "0.0054580562698062366",
+        "stepsize-cross-entropy": "0.0084267789456306027"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12845
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "216",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0071065290255230657",
+        "seed": "844",
+        "stepsize-cross-entropy": "0.21667690027953632",
+        "lambda-center": "0.20947954269558758",
+        "lambda-baseline": "0.0015247521530760589",
+        "stepsize-mu": "0.36804793981418837"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12855
+      }
+    },
+    {
+      "trialId": "336",
+      "hyperparameters": {
+        "stepsize-mu": "0.1389371282881704",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0033259884255281082",
+        "seed": "994",
+        "stepsize-cross-entropy": "0.14335952477214486",
+        "lambda-center": "0.0029469769825517726",
+        "lambda-baseline": "0.049480834742253565"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12875
+      }
+    },
+    {
+      "trialId": "75",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "351",
+        "stepsize-sigma": "0.011156936107316807",
+        "stepsize-cross-entropy": "0.098734431201002754",
+        "lambda-baseline": "0.00022477479389869257",
+        "lambda-center": "0.5327260497797689",
+        "stepsize-mu": "0.401183483178069"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1288
+      }
+    },
+    {
+      "trialId": "84",
+      "hyperparameters": {
+        "lambda-baseline": "0.00014222656804390108",
+        "lambda-center": "0.85131409725115015",
+        "stepsize-mu": "0.14327401770692325",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.014707976123787646",
+        "seed": "105",
+        "stepsize-cross-entropy": "0.0041752387515328849"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12885000000000002
+      }
+    },
+    {
+      "trialId": "119",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0930834187674194",
+        "lambda-center": "0.26131560592580255",
+        "lambda-baseline": "0.00016954614463937656",
+        "stepsize-mu": "0.011630009672216775",
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.0078255141379734976",
+        "seed": "376"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12905
+      }
+    },
+    {
+      "trialId": "122",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "389",
+        "stepsize-sigma": "0.00036726790910114322",
+        "stepsize-cross-entropy": "0.032680377488216193",
+        "lambda-center": "0.035633974218093639",
+        "lambda-baseline": "0.0042869962664489761",
+        "stepsize-mu": "0.26127105656588129"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1291
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "76",
+      "hyperparameters": {
+        "lambda-baseline": "0.00024834799482426046",
+        "lambda-center": "0.055444342063668162",
+        "stepsize-mu": "0.47653563741005939",
+        "degree-polynomial": "2",
+        "seed": "167",
+        "stepsize-sigma": "0.0021483463791987754",
+        "stepsize-cross-entropy": "0.060731812426316416"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12940000000000002
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "306",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.014799129737966297",
+        "lambda-baseline": "0.0047898421655292595",
+        "lambda-center": "0.75009291850864324",
+        "stepsize-mu": "0.18912546171903408",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0056909232853275173",
+        "seed": "893"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1295
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "256",
+      "hyperparameters": {
+        "stepsize-sigma": "0.00941507875822959",
+        "seed": "329",
+        "stepsize-cross-entropy": "0.059056698334866466",
+        "lambda-baseline": "0.0089274972669639782",
+        "lambda-center": "0.0075038278196719165",
+        "stepsize-mu": "0.16170169261324885",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1295
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "311",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.006800631033662575",
+        "seed": "837",
+        "stepsize-cross-entropy": "0.017314665808319731",
+        "lambda-baseline": "0.0011993080957843204",
+        "lambda-center": "0.35789293792340715",
+        "stepsize-mu": "0.37174410297208726"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1296
+      }
+    },
+    {
+      "trialId": "331",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "141",
+        "stepsize-sigma": "0.00047145075985382412",
+        "stepsize-cross-entropy": "0.0035607407375170385",
+        "lambda-baseline": "0.0014717667879447119",
+        "lambda-center": "0.26428441847671769",
+        "stepsize-mu": "0.31923468997788723"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.12969999999999998
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "229",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.0041589266483670817",
+        "seed": "737",
+        "stepsize-cross-entropy": "0.0041983904645089458",
+        "lambda-center": "0.891046825155079",
+        "lambda-baseline": "0.00050625282765762625",
+        "stepsize-mu": "0.36796319584834397"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1298
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "345",
+      "hyperparameters": {
+        "stepsize-mu": "0.40920094067051482",
+        "degree-polynomial": "2",
+        "seed": "191",
+        "stepsize-sigma": "0.012211516508250898",
+        "stepsize-cross-entropy": "0.0054589724823047737",
+        "lambda-center": "0.0037360270808084362",
+        "lambda-baseline": "0.0015122309992703495"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13
+      }
+    },
+    {
+      "trialId": "171",
+      "hyperparameters": {
+        "stepsize-mu": "0.29833511033725857",
+        "degree-polynomial": "2",
+        "seed": "151",
+        "stepsize-sigma": "0.01016111488188402",
+        "stepsize-cross-entropy": "0.0087170346662095131",
+        "lambda-baseline": "0.0012342746376258601",
+        "lambda-center": "0.03884620261519911"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13024999999999998
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "217",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.0032109702018123789",
+        "seed": "888",
+        "stepsize-cross-entropy": "0.026935635923587636",
+        "lambda-baseline": "0.00017763091079776958",
+        "lambda-center": "0.047442498225438744",
+        "stepsize-mu": "0.4351902895949093"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1304
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "103",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.023335484640158777",
+        "lambda-center": "0.0415727644917595",
+        "lambda-baseline": "0.0025264087337948781",
+        "stepsize-mu": "0.21159413170816144",
+        "degree-polynomial": "2",
+        "seed": "787",
+        "stepsize-sigma": "0.0073996352011043223"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1305
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "97",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.013579152254141269",
+        "seed": "655",
+        "stepsize-cross-entropy": "0.07934739345374589",
+        "lambda-baseline": "0.00037822916632267379",
+        "lambda-center": "0.066416664718646032",
+        "stepsize-mu": "0.057711923792359905"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13055
+      }
+    },
+    {
+      "trialId": "274",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.029541745284198024",
+        "lambda-baseline": "0.017143158213299134",
+        "lambda-center": "0.0090792635048418079",
+        "stepsize-mu": "0.18997195182251342",
+        "degree-polynomial": "2",
+        "seed": "890",
+        "stepsize-sigma": "0.0012268641574508863"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13065
+      }
+    },
+    {
+      "trialId": "228",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0042769775707046705",
+        "seed": "940",
+        "stepsize-cross-entropy": "0.015159089351026013",
+        "lambda-baseline": "0.0009528053624692298",
+        "lambda-center": "0.051253665417989161",
+        "stepsize-mu": "0.41321640130020115"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13065
+      }
+    },
+    {
+      "trialId": "124",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "816",
+        "stepsize-sigma": "0.0077543134133497551",
+        "stepsize-cross-entropy": "0.0099206696474124188",
+        "lambda-center": "0.0013111530684151995",
+        "lambda-baseline": "0.00014138814353412444",
+        "stepsize-mu": "0.02298195486758849"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13065
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "356",
+      "hyperparameters": {
+        "stepsize-sigma": "0.000887914211781006",
+        "seed": "477",
+        "stepsize-cross-entropy": "0.0038267863911512746",
+        "lambda-baseline": "0.0009269829389130206",
+        "lambda-center": "0.011924412992818826",
+        "stepsize-mu": "0.21970779855547423",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13069999999999998
+      }
+    },
+    {
+      "trialId": "351",
+      "hyperparameters": {
+        "stepsize-mu": "0.46725227010966558",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.00012663583904399929",
+        "seed": "355",
+        "stepsize-cross-entropy": "0.068971774654670692",
+        "lambda-center": "0.060117380911815337",
+        "lambda-baseline": "0.0010610861652337806"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13069999999999998
+      }
+    },
+    {
+      "trialId": "94",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "140",
+        "stepsize-sigma": "0.0045667233376069432",
+        "stepsize-cross-entropy": "0.073505384072343458",
+        "lambda-center": "0.029853845948697975",
+        "lambda-baseline": "0.00016904070744118069",
+        "stepsize-mu": "0.065163802789569111"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13090000000000002
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "266",
+      "hyperparameters": {
+        "stepsize-sigma": "0.0030135724780433271",
+        "seed": "302",
+        "stepsize-cross-entropy": "0.020438230357361076",
+        "lambda-center": "0.029411793960535351",
+        "lambda-baseline": "0.00015195634435787644",
+        "stepsize-mu": "0.19051222615303168",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13095
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "91",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "525",
+        "stepsize-sigma": "0.0070249851746770221",
+        "stepsize-cross-entropy": "0.045750432193384878",
+        "lambda-baseline": "0.00017112153016178626",
+        "lambda-center": "0.067133847248368156",
+        "stepsize-mu": "0.28389580486533467"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13095
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "325",
+      "hyperparameters": {
+        "lambda-center": "0.012672833041612312",
+        "lambda-baseline": "0.0014042890581806304",
+        "stepsize-mu": "0.44628846514941839",
+        "degree-polynomial": "3",
+        "seed": "131",
+        "stepsize-sigma": "0.0041590430504581406",
+        "stepsize-cross-entropy": "0.011690170469396575"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13105
+      }
+    },
+    {
+      "trialId": "113",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.0079398089934508",
+        "seed": "865",
+        "stepsize-cross-entropy": "0.0489320935511845",
+        "lambda-center": "0.0179941685801312",
+        "lambda-baseline": "0.0029888875346121787",
+        "stepsize-mu": "0.35479043029724416"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13115
+      }
+    },
+    {
+      "trialId": "225",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.0022788952424105174",
+        "seed": "185",
+        "stepsize-cross-entropy": "0.13402046222931677",
+        "lambda-baseline": "0.0017221824244627311",
+        "lambda-center": "0.14835708712238543",
+        "stepsize-mu": "0.42923126580991827"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1313
+      }
+    },
+    {
+      "trialId": "59",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.027059448581789526",
+        "lambda-baseline": "0.0001952939891506621",
+        "lambda-center": "0.062931130978350153",
+        "stepsize-mu": "0.11136049999702571",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.005189705460399284",
+        "seed": "997"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1313
+      }
+    },
+    {
+      "trialId": "133",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0022599791298967098",
+        "seed": "191",
+        "stepsize-cross-entropy": "0.043031557130646832",
+        "lambda-baseline": "0.0021945664007824248",
+        "lambda-center": "0.010075359862037279",
+        "stepsize-mu": "0.27859971858055477"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13140000000000002
+      }
+    },
+    {
+      "trialId": "140",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.081319716783537652",
+        "lambda-baseline": "0.00013998487554966487",
+        "lambda-center": "0.49000448212481912",
+        "stepsize-mu": "0.41402462834968534",
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.002488291926258887",
+        "seed": "257"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1315
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "385",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "27",
+        "stepsize-sigma": "0.0098982723503003769",
+        "stepsize-cross-entropy": "0.0582919506700774",
+        "lambda-baseline": "0.00010190724837276564",
+        "lambda-center": "0.0052603462305369931",
+        "stepsize-mu": "0.080445586500162869"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13165
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "301",
+      "hyperparameters": {
+        "stepsize-sigma": "0.0027003601406573861",
+        "seed": "743",
+        "stepsize-cross-entropy": "0.0061251505507814181",
+        "lambda-center": "0.017268806186203474",
+        "lambda-baseline": "0.000981955055691651",
+        "stepsize-mu": "0.4298242317184045",
+        "degree-polynomial": "3"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1318
+      }
+    },
+    {
+      "trialId": "300",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0086751937437083981",
+        "lambda-baseline": "0.058651508517758043",
+        "lambda-center": "0.0012187114554317497",
+        "stepsize-mu": "0.285654377999791",
+        "degree-polynomial": "2",
+        "seed": "641",
+        "stepsize-sigma": "0.0037802142440409611"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13195
+      }
+    },
+    {
+      "trialId": "178",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.039054221967690123",
+        "lambda-baseline": "0.00090091881204277515",
+        "lambda-center": "0.0017477091990175655",
+        "stepsize-mu": "0.45361179380618205",
+        "degree-polynomial": "2",
+        "seed": "227",
+        "stepsize-sigma": "0.016989574556094934"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13195
+      }
+    },
+    {
+      "trialId": "73",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.0066536114093050025",
+        "seed": "157",
+        "stepsize-cross-entropy": "0.099832182645615344",
+        "lambda-baseline": "0.00031242293921724036",
+        "lambda-center": "0.06642909036635844",
+        "stepsize-mu": "0.37861632188406313"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1323
+      }
+    },
+    {
+      "trialId": "161",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.0071183750825480983",
+        "seed": "730",
+        "stepsize-cross-entropy": "0.080291007775727632",
+        "lambda-baseline": "0.000145155939472954",
+        "lambda-center": "0.52853953084555",
+        "stepsize-mu": "0.47685244195042492"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13235
+      }
+    },
+    {
+      "trialId": "162",
+      "hyperparameters": {
+        "stepsize-sigma": "0.001310494840489299",
+        "seed": "436",
+        "stepsize-cross-entropy": "0.030018396567461633",
+        "lambda-baseline": "0.00074391627643600848",
+        "lambda-center": "0.14948122043078971",
+        "stepsize-mu": "0.26363795500795051",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1328
+      }
+    },
+    {
+      "trialId": "309",
+      "hyperparameters": {
+        "stepsize-mu": "0.42257938792442173",
+        "degree-polynomial": "3",
+        "seed": "690",
+        "stepsize-sigma": "0.00028584992333633249",
+        "stepsize-cross-entropy": "0.026651755395969378",
+        "lambda-center": "0.21721152582338135",
+        "lambda-baseline": "0.0015031976047267276"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13285000000000002
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "116",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.025380440894753588",
+        "lambda-center": "0.66641450960667081",
+        "lambda-baseline": "0.00027485074670801035",
+        "stepsize-mu": "0.2143563768266471",
+        "degree-polynomial": "2",
+        "seed": "52",
+        "stepsize-sigma": "0.023695108671734841"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13295
+      }
+    },
+    {
+      "trialId": "144",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.005583584113317875",
+        "seed": "554",
+        "stepsize-cross-entropy": "0.047956297827866291",
+        "lambda-baseline": "0.0021020886902648737",
+        "lambda-center": "0.025686151869532329",
+        "stepsize-mu": "0.2396554818757072"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.133
+      }
+    },
+    {
+      "trialId": "313",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.041192066318020248",
+        "lambda-baseline": "0.0011408896279600776",
+        "lambda-center": "0.0011215206451749388",
+        "stepsize-mu": "0.435793912583874",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.0020997392406986691",
+        "seed": "169"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13315
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "276",
+      "hyperparameters": {
+        "stepsize-mu": "0.42238093174604147",
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.00949878573829926",
+        "seed": "175",
+        "stepsize-cross-entropy": "0.0063574064764085831",
+        "lambda-baseline": "0.0011786328707139081",
+        "lambda-center": "0.006242335721182336"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13325
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "355",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0056397042667879075",
+        "lambda-center": "0.0089264221095972547",
+        "lambda-baseline": "0.0013204068078980194",
+        "stepsize-mu": "0.41191109911816026",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0067904884446460352",
+        "seed": "750"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13395
+      }
+    },
+    {
+      "trialId": "136",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.063892079405965169",
+        "lambda-baseline": "0.0047622526590782128",
+        "lambda-center": "0.013403465326526807",
+        "stepsize-mu": "0.30468292031218713",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.010598161205937677",
+        "seed": "184"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13395
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "215",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0049306477671727141",
+        "seed": "286",
+        "stepsize-cross-entropy": "0.018369014533974489",
+        "lambda-baseline": "0.00012116615868959431",
+        "lambda-center": "0.013002237548341851",
+        "stepsize-mu": "0.015321148266658261"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13419999999999999
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "220",
+      "hyperparameters": {
+        "lambda-center": "0.023463793436239076",
+        "lambda-baseline": "0.00085873030226613566",
+        "stepsize-mu": "0.2302878624599293",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0078773971602373889",
+        "seed": "705",
+        "stepsize-cross-entropy": "0.05533901096055821"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13425
+      }
+    },
+    {
+      "trialId": "112",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.054911431314895891",
+        "lambda-baseline": "0.00018175614317942937",
+        "lambda-center": "0.17349933195046044",
+        "stepsize-mu": "0.49163149013871887",
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.010393078257636815",
+        "seed": "666"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13435
+      }
+    },
+    {
+      "trialId": "147",
+      "hyperparameters": {
+        "stepsize-sigma": "0.024176159496372553",
+        "seed": "298",
+        "stepsize-cross-entropy": "0.0080343300693214784",
+        "lambda-center": "0.0016373231958996626",
+        "lambda-baseline": "0.00050761669107347884",
+        "stepsize-mu": "0.063204159246270264",
+        "degree-polynomial": "4"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13455
+      }
+    },
+    {
+      "trialId": "16",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.015513384936166863",
+        "seed": "912",
+        "stepsize-cross-entropy": "0.018280495371721685",
+        "lambda-center": "0.40783184711851739",
+        "lambda-baseline": "0.00024743508982337747",
+        "stepsize-mu": "0.01182915107638044"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1346
+      }
+    },
+    {
+      "trialId": "14",
+      "hyperparameters": {
+        "stepsize-sigma": "0.017170694461252196",
+        "seed": "634",
+        "stepsize-cross-entropy": "0.041957500443325649",
+        "lambda-center": "0.35275114614201653",
+        "lambda-baseline": "0.00027445174468976346",
+        "stepsize-mu": "0.19682242018308771",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.135
+      }
+    },
+    {
+      "trialId": "80",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "seed": "298",
+        "stepsize-sigma": "1.0247877552116759e-05",
+        "stepsize-cross-entropy": "0.036521576911476158",
+        "lambda-baseline": "0.00010174900398498654",
+        "lambda-center": "0.0936002502142542",
+        "stepsize-mu": "0.26306681167399654"
+      },
+      "finalMetric": {
+        "trainingStep": "115200",
+        "objectiveValue": 0.13505
+      }
+    },
+    {
+      "trialId": "99",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "seed": "520",
+        "stepsize-sigma": "0.027255058166503161",
+        "stepsize-cross-entropy": "0.0076415021835112883",
+        "lambda-baseline": "0.093126323105286957",
+        "lambda-center": "0.0018752064417700619",
+        "stepsize-mu": "0.014759423712429116"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13565
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "18",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.012706764622518895",
+        "seed": "48",
+        "stepsize-cross-entropy": "0.039747980402000761",
+        "lambda-center": "0.49781524333521271",
+        "lambda-baseline": "0.00011325105850559576",
+        "stepsize-mu": "0.076454517626288049"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1357
+      }
+    },
+    {
+      "trialId": "342",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.00088837089226569924",
+        "lambda-center": "0.01350466446651211",
+        "lambda-baseline": "0.0007206150675210832",
+        "stepsize-mu": "0.31477812002787731",
+        "degree-polynomial": "2",
+        "seed": "204",
+        "stepsize-sigma": "0.0025071480017013572"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13585
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "324",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "66",
+        "stepsize-sigma": "0.0045950663836191391",
+        "stepsize-cross-entropy": "0.020641660106243014",
+        "lambda-baseline": "0.000846847306095555",
+        "lambda-center": "0.0087889993503045844",
+        "stepsize-mu": "0.4765314536774351"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13585
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "279",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "946",
+        "stepsize-sigma": "0.010741867242174621",
+        "stepsize-cross-entropy": "0.013422423214939919",
+        "lambda-baseline": "0.00018615844541446482",
+        "lambda-center": "0.0040648540531987021",
+        "stepsize-mu": "0.01024792108524031"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1361
+      }
+    },
+    {
+      "trialId": "343",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "147",
+        "stepsize-sigma": "0.0038884073907116874",
+        "stepsize-cross-entropy": "0.018360358078048127",
+        "lambda-baseline": "0.0013195422686371489",
+        "lambda-center": "0.32024982522689788",
+        "stepsize-mu": "0.42681553281024293"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13615
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "259",
+      "hyperparameters": {
+        "seed": "569",
+        "stepsize-sigma": "0.0056977916288638766",
+        "stepsize-cross-entropy": "0.03775103195523629",
+        "lambda-center": "0.021911112844056627",
+        "lambda-baseline": "0.0038487425250463732",
+        "stepsize-mu": "0.27566908679545271",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1362
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "208",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.011228545830155702",
+        "seed": "141",
+        "stepsize-cross-entropy": "0.019442658527596902",
+        "lambda-center": "0.51042858666836877",
+        "lambda-baseline": "0.00032554627151987534",
+        "stepsize-mu": "0.27568334668728778"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1365
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "245",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.032135069698816986",
+        "lambda-baseline": "0.0056494611474594315",
+        "lambda-center": "0.00730704278435533",
+        "stepsize-mu": "0.22601804517708166",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.010338874885500041",
+        "seed": "130"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1366
+      }
+    },
+    {
+      "trialId": "146",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.017183034160463118",
+        "seed": "597",
+        "stepsize-cross-entropy": "0.060970413439120519",
+        "lambda-baseline": "0.00025710304489890931",
+        "lambda-center": "0.77577158212788766",
+        "stepsize-mu": "0.084228878968587578"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13665
+      }
+    },
+    {
+      "trialId": "188",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.017722588051983269",
+        "lambda-baseline": "0.00078391408942474954",
+        "lambda-center": "0.42794334482107249",
+        "stepsize-mu": "0.38806922401884347",
+        "degree-polynomial": "2",
+        "seed": "127",
+        "stepsize-sigma": "0.025292690265167447"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1367
+      }
+    },
+    {
+      "trialId": "120",
+      "hyperparameters": {
+        "stepsize-mu": "0.072329456082784044",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.004416362176547531",
+        "seed": "591",
+        "stepsize-cross-entropy": "0.0096915421483378568",
+        "lambda-center": "0.040193733492198062",
+        "lambda-baseline": "0.0050376085060014793"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13679999999999998
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "214",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.055461783388031982",
+        "lambda-baseline": "0.00019812188938606119",
+        "lambda-center": "0.0016168679351115222",
+        "stepsize-mu": "0.27741132646030148",
+        "degree-polynomial": "2",
+        "seed": "423",
+        "stepsize-sigma": "0.0040113349888578386"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1369
+      }
+    },
+    {
+      "trialId": "373",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.0072366004063626442",
+        "seed": "194",
+        "stepsize-cross-entropy": "0.004058206151109525",
+        "lambda-center": "0.015548488024498023",
+        "lambda-baseline": "0.0011335458385123285",
+        "stepsize-mu": "0.48682730335903218"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13745000000000002
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "202",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.057584955355941325",
+        "lambda-center": "0.033670266076178054",
+        "lambda-baseline": "0.00082218383772775271",
+        "stepsize-mu": "0.28563857628389505",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0054446516676903423",
+        "seed": "653"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13765
+      }
+    },
+    {
+      "trialId": "253",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0088194021002822049",
+        "seed": "371",
+        "stepsize-cross-entropy": "0.019000473550224526",
+        "lambda-baseline": "0.00013541423380747345",
+        "lambda-center": "0.0490421095524983",
+        "stepsize-mu": "0.077310455691637039"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13785
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "226",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.012720315904198955",
+        "lambda-center": "0.049753811145997841",
+        "lambda-baseline": "0.0006701303410797467",
+        "stepsize-mu": "0.25383935064580271",
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.0018543103631430133",
+        "seed": "711"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13785
+      }
+    },
+    {
+      "trialId": "363",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.00541111975242506",
+        "seed": "582",
+        "stepsize-cross-entropy": "0.082010950866539367",
+        "lambda-center": "0.96280744442238664",
+        "lambda-baseline": "0.00055327731355769036",
+        "stepsize-mu": "0.49460391522974995"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13884999999999997
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "106",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0053358329284819758",
+        "lambda-baseline": "0.00072943033681238157",
+        "lambda-center": "0.0030926886653864652",
+        "stepsize-mu": "0.019725768868776736",
+        "degree-polynomial": "3",
+        "seed": "185",
+        "stepsize-sigma": "0.016286777276171588"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13885
+      }
+    },
+    {
+      "trialId": "312",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.008046912720034",
+        "seed": "332",
+        "stepsize-cross-entropy": "0.035635051436686133",
+        "lambda-baseline": "0.00013684025042690011",
+        "lambda-center": "0.012583172795344552",
+        "stepsize-mu": "0.31304325405695244"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.13955
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "346",
+      "hyperparameters": {
+        "stepsize-mu": "0.40818890688328724",
+        "degree-polynomial": "3",
+        "seed": "484",
+        "stepsize-sigma": "0.00895421929257278",
+        "stepsize-cross-entropy": "0.052708695684489687",
+        "lambda-center": "0.015769101088447705",
+        "lambda-baseline": "0.0013530346255589691"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1396
+      }
+    },
+    {
+      "trialId": "139",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.06463619779880804",
+        "lambda-center": "0.26967058495626939",
+        "lambda-baseline": "0.00018746400321039618",
+        "stepsize-mu": "0.40353953522098335",
+        "degree-polynomial": "4",
+        "seed": "856",
+        "stepsize-sigma": "0.020249725036198919"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1398
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "25",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "seed": "786",
+        "stepsize-sigma": "0.023174426075214232",
+        "stepsize-cross-entropy": "0.0030421592592235224",
+        "lambda-center": "0.52846131097997362",
+        "lambda-baseline": "0.00017429577709214469",
+        "stepsize-mu": "0.052363823444734559"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.14
+      }
+    },
+    {
+      "trialId": "74",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "seed": "549",
+        "stepsize-sigma": "0.017252088035517709",
+        "stepsize-cross-entropy": "0.10458752493069294",
+        "lambda-baseline": "0.00016990288967419975",
+        "lambda-center": "0.035517422342298537",
+        "stepsize-mu": "0.49758499573917719"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.14005
+      }
+    },
+    {
+      "trialId": "29",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.022384505221625141",
+        "lambda-baseline": "0.00035982983956120386",
+        "lambda-center": "0.11192616985755355",
+        "stepsize-mu": "0.16291975551360582",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.019335486866404714",
+        "seed": "279"
+      },
+      "finalMetric": {
+        "trainingStep": "19200",
+        "objectiveValue": 0.14005
+      }
+    },
+    {
+      "trialId": "68",
+      "hyperparameters": {
+        "stepsize-mu": "0.022256906748169287",
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.012653188398327459",
+        "seed": "426",
+        "stepsize-cross-entropy": "0.0062468133457497313",
+        "lambda-center": "0.0018022911777847137",
+        "lambda-baseline": "0.00016270701758690047"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1401
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "93",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.10710789329300477",
+        "lambda-baseline": "0.00015223857344377417",
+        "lambda-center": "0.06672300704470209",
+        "stepsize-mu": "0.18916989081775454",
+        "degree-polynomial": "2",
+        "seed": "485",
+        "stepsize-sigma": "0.0070895419448657312"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.14024999999999999
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "23",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.026965375643018055",
+        "seed": "562",
+        "stepsize-cross-entropy": "0.018100334628876998",
+        "lambda-baseline": "0.00032406109008844625",
+        "lambda-center": "0.01912116571119336",
+        "stepsize-mu": "0.1532795025048545"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1404
+      }
+    },
+    {
+      "trialId": "292",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.025200589116690583",
+        "lambda-baseline": "0.0018903014674519292",
+        "lambda-center": "0.1961070314161576",
+        "stepsize-mu": "0.36818333047048518",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0051404367664988643",
+        "seed": "439"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1405
+      }
+    },
+    {
+      "trialId": "184",
+      "hyperparameters": {
+        "seed": "715",
+        "stepsize-sigma": "0.0090820112152417559",
+        "stepsize-cross-entropy": "0.053195738541118379",
+        "lambda-center": "0.048387701029705764",
+        "lambda-baseline": "0.00050045147234085172",
+        "stepsize-mu": "0.39730853195842042",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.14095000000000002
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "206",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "seed": "444",
+        "stepsize-sigma": "0.011346844676297884",
+        "stepsize-cross-entropy": "0.0075692264388848331",
+        "lambda-center": "0.12408833054538351",
+        "lambda-baseline": "0.011220739016012928",
+        "stepsize-mu": "0.30107138559000551"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.14100000000000001
+      }
+    },
+    {
+      "trialId": "244",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "470",
+        "stepsize-sigma": "0.007639844779927474",
+        "stepsize-cross-entropy": "0.069673189156315291",
+        "lambda-baseline": "0.00060659828476638514",
+        "lambda-center": "0.72912152774568884",
+        "stepsize-mu": "0.31505808238414545"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.14200000000000002
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "332",
+      "hyperparameters": {
+        "lambda-center": "0.13100919734386204",
+        "lambda-baseline": "0.0010306917391297243",
+        "stepsize-mu": "0.45898197041340982",
+        "degree-polynomial": "2",
+        "seed": "45",
+        "stepsize-sigma": "0.00856226609279147",
+        "stepsize-cross-entropy": "0.092259755710363045"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.14229999999999998
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "334",
+      "hyperparameters": {
+        "seed": "632",
+        "stepsize-sigma": "0.010057832734188818",
+        "stepsize-cross-entropy": "0.11195585308458772",
+        "lambda-center": "0.066358484259767",
+        "lambda-baseline": "0.0010471040288818638",
+        "stepsize-mu": "0.43968109331952127",
+        "degree-polynomial": "3"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1423
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "388",
+      "hyperparameters": {
+        "seed": "673",
+        "stepsize-sigma": "0.0071960156327381458",
+        "stepsize-cross-entropy": "0.045870697476197729",
+        "lambda-baseline": "0.0009038682589691526",
+        "lambda-center": "0.93679663885515907",
+        "stepsize-mu": "0.41442541042260295",
+        "degree-polynomial": "4"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.14245000000000002
+      }
+    },
+    {
+      "trialId": "36",
+      "hyperparameters": {
+        "stepsize-mu": "0.096361010312822987",
+        "degree-polynomial": "2",
+        "seed": "324",
+        "stepsize-sigma": "0.023903918551889624",
+        "stepsize-cross-entropy": "0.011072204702162473",
+        "lambda-center": "0.2673932270710368",
+        "lambda-baseline": "0.00040336371727058663"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.14300000000000002
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "47",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.024126805291211417",
+        "seed": "376",
+        "stepsize-cross-entropy": "0.0085627976060063411",
+        "lambda-center": "0.31004070823881158",
+        "lambda-baseline": "0.00021772699877258068",
+        "stepsize-mu": "0.01200167380929704"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1431
+      }
+    },
+    {
+      "trialId": "82",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.011161742943825279",
+        "seed": "48",
+        "stepsize-cross-entropy": "0.071626533732231823",
+        "lambda-center": "0.0027942870791443724",
+        "lambda-baseline": "0.00022193411535049903",
+        "stepsize-mu": "0.071848223344311388"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1432
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "152",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0076380225732185477",
+        "lambda-center": "0.0054163460860895875",
+        "lambda-baseline": "0.00072162169044134178",
+        "stepsize-mu": "0.29569607468048781",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.0029455297950620758",
+        "seed": "511"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.14579999999999999
+      }
+    },
+    {
+      "trialId": "46",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.036094657518929485",
+        "lambda-center": "0.052511459607813116",
+        "lambda-baseline": "0.00032844057314519552",
+        "stepsize-mu": "0.098430234251088683",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.013352265142421613",
+        "seed": "372"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.14615
+      }
+    },
+    {
+      "trialId": "205",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.018048148719905309",
+        "lambda-center": "0.5346071390722289",
+        "lambda-baseline": "0.0021686432518065522",
+        "stepsize-mu": "0.41615784273367312",
+        "degree-polynomial": "3",
+        "seed": "268",
+        "stepsize-sigma": "0.019412854139052825"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1473
+      }
+    },
+    {
+      "trialId": "234",
+      "hyperparameters": {
+        "stepsize-mu": "0.45669149843863766",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.0030468355796378806",
+        "seed": "463",
+        "stepsize-cross-entropy": "0.13600394547303959",
+        "lambda-baseline": "0.000513677634052654",
+        "lambda-center": "0.3857030250863408"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.14784999999999998
+      }
+    },
+    {
+      "trialId": "387",
+      "hyperparameters": {
+        "lambda-center": "0.03564875430712422",
+        "lambda-baseline": "0.016353791073416158",
+        "stepsize-mu": "0.10438453671538334",
+        "degree-polynomial": "3",
+        "seed": "146",
+        "stepsize-sigma": "0.021574728393585027",
+        "stepsize-cross-entropy": "0.016705278948559582"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1479
+      }
+    },
+    {
+      "trialId": "26",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.010654380868211443",
+        "seed": "858",
+        "stepsize-cross-entropy": "0.01857414458316943",
+        "lambda-center": "0.2472907892740428",
+        "lambda-baseline": "0.00012833771790730019",
+        "stepsize-mu": "0.15659560412817303"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.14815
+      }
+    },
+    {
+      "trialId": "284",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.056788661038786693",
+        "lambda-center": "0.0031722082827257327",
+        "lambda-baseline": "0.020140318429605602",
+        "stepsize-mu": "0.1464586498546194",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.012722148882507873",
+        "seed": "193"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1483
+      }
+    },
+    {
+      "trialId": "56",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.025924018211772905",
+        "lambda-baseline": "0.00045500736917081507",
+        "lambda-center": "0.43865350205781983",
+        "stepsize-mu": "0.16658102371164329",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.012162985618846324",
+        "seed": "617"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.14835
+      }
+    },
+    {
+      "trialId": "390",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.020311669148864894",
+        "lambda-center": "0.85402619028872817",
+        "lambda-baseline": "0.011516942142353374",
+        "stepsize-mu": "0.10538492386759879",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.014777974643628896",
+        "seed": "499"
+      },
+      "finalMetric": {
+        "trainingStep": "38400",
+        "objectiveValue": 0.151
+      }
+    },
+    {
+      "trialId": "143",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.088625387631909081",
+        "lambda-center": "0.18131061873921414",
+        "lambda-baseline": "0.00023207151532659653",
+        "stepsize-mu": "0.45481413791007652",
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.013140874939259969",
+        "seed": "163"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1512
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "194",
+      "hyperparameters": {
+        "lambda-baseline": "0.00088636308766494511",
+        "lambda-center": "0.72534419087025859",
+        "stepsize-mu": "0.4031777919534637",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0084139180381324757",
+        "seed": "478",
+        "stepsize-cross-entropy": "0.034487719979033937"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.15535
+      }
+    },
+    {
+      "trialId": "348",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "143",
+        "stepsize-sigma": "0.037626889462742792",
+        "stepsize-cross-entropy": "0.028980904615843444",
+        "lambda-center": "0.0082045588381438952",
+        "lambda-baseline": "0.018294128888684924",
+        "stepsize-mu": "0.27000669040068132"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.15585
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "62",
+      "hyperparameters": {
+        "stepsize-sigma": "0.013019789301796328",
+        "seed": "71",
+        "stepsize-cross-entropy": "0.014604507648430696",
+        "lambda-center": "0.0069012514680961068",
+        "lambda-baseline": "0.00056932385125608434",
+        "stepsize-mu": "0.10184724824085153",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.15735
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "381",
+      "hyperparameters": {
+        "lambda-baseline": "0.00018345836297959745",
+        "lambda-center": "0.16466207473154781",
+        "stepsize-mu": "0.46006323056296095",
+        "degree-polynomial": "3",
+        "seed": "952",
+        "stepsize-sigma": "0.0022875421242505209",
+        "stepsize-cross-entropy": "0.0857185673370997"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1603
+      }
+    },
+    {
+      "trialId": "70",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "seed": "705",
+        "stepsize-sigma": "0.0061432340008408248",
+        "stepsize-cross-entropy": "0.0052872297748296935",
+        "lambda-center": "0.90583159220255416",
+        "lambda-baseline": "0.00024292563456448308",
+        "stepsize-mu": "0.12869341471057286"
+      },
+      "finalMetric": {
+        "trainingStep": "57600",
+        "objectiveValue": 0.1626
+      }
+    },
+    {
+      "trialId": "28",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.051276886604327637",
+        "lambda-baseline": "0.00024476980259912571",
+        "lambda-center": "0.063575205689226713",
+        "stepsize-mu": "0.075836312965599437",
+        "degree-polynomial": "3",
+        "seed": "561",
+        "stepsize-sigma": "0.0095549666901167379"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.16885
+      }
+    },
+    {
+      "trialId": "40",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.027553558106821106",
+        "seed": "867",
+        "stepsize-cross-entropy": "0.035331077309002694",
+        "lambda-center": "0.0014583652386680008",
+        "lambda-baseline": "0.0002098968875831865",
+        "stepsize-mu": "0.12784434518190485"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.17370000000000002
+      }
+    },
+    {
+      "trialId": "148",
+      "hyperparameters": {
+        "lambda-baseline": "0.00026133081023538036",
+        "lambda-center": "0.89602792637356676",
+        "stepsize-mu": "0.25372733203514641",
+        "degree-polynomial": "2",
+        "seed": "582",
+        "stepsize-sigma": "0.029373636252965237",
+        "stepsize-cross-entropy": "0.002065958734888379"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.1856
+      }
+    },
+    {
+      "trialId": "128",
+      "hyperparameters": {
+        "stepsize-mu": "0.22964826974930017",
+        "degree-polynomial": "2",
+        "seed": "792",
+        "stepsize-sigma": "0.022933956899292757",
+        "stepsize-cross-entropy": "0.043658155996652494",
+        "lambda-baseline": "0.000332499588491608",
+        "lambda-center": "0.99978846330748383"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.18655
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "39",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.024763143021376617",
+        "seed": "536",
+        "stepsize-cross-entropy": "0.05064130817049884",
+        "lambda-center": "0.35480765090562177",
+        "lambda-baseline": "0.00018139026571441729",
+        "stepsize-mu": "0.12669143711509395"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.19335
+      }
+    },
+    {
+      "trialId": "277",
+      "hyperparameters": {
+        "stepsize-mu": "0.14394485211454472",
+        "degree-polynomial": "2",
+        "seed": "659",
+        "stepsize-sigma": "0.022828168238488985",
+        "stepsize-cross-entropy": "0.044903447095674884",
+        "lambda-center": "0.773019660336383",
+        "lambda-baseline": "0.007806867484636053"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.20675
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "227",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.033434019248231667",
+        "seed": "803",
+        "stepsize-cross-entropy": "0.01706853828626647",
+        "lambda-baseline": "0.0017782366907351081",
+        "lambda-center": "0.0016356793393682467",
+        "stepsize-mu": "0.050447800639443062"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.21625
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "9",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "seed": "856",
+        "stepsize-sigma": "0.083503077872290332",
+        "stepsize-cross-entropy": "0.17209083135995",
+        "lambda-baseline": "0.0004245427825631165",
+        "lambda-center": "0.022921182877946446",
+        "stepsize-mu": "0.40867254215937393"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.2366
+      }
+    },
+    {
+      "trialId": "42",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0052340210483310893",
+        "lambda-baseline": "0.000305096752450323",
+        "lambda-center": "0.1882236619437796",
+        "stepsize-mu": "0.14183545530456135",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.014966483917311854",
+        "seed": "418"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.2385
+      }
+    },
+    {
+      "trialId": "2",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.23461003466302696",
+        "lambda-center": "0.0033616868459790689",
+        "lambda-baseline": "0.020529698854491057",
+        "stepsize-mu": "0.016476396184701179",
+        "degree-polynomial": "2",
+        "seed": "977",
+        "stepsize-sigma": "0.026786482162826194"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.24125000000000002
+      }
+    },
+    {
+      "trialId": "302",
+      "hyperparameters": {
+        "lambda-baseline": "0.00059099461531279731",
+        "lambda-center": "0.088042697864546535",
+        "stepsize-mu": "0.4977701490055762",
+        "degree-polynomial": "2",
+        "seed": "946",
+        "stepsize-sigma": "6.6215957037218343e-05",
+        "stepsize-cross-entropy": "0.10679673120063733"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.2437
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "333",
+      "hyperparameters": {
+        "lambda-baseline": "0.05203103954183947",
+        "lambda-center": "0.0057774614272437163",
+        "stepsize-mu": "0.13723172690400015",
+        "degree-polynomial": "4",
+        "seed": "388",
+        "stepsize-sigma": "0.00032986302056999304",
+        "stepsize-cross-entropy": "0.10558271029326032"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.24575000000000002
+      }
+    },
+    {
+      "trialId": "242",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "1.0010313884638351e-05",
+        "seed": "138",
+        "stepsize-cross-entropy": "0.07969386902086105",
+        "lambda-center": "0.24012721460598438",
+        "lambda-baseline": "0.001730800281401583",
+        "stepsize-mu": "0.4204778506104202"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.24580000000000002
+      }
+    },
+    {
+      "trialId": "330",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0355337426441626",
+        "lambda-baseline": "0.00093639053626225416",
+        "lambda-center": "0.2913434173477788",
+        "stepsize-mu": "0.47647828319813984",
+        "degree-polynomial": "4",
+        "seed": "815",
+        "stepsize-sigma": "0.0004521079996355533"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.2459
+      }
+    },
+    {
+      "trialId": "22",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.019678569592403543",
+        "seed": "196",
+        "stepsize-cross-entropy": "0.00045751440208381466",
+        "lambda-baseline": "0.00017795186167806341",
+        "lambda-center": "0.30307108408566291",
+        "stepsize-mu": "0.22965656049314917"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.24664999999999998
+      }
+    },
+    {
+      "trialId": "78",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.075047281528169682",
+        "lambda-center": "0.0062353779446698383",
+        "lambda-baseline": "0.00012329023109998121",
+        "stepsize-mu": "0.13895625432870271",
+        "degree-polynomial": "4",
+        "seed": "863",
+        "stepsize-sigma": "0.0004774036127920872"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.2479
+      }
+    },
+    {
+      "trialId": "72",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.00021122002523162958",
+        "seed": "970",
+        "stepsize-cross-entropy": "0.053442679102773644",
+        "lambda-center": "0.10561493766903236",
+        "lambda-baseline": "0.00010095196737110193",
+        "stepsize-mu": "0.066110057884981574"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.24835000000000002
+      }
+    },
+    {
+      "trialId": "190",
+      "hyperparameters": {
+        "stepsize-mu": "0.15272410653413779",
+        "degree-polynomial": "2",
+        "seed": "627",
+        "stepsize-sigma": "1.0018950095955162e-05",
+        "stepsize-cross-entropy": "0.074699820272972728",
+        "lambda-baseline": "0.00010134229688868979",
+        "lambda-center": "0.098055873492310167"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.24885
+      }
+    },
+    {
+      "trialId": "123",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.061521019454113042",
+        "lambda-center": "0.023375062146991126",
+        "lambda-baseline": "0.0029691446107455491",
+        "stepsize-mu": "0.30185251228518661",
+        "degree-polynomial": "2",
+        "seed": "72",
+        "stepsize-sigma": "2.363487552530108e-05"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.24925
+      }
+    },
+    {
+      "trialId": "369",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.00013795675789819432",
+        "seed": "363",
+        "stepsize-cross-entropy": "0.093800402185451243",
+        "lambda-baseline": "0.00098142065333418774",
+        "lambda-center": "0.042169054858059177",
+        "stepsize-mu": "0.449319160327309"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.2502
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "121",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "1.378765383534355e-05",
+        "seed": "72",
+        "stepsize-cross-entropy": "0.026444977744769092",
+        "lambda-center": "0.027752707893324898",
+        "lambda-baseline": "0.0034417321326849497",
+        "stepsize-mu": "0.30412081231976906"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.2504
+      }
+    },
+    {
+      "trialId": "316",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0028478259670096516",
+        "seed": "730",
+        "stepsize-cross-entropy": "0.11085421855126479",
+        "lambda-center": "0.099212306981713128",
+        "lambda-baseline": "0.00010021664670791246",
+        "stepsize-mu": "0.086765128222135543"
+      },
+      "finalMetric": {
+        "trainingStep": "57600",
+        "objectiveValue": 0.2506
+      }
+    },
+    {
+      "trialId": "158",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.022394908128539615",
+        "lambda-baseline": "0.0029692971558997762",
+        "lambda-center": "0.035465738625495104",
+        "stepsize-mu": "0.25373131896235041",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "1.0004519031055505e-05",
+        "seed": "514"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.2506
+      }
+    },
+    {
+      "trialId": "322",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.0674296790597155",
+        "lambda-center": "0.0024699632939064772",
+        "lambda-baseline": "0.0023022219987170267",
+        "stepsize-mu": "0.47526670446343389",
+        "degree-polynomial": "3",
+        "seed": "978",
+        "stepsize-sigma": "4.359609512733426e-05"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.2508
+      }
+    },
+    {
+      "trialId": "163",
+      "hyperparameters": {
+        "lambda-center": "0.0061486093491795856",
+        "lambda-baseline": "0.00011665103423420516",
+        "stepsize-mu": "0.4154805371972709",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.0028122670957487711",
+        "seed": "486",
+        "stepsize-cross-entropy": "0.0681198716052952"
+      },
+      "finalMetric": {
+        "trainingStep": "96000",
+        "objectiveValue": 0.251
+      }
+    },
+    {
+      "trialId": "179",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.1563518414617136",
+        "lambda-center": "0.084179627362812787",
+        "lambda-baseline": "0.00012388799799397404",
+        "stepsize-mu": "0.47430100081388904",
+        "degree-polynomial": "2",
+        "seed": "440",
+        "stepsize-sigma": "0.00037157468371516256"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.25225
+      }
+    },
+    {
+      "trialId": "130",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "seed": "648",
+        "stepsize-sigma": "0.060777100473526677",
+        "stepsize-cross-entropy": "0.28704501976550989",
+        "lambda-baseline": "0.0018021179843203264",
+        "lambda-center": "0.00827938460267833",
+        "stepsize-mu": "0.16176662952571316"
+      },
+      "finalMetric": {
+        "trainingStep": "115200",
+        "objectiveValue": 0.25295
+      }
+    },
+    {
+      "trialId": "318",
+      "hyperparameters": {
+        "seed": "619",
+        "stepsize-sigma": "0.00086885530408946344",
+        "stepsize-cross-entropy": "0.0967177820994021",
+        "lambda-center": "0.076075959798330858",
+        "lambda-baseline": "0.010591267116341589",
+        "stepsize-mu": "0.16938553021432745",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.2535
+      }
+    },
+    {
+      "trialId": "350",
+      "hyperparameters": {
+        "lambda-center": "0.0068271219927078571",
+        "lambda-baseline": "0.00074491383784611946",
+        "stepsize-mu": "0.3860504297791395",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.038931916156013296",
+        "seed": "976",
+        "stepsize-cross-entropy": "0.010731137479291155"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.25434999999999997
+      }
+    },
+    {
+      "trialId": "27",
+      "hyperparameters": {
+        "stepsize-sigma": "0.069388566705620117",
+        "seed": "433",
+        "stepsize-cross-entropy": "0.29858939041974486",
+        "lambda-baseline": "0.0043613261553288856",
+        "lambda-center": "0.0045046805180233131",
+        "stepsize-mu": "0.20783987862961817",
+        "degree-polynomial": "4"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.2544
+      }
+    },
+    {
+      "trialId": "11",
+      "hyperparameters": {
+        "stepsize-sigma": "0.071641962675416088",
+        "seed": "886",
+        "stepsize-cross-entropy": "0.27426586120893959",
+        "lambda-center": "0.00884292815109728",
+        "lambda-baseline": "0.0015729376126288148",
+        "stepsize-mu": "0.2309594096609755",
+        "degree-polynomial": "4"
+      },
+      "finalMetric": {
+        "trainingStep": "96000",
+        "objectiveValue": 0.25505
+      }
+    },
+    {
+      "trialId": "60",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.0033955355472425875",
+        "seed": "89",
+        "stepsize-cross-entropy": "0.054186425119793075",
+        "lambda-baseline": "0.00031618690398865437",
+        "lambda-center": "0.24190343072175632",
+        "stepsize-mu": "0.032679122641514208"
+      },
+      "finalMetric": {
+        "trainingStep": "76800",
+        "objectiveValue": 0.2555
+      }
+    },
+    {
+      "trialId": "12",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.27922723521252485",
+        "lambda-baseline": "0.0027971946209789547",
+        "lambda-center": "0.089015665205694039",
+        "stepsize-mu": "0.24066502435771453",
+        "degree-polynomial": "4",
+        "seed": "927",
+        "stepsize-sigma": "0.067415499786154284"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.27149999999999996
+      }
+    },
+    {
+      "trialId": "352",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.05996421861317016",
+        "lambda-baseline": "0.0018371164233923786",
+        "lambda-center": "0.60113342923013113",
+        "stepsize-mu": "0.392553335110787",
+        "degree-polynomial": "3",
+        "seed": "785",
+        "stepsize-sigma": "0.0089298895900898241"
+      },
+      "finalMetric": {
+        "trainingStep": "19200",
+        "objectiveValue": 0.2812
+      }
+    },
+    {
+      "trialId": "44",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.28163762743244947",
+        "lambda-center": "0.026815165039589459",
+        "lambda-baseline": "0.0023853346420602503",
+        "stepsize-mu": "0.17638400694027553",
+        "degree-polynomial": "4",
+        "seed": "755",
+        "stepsize-sigma": "0.067926823969138031"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.29255
+      }
+    },
+    {
+      "trialId": "212",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.023437609911189997",
+        "seed": "207",
+        "stepsize-cross-entropy": "0.0017575517938017166",
+        "lambda-center": "0.14680798832880859",
+        "lambda-baseline": "0.010407223581761329",
+        "stepsize-mu": "0.1760327999348649"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.30674999999999997
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "3",
+      "hyperparameters": {
+        "stepsize-sigma": "0.067958835104002677",
+        "seed": "834",
+        "stepsize-cross-entropy": "0.28913730739029969",
+        "lambda-baseline": "0.0020529698854491055",
+        "lambda-center": "0.013383116385396365",
+        "stepsize-mu": "0.20686101156931658",
+        "degree-polynomial": "4"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.31275
+      }
+    },
+    {
+      "trialId": "32",
+      "hyperparameters": {
+        "seed": "655",
+        "stepsize-sigma": "0.026518645477937475",
+        "stepsize-cross-entropy": "0.022863979983001367",
+        "lambda-center": "0.032348115990887431",
+        "lambda-baseline": "0.00019763226339847468",
+        "stepsize-mu": "0.20600396461825968",
+        "degree-polynomial": "2"
+      },
+      "finalMetric": {
+        "trainingStep": "96000",
+        "objectiveValue": 0.31945
+      }
+    },
+    {
+      "trialId": "20",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.025498157737357308",
+        "seed": "560",
+        "stepsize-cross-entropy": "0.18698979438308908",
+        "lambda-baseline": "0.01603586155517699",
+        "lambda-center": "0.01629012286346964",
+        "stepsize-mu": "0.11690094734205531"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.31955
+      }
+    },
+    {
+      "trialId": "5",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "471",
+        "stepsize-sigma": "0.094642471631765368",
+        "stepsize-cross-entropy": "0.26320578079223633",
+        "lambda-center": "0.18579439045522558",
+        "lambda-baseline": "0.00013244694356883652",
+        "stepsize-mu": "0.12210403859615326"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.33045
+      }
+    },
+    {
+      "trialId": "17",
+      "hyperparameters": {
+        "stepsize-sigma": "0.06956721688731024",
+        "seed": "605",
+        "stepsize-cross-entropy": "0.27072114343067893",
+        "lambda-center": "0.034987606708434628",
+        "lambda-baseline": "0.0023887234486392158",
+        "stepsize-mu": "0.0653515756382465",
+        "degree-polynomial": "4"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.34304999999999997
+      }
+    },
+    {
+      "trialId": "48",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.039253976070337142",
+        "seed": "483",
+        "stepsize-cross-entropy": "0.017523828613839561",
+        "lambda-baseline": "0.00026290488010226049",
+        "lambda-center": "0.3802768739324433",
+        "stepsize-mu": "0.067316116481440771"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.344
+      }
+    },
+    {
+      "trialId": "15",
+      "hyperparameters": {
+        "lambda-baseline": "0.0018381466914726347",
+        "lambda-center": "0.020589789701557944",
+        "stepsize-mu": "0.23240203134733597",
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.061372405698165891",
+        "seed": "895",
+        "stepsize-cross-entropy": "0.27357846499884869"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.3448
+      }
+    },
+    {
+      "trialId": "289",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.01607002821154515",
+        "seed": "125",
+        "stepsize-cross-entropy": "0.029588438744347568",
+        "lambda-center": "0.16858250166254773",
+        "lambda-baseline": "0.0012908976452501724",
+        "stepsize-mu": "0.41604639144744143"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.35595
+      }
+    },
+    {
+      "trialId": "154",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.04927626524559317",
+        "lambda-baseline": "0.00018562556742563932",
+        "lambda-center": "0.00258733977909777",
+        "stepsize-mu": "0.3287884711407687",
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.0015095671611052527",
+        "seed": "451"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.37525
+      }
+    },
+    {
+      "trialId": "243",
+      "hyperparameters": {
+        "stepsize-mu": "0.49758649140488054",
+        "degree-polynomial": "4",
+        "seed": "486",
+        "stepsize-sigma": "0.0037367399214698143",
+        "stepsize-cross-entropy": "0.040687132674548279",
+        "lambda-center": "0.18434459550744603",
+        "lambda-baseline": "0.0025128314256628614"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.3769
+      }
+    },
+    {
+      "trialId": "8",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "seed": "998",
+        "stepsize-sigma": "0.04233072493111386",
+        "stepsize-cross-entropy": "0.11756355863267724",
+        "lambda-center": "0.0057575408265263424",
+        "lambda-baseline": "0.0042454278256311611",
+        "stepsize-mu": "0.21828792677475856"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.385
+      }
+    },
+    {
+      "trialId": "7",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.089384842578172682",
+        "seed": "570",
+        "stepsize-cross-entropy": "0.25388174045085904",
+        "lambda-baseline": "0.042454278256311657",
+        "lambda-center": "0.091250872612785278",
+        "stepsize-mu": "0.37059561908245087"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.40435
+      }
+    },
+    {
+      "trialId": "31",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.06995384512936649",
+        "seed": "544",
+        "stepsize-cross-entropy": "0.29997390849251127",
+        "lambda-center": "0.014281100631425233",
+        "lambda-baseline": "0.0023238784336084214",
+        "stepsize-mu": "0.20774039820519041"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.43025
+      },
+      "isTrialStoppedEarly": true
+    },
+    {
+      "trialId": "54",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "755",
+        "stepsize-sigma": "0.00020409992474929796",
+        "stepsize-cross-entropy": "0.0321269772483355",
+        "lambda-center": "0.067886873801412589",
+        "lambda-baseline": "0.00024608203833117862",
+        "stepsize-mu": "0.033778636786077079"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.4694
+      }
+    },
+    {
+      "trialId": "165",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "seed": "41",
+        "stepsize-sigma": "0.013058227683706689",
+        "stepsize-cross-entropy": "0.083322652172198017",
+        "lambda-baseline": "0.000127829340991655",
+        "lambda-center": "0.20046125349009175",
+        "stepsize-mu": "0.47924951693539442"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.48055
+      }
+    },
+    {
+      "trialId": "198",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "634",
+        "stepsize-sigma": "0.00944487416332181",
+        "stepsize-cross-entropy": "0.033105480792026222",
+        "lambda-center": "0.13881743092686213",
+        "lambda-baseline": "0.00851235559757717",
+        "stepsize-mu": "0.32129941992264061"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.4831
+      }
+    },
+    {
+      "trialId": "57",
+      "hyperparameters": {
+        "seed": "385",
+        "stepsize-sigma": "0.01573003456921768",
+        "stepsize-cross-entropy": "0.049955282633321239",
+        "lambda-baseline": "0.00014009383297932686",
+        "lambda-center": "0.99647570542798358",
+        "stepsize-mu": "0.2021371433064906",
+        "degree-polynomial": "3"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.49265000000000003
+      }
+    },
+    {
+      "trialId": "278",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.006876224506515087",
+        "seed": "710",
+        "stepsize-cross-entropy": "0.013265439631313929",
+        "lambda-baseline": "0.0096696698560709768",
+        "lambda-center": "0.066924221691355965",
+        "stepsize-mu": "0.35042172723475135"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.49505
+      }
+    },
+    {
+      "trialId": "361",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "166",
+        "stepsize-sigma": "0.015793606542781415",
+        "stepsize-cross-entropy": "0.067445032896980464",
+        "lambda-center": "0.012923379939681458",
+        "lambda-baseline": "0.027482048707130925",
+        "stepsize-mu": "0.12886699043917366"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.49685
+      }
+    },
+    {
+      "trialId": "304",
+      "hyperparameters": {
+        "degree-polynomial": "3",
+        "seed": "993",
+        "stepsize-sigma": "0.020081255582259972",
+        "stepsize-cross-entropy": "0.0033769944102932437",
+        "lambda-center": "0.0018785895927633071",
+        "lambda-baseline": "0.00031096659653497553",
+        "stepsize-mu": "0.10411386368356144"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.4979
+      }
+    },
+    {
+      "trialId": "382",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.016124086318818887",
+        "lambda-baseline": "0.0028048763389811114",
+        "lambda-center": "0.53186361865819853",
+        "stepsize-mu": "0.39751059890474089",
+        "degree-polynomial": "2",
+        "seed": "657",
+        "stepsize-sigma": "0.0077331257115093727"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.50165
+      }
+    },
+    {
+      "trialId": "219",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.053843362656226947",
+        "lambda-center": "0.35013730411855526",
+        "lambda-baseline": "0.00092516509941870063",
+        "stepsize-mu": "0.25804896312949915",
+        "degree-polynomial": "2",
+        "seed": "461",
+        "stepsize-sigma": "0.023385072308600669"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.50195
+      }
+    },
+    {
+      "trialId": "89",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.00012376517038625843",
+        "lambda-center": "0.001999302198263856",
+        "lambda-baseline": "0.00021856060801086553",
+        "stepsize-mu": "0.13865509068196488",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "1.0215794193297703e-05",
+        "seed": "757"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.502
+      }
+    },
+    {
+      "trialId": "35",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "569",
+        "stepsize-sigma": "0.030892434188492583",
+        "stepsize-cross-entropy": "0.014466153842915278",
+        "lambda-baseline": "0.00013218299017573324",
+        "lambda-center": "0.011616688448189904",
+        "stepsize-mu": "0.11841863745116368"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.502
+      }
+    },
+    {
+      "trialId": "338",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.21946697228763642",
+        "lambda-baseline": "0.00078467818655781946",
+        "lambda-center": "0.023912157295490837",
+        "stepsize-mu": "0.47086490572653938",
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.01372606214650929",
+        "seed": "705"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.5021
+      }
+    },
+    {
+      "trialId": "6",
+      "hyperparameters": {
+        "seed": "685",
+        "stepsize-sigma": "0.09979767438650132",
+        "stepsize-cross-entropy": "0.21905564216375351",
+        "lambda-baseline": "0.038827705460821989",
+        "lambda-center": "0.001174225160406072",
+        "stepsize-mu": "0.091973304152488708",
+        "degree-polynomial": "4"
+      },
+      "finalMetric": {
+        "trainingStep": "640000",
+        "objectiveValue": 0.5025
+      }
+    },
+    {
+      "trialId": "34",
+      "hyperparameters": {
+        "stepsize-mu": "0.15382183748359388",
+        "degree-polynomial": "3",
+        "seed": "962",
+        "stepsize-sigma": "0.019320609169457263",
+        "stepsize-cross-entropy": "0.01761169821268449",
+        "lambda-center": "0.016451180184153289",
+        "lambda-baseline": "0.00019015086890696647"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.5029
+      }
+    },
+    {
+      "trialId": "298",
+      "hyperparameters": {
+        "stepsize-mu": "0.41208350354992157",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.014962674032194851",
+        "seed": "195",
+        "stepsize-cross-entropy": "0.041965473887650762",
+        "lambda-baseline": "0.030780912826524287",
+        "lambda-center": "0.83374591658441832"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.5039
+      }
+    },
+    {
+      "trialId": "176",
+      "hyperparameters": {
+        "stepsize-cross-entropy": "0.016424059939892911",
+        "lambda-baseline": "0.013431847171872915",
+        "lambda-center": "0.71659248061295422",
+        "stepsize-mu": "0.046410338153455764",
+        "degree-polynomial": "2",
+        "stepsize-sigma": "0.03164451708945798",
+        "seed": "877"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.5077499999999999
+      }
+    },
+    {
+      "trialId": "21",
+      "hyperparameters": {
+        "degree-polynomial": "2",
+        "seed": "915",
+        "stepsize-sigma": "0.020866038549044917",
+        "stepsize-cross-entropy": "0.0063138881344595608",
+        "lambda-center": "0.11082546416835928",
+        "lambda-baseline": "0.00014974296398269504",
+        "stepsize-mu": "0.12378277668968163"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.50825
+      }
+    },
+    {
+      "trialId": "19",
+      "hyperparameters": {
+        "stepsize-mu": "0.13221232036526442",
+        "degree-polynomial": "3",
+        "stepsize-sigma": "0.070753424156900072",
+        "seed": "120",
+        "stepsize-cross-entropy": "0.29742966425102307",
+        "lambda-center": "0.0012854997059436083",
+        "lambda-baseline": "0.0020257686634150536"
+      },
+      "finalMetric": {
+        "trainingStep": "153600",
+        "objectiveValue": 0.5094
+      }
+    },
+    {
+      "trialId": "314",
+      "hyperparameters": {
+        "stepsize-sigma": "0.004663021681220905",
+        "seed": "775",
+        "stepsize-cross-entropy": "0.028854238727169058",
+        "lambda-baseline": "0.0010054844407938195",
+        "lambda-center": "0.49213587685041904",
+        "stepsize-mu": "0.3307636710621023",
+        "degree-polynomial": "3"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.52425
+      }
+    },
+    {
+      "trialId": "339",
+      "hyperparameters": {
+        "degree-polynomial": "4",
+        "stepsize-sigma": "0.00064041771470308394",
+        "seed": "317",
+        "stepsize-cross-entropy": "0.13997136176263561",
+        "lambda-baseline": "0.024787835052712665",
+        "lambda-center": "0.0013948619127148892",
+        "stepsize-mu": "0.031988631198827222"
+      },
+      "finalMetric": {
+        "trainingStep": "1",
+        "objectiveValue": 0.5259
+      }
+    },
+    {
+      "trialId": "4",
+      "hyperparameters": {
+        "seed": "457",
+        "stepsize-sigma": "0.028581513900756837",
+        "stepsize-cross-entropy": "0.090599992287158967",
+        "lambda-baseline": "0.0013716254107740348",
+        "lambda-center": "0.0021216133326284812",
+        "stepsize-mu": "0.47710259854793546",
+        "degree-polynomial": "2"
+      }
+    },
+    {
+      "trialId": "1",
+      "hyperparameters": {
+        "seed": "548",
+        "stepsize-sigma": "0.073840599809885027",
+        "stepsize-cross-entropy": "0.0710282164812088",
+        "lambda-baseline": "0.00020529698854491061",
+        "lambda-center": "0.05327914597378295",
+        "stepsize-mu": "0.16878408849239349",
+        "degree-polynomial": "4"
+      }
+    }
+  ],
+  "consumedMLUnits": 25.22,
+  "isHyperparameterTuningJob": true,
+  "hyperparameterMetricTag": "roundtrip_ber"
+}

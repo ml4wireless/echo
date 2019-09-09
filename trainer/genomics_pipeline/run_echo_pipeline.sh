@@ -5,7 +5,7 @@
 #you should move all these files in genomics_pipeline to the trainer directory
 # ALSO DON'T FORGET ABOUT YOUR  datalab connect --zone us-west1-c --port 8081 echo-datalab
 
-BUCKET_NAME=sahai_echo
+BUCKET_NAME=torch-echo
 NOW=$(date +%Y%m%d_%H%M%S)
 JOB_NAME=echo_${NOW}
 JOB_DIR="gs://${BUCKET_NAME}/${JOB_NAME}"
@@ -21,19 +21,26 @@ fi;
 # spinning up tasks
 echo "spinning up tasks"
 
-rm -f ${TRAINER_DIR}/operations
-touch ${TRAINER_DIR}/operations
+#rm -f ${TRAINER_DIR}/genomics_pipeline/operations
+touch ${TRAINER_DIR}/genomics_pipeline/operations_${NOW}
 
-#for x in {0..2250}; do
-TO_RUN=( 1179 1476 )
-for x in "${TO_RUN[@]}"; do
+#rm -f ${TRAINER_DIR}/genomics_pipeline/operations_keys
+touch ${TRAINER_DIR}/genomics_pipeline/operations_keys_${NOW}
+
+TO_RUN=("clone_0" "clone_1" "neural_0" "neural_1")
+#for y in {0..7}; do
+#TO_RUN=( 1179 1476 )
+for y in "${TO_RUN[@]}"; do
+  for x in {0..50}; do
       echo -n "."
       gcloud alpha genomics pipelines run \
-      --pipeline-file ${TRAINER_DIR}/echo-pipeline.yaml \
-      --logging gs://${BUCKET_NAME}/${JOB_NAME}/logs/task$x.log \
-      --inputs TASK_ID=$x,JOB_DIR=$JOB_DIR  \
+      --pipeline-file ${TRAINER_DIR}/genomics_pipeline/echo-pipeline.yaml \
+      --logging ${JOB_DIR}/logs/task${x}_${y}.log \
+      --inputs TASK_ID=$x,EXP_ID=$y,JOB_DIR=$JOB_DIR  \
       --preemptible \
-      >> ${TRAINER_DIR}/operations 2>&1
+      >> ${TRAINER_DIR}/genomics_pipeline/operations_${NOW} 2>&1
+      echo "($x $y)" >> ${TRAINER_DIR}/genomics_pipeline/operations_keys_${NOW}
+  done
 done
 
 #echo -e "\ncomplete"

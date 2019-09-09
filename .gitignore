@@ -8,6 +8,8 @@ experiments/jobs.json
 experiments/*/jobs.json
 experiments/*/*/jobs.json
 trainer/work/
+trainer/*work*/*/
+trainer/*work*/
 *.pstat
 
 # Byte-compiled / optimized / DLL files
