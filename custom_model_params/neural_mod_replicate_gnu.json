@@ -1,0 +1,14 @@
+{
+  "hidden_layers":            [50],
+  "activation_fn_hidden": "tanh",
+  "stepsize_mu": 1.0e-3,
+  "stepsize_sigma": 1.0e-4,
+  "initial_std": 2.0e-1,
+  "min_std": 1.0e-3,
+  "max_std": 100,
+  "lambda_prob": 1.0e-10,
+  "restrict_energy": 1.0,
+  "max_amplitude": 0.5,
+  "lambda_p": 0.0,
+  "lambda_center": 125.0
+}

@@ -9,9 +9,9 @@ if [[ $ECHO_DIR != */echo ]]; then
   return 0 2> /dev/null || exit 0
 fi;
 
-MODEL=poly
+MODEL=neural
 PROTOCOL=private_preamble
-EXPNAME=QPSK_${MODEL}_vs_clone_custom_$1
+EXPNAME=REPLICATE_GNU
 python experiments/create_experiment_params.py \
     --protocol ${PROTOCOL} \
     --mod_order qpsk \
@@ -21,11 +21,14 @@ python experiments/create_experiment_params.py \
     --demod2 clone \
     --train_snr_db mid \
     --num_trials 50 \
+    --batch_size 256 \
+    --num_iterations 2001 \
+    --signal_power 0.5 \
     --experiment_name ${EXPNAME} \
-    --mod1_param_json="./custom_model_params/${MODEL}_$1_mod_0.json" \
-    --demod1_param_json="./custom_model_params/${MODEL}_$1_demod_0.json" \
-    --early_stopping \
-    #--mod2_param_json="./work/custom_${MODEL}_mod_params.json" \
+    --mod1_param_json="./custom_model_params/neural_mod_replicate_gnu.json" \
+    --demod1_param_json="./custom_model_params/neural_demod_replicate_gnu.json" \
+    --mod2_param_json="./work/custom_${MODEL}_mod_params.json" \
+    #--early_stopping \
     #--demod2_param_json="./work/custom_${MODEL}_demod_params.json" \
     #--verbose \
     #--delete <--- this won't run anything it will just clean up the experiment folder
