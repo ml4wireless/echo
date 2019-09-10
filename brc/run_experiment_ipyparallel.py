@@ -2,7 +2,6 @@ import getpass
 import json
 import os
 import sys
-from copy import deepcopy
 
 import numpy as np
 
@@ -65,6 +64,7 @@ def client_dispatch(job_description):
     from importlib import import_module
     import numpy as np
     import os
+    from copy import deepcopy
     params_copy = deepcopy(job_description)
     meta = job_description.pop('__meta__')
     params = job_description
