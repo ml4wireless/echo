@@ -324,7 +324,7 @@ def main(argv):
                       num_logs=args.num_results_logged,
                       train_snr_db=args.train_snr_db,
 
-                      signal_power=1.0,
+                      signal_power=args.signal_power,
                       optimizer='adam',
 
                       experiment_name=args.experiment_name,
