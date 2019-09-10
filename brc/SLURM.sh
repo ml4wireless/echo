@@ -51,5 +51,5 @@ fi
 
 
 time ipython run_experiment_ipyparallel.py --jobs-json=$JOBSJSON
-ipcluster stop
+#ipcluster stop
 exit
