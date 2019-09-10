@@ -27,7 +27,7 @@ python experiments/create_experiment_params.py \
     --experiment_name ${EXPNAME} \
     --mod1_param_json="./custom_model_params/neural_mod_replicate_gnu.json" \
     --demod1_param_json="./custom_model_params/neural_demod_replicate_gnu.json" \
-    --mod2_param_json="./work/custom_${MODEL}_mod_params.json" \
+    #--mod2_param_json="./work/custom_${MODEL}_mod_params.json" \
     #--early_stopping \
     #--demod2_param_json="./work/custom_${MODEL}_demod_params.json" \
     #--verbose \
