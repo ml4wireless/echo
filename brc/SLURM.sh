@@ -50,6 +50,6 @@ else
 fi
 
 
-time ipython run_experiment_ipyparallel.py -- --jobs-json=$JOBSJSON
+time ipython BRC_DIR/run_experiment_ipyparallel.py -- --jobs-json=$JOBSJSON
 #ipcluster stop
 exit
