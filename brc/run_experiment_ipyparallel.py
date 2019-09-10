@@ -9,6 +9,19 @@ ECHO_DIR = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(ECHO_DIR)
 from models.agent import Agent
 
+def prepare_environment(params):
+    import torch, random, sys
+    seed = params.pop("random_seed", 13370)
+    numpy_seed = params.pop("numpy_seed", 1337)
+    torch_seed = params.pop("pytorch_seed", 133)
+    if seed is not None:
+        random.seed(seed)
+    if numpy_seed is not None:
+        np.random.seed(numpy_seed)
+    if torch_seed is not None:
+        torch.manual_seed(torch_seed)
+    torch.set_num_threads(1)
+    sys.path.append(ECHO_DIR)
 
 def execute_parallel(jobs_file, echo_symlink_to=None):
     import ipyparallel as ipp
@@ -109,19 +122,7 @@ def client_dispatch(job_description):
     print(results_file)
 
 
-def prepare_environment(params):
-    import torch, random, sys
-    seed = params.pop("random_seed", 13370)
-    numpy_seed = params.pop("numpy_seed", 1337)
-    torch_seed = params.pop("pytorch_seed", 133)
-    if seed is not None:
-        random.seed(seed)
-    if numpy_seed is not None:
-        np.random.seed(numpy_seed)
-    if torch_seed is not None:
-        torch.manual_seed(torch_seed)
-    torch.set_num_threads(1)
-    sys.path.append(ECHO_DIR)
+
 
 
 def main():
