@@ -9,19 +9,7 @@ ECHO_DIR = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(ECHO_DIR)
 from models.agent import Agent
 
-def prepare_environment(params):
-    import torch, random, sys
-    seed = params.pop("random_seed", 13370)
-    numpy_seed = params.pop("numpy_seed", 1337)
-    torch_seed = params.pop("pytorch_seed", 133)
-    if seed is not None:
-        random.seed(seed)
-    if numpy_seed is not None:
-        np.random.seed(numpy_seed)
-    if torch_seed is not None:
-        torch.manual_seed(torch_seed)
-    torch.set_num_threads(1)
-    sys.path.append(ECHO_DIR)
+
 
 def execute_parallel(jobs_file, echo_symlink_to=None):
     import ipyparallel as ipp
@@ -76,7 +64,7 @@ def execute_parallel(jobs_file, echo_symlink_to=None):
 def client_dispatch(job_description):
     from importlib import import_module
     import numpy as np
-    import os
+    import torch, random, sys, os
     from copy import deepcopy
     params_copy = deepcopy(job_description)
     meta = job_description.pop('__meta__')
@@ -91,7 +79,19 @@ def client_dispatch(job_description):
     experiment_dir = os.path.abspath(os.path.join(ECHO_DIR, 'experiments', protocol, experiment_name))
     results_dir = os.path.abspath(os.path.join(experiment_dir, 'results'))
     print(protocol, experiment_name)
-    prepare_environment(meta)
+
+    #PREPARE ENVIRONMENT
+    seed = meta.pop("random_seed", 13370)
+    numpy_seed = meta.pop("numpy_seed", 1337)
+    torch_seed = meta.pop("pytorch_seed", 133)
+    if seed is not None:
+        random.seed(seed)
+    if numpy_seed is not None:
+        np.random.seed(numpy_seed)
+    if torch_seed is not None:
+        torch.manual_seed(torch_seed)
+    torch.set_num_threads(1)
+
     results_file = '%s/%i.npy' % (results_dir, job_id)
     # Load Agents Based on Model
     agents = []
