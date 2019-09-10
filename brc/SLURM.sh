@@ -49,7 +49,7 @@ else
   sleep 180
 fi
 
-
+echo begin execution
 time ipython $BRC_DIR/run_experiment_ipyparallel.py -- --jobs-json=$JOBSJSON
 #ipcluster stop
 exit

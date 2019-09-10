@@ -24,7 +24,7 @@ def execute_parallel(jobs_file, echo_symlink_to=None):
         assert os.path.isdir(echo_symlink_to), "Invalid symlink path"
     for job in jobs:
         # DEAL WITH SYMLINKING FOR RUNNING ON BRC
-        meta = job['meta']
+        meta = job['__meta__']
         protocol = meta['protocol']
         experiment_name = meta['experiment_name']
         experiment_dir = os.path.abspath(os.path.join(ECHO_DIR, 'experiments', protocol, experiment_name))
@@ -135,6 +135,7 @@ def main():
     args = parser.parse_args()
     echo_symlink_dir = '/global/scratch/%s/echo/' % (getpass.getuser())
     assert (os.path.isdir(echo_symlink_dir))
+    print("brc/run_experiment_ipyparallel.py begin execute parallel")
     execute_parallel(args.jobs_json, echo_symlink_to=echo_symlink_dir)
 
 
