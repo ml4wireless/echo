@@ -1,1 +1,0 @@
-import '../shared_preamble/model_params.libsonnet'

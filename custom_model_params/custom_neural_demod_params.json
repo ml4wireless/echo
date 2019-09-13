@@ -1,9 +1,0 @@
-{
-      "hidden_layers":            [50],
-      "activation_fn_hidden":     "tanh",
-      "loss_type":                "l2",
-      "stepsize_cross_entropy":   {   "sample": "Uniform" ,
-                                      "min_val": 1.0e-3,
-                                      "max_val": 1.1e-3  },
-      "cross_entropy_weight":     1.0
-}
