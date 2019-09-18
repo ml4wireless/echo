@@ -10,7 +10,7 @@
 # Note that 1 core is needed as a controller for worker cores
 #SBATCH --ntasks-per-node=24
 #SBATCH --cpus-per-task=1
-#SBATCH --nodes=3
+#SBATCH --nodes=8
 #**********************************
 
 #******* Wall clock limit *********
