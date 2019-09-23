@@ -12,6 +12,7 @@ fi;
 TMP_FILE=$ECHO_DIR/_tmp_/replicategnu_out
 touch TMP_FILE
 JOBS_JSON=$ECHO_DIR/experiments/replicate_gnu_jobs.json
+EXPERIMENT_DIR=$ECHO_DIR/experiments
 
 MODEL=neural
 EXPNAME=REPLICATE_GNU
@@ -36,10 +37,8 @@ for PROTOCOL in private_preamble shared_preamble; do
       #--demod2_param_json="./work/custom_${MODEL}_demod_params.json" \
       #--verbose \
       #--delete <--- this won't run anything it will just clean up the experiment folder
-  echo ./experiments/${PROTOCOL}/${EXPNAME}/ > $TMP_FILE
+  echo ./experiments/${PROTOCOL}/${EXPNAME}/ >> $TMP_FILE
 done
 
-python experiments/make_jobs.py --file="${TMP_FILE}" --jobs_json_path="${JOBS_JSON}"
+python experiments/make_jobs.py --experiment_folder=all --file="${TMP_FILE}" --jobs_json_path="${JOBS_JSON}"
 echo "$JOBS_JSON"
-
-
