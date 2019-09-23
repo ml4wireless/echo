@@ -17,9 +17,6 @@ class Demodulator():
                  epochs: int = 5,
                  lambda_l1: float = 0.0,
                  lambda_l2: float = 0.0,
-                 initial_epsilon: float = 1e-1,
-                 max_epsilon: float = 2e-1,
-                 min_epsilon: float = 1e-4,
                  **kwargs
                  ):
         self.epochs = epochs
@@ -29,18 +26,6 @@ class Demodulator():
         self.name = self.model.name
         self.lambda_l1 = torch.tensor(lambda_l1).float()
         self.lambda_l2 = torch.tensor(lambda_l2).float()
-
-        # EPSILON -- for increased exploration
-        self.explore = initial_epsilon > 0
-        self.epsilon = nn.Parameter(
-            torch.tensor(initial_epsilon).float(),
-            requires_grad=True
-        )
-        self.min_epsilon = torch.tensor(min_epsilon).float()
-        self.max_epsilon = torch.tensor(max_epsilon).float()
-
-        self.softmax = nn.Softmax(1)
-        self.num_classes = 2**bits_per_symbol
         self.integers_to_symbols_map = integers_to_symbols(np.arange(0, 2 ** bits_per_symbol), bits_per_symbol)
 
         optimizers = {
@@ -75,12 +60,7 @@ class Demodulator():
         elif len(signal.shape) == 1:
             cartesian_points = torch.from_numpy(np.stack((signal.real, signal.imag), axis=-1)).float()
         logits = self.model.forward(cartesian_points)
-        if self.explore:
-            epsilon = torch.min(torch.max(self.epsilon, self.min_epsilon), self.max_epsilon)
-            softmax = epsilon / self.num_classes + (1 - epsilon) * self.softmax(logits)
-        else:
-            softmax =  self.softmax(logits)
-        _, actions = torch.max(softmax, 1)  # actions are class indexes
+        _, actions = torch.max(logits, 1)  # actions are class indexes
         symbols = self.integers_to_symbols_map[actions.detach().numpy().astype(int)]
         return symbols
 
