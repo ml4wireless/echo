@@ -18,7 +18,7 @@ class Modulator():
                  initial_std: float = 0.1,
                  min_std: float = 1e-5,
                  max_std: float = 1e2,
-                 epsilon_prob: float = 1e-2,  #used in update method
+                 lambda_prob: float = 1e-2,  #used in update method
                  lambda_center: float = 0.0,  # used in update method
                  lambda_baseline:float = 0.0,  #used in update method
                  lambda_l1:float = 0.0,  #used in update method
@@ -34,7 +34,7 @@ class Modulator():
         self.lambda_l2=torch.tensor(lambda_l2).float()
         self.lambda_center=torch.tensor(lambda_center).float()
         self.lambda_baseline=torch.tensor(lambda_baseline).float()
-        self.epsilon_prob = epsilon_prob * torch.ones(2)
+        self.epsilon_prob = lambda_prob * torch.ones(2)
         self.all_symbols = integers_to_symbols(np.arange(
             0, 2**bits_per_symbol), bits_per_symbol)
         self.std = nn.Parameter(initial_std * torch.ones(2))
