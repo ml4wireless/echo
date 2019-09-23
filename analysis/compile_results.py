@@ -95,6 +95,7 @@ def main():
                 experiment_results = process_experiment(results_dir)
                 result_file = os.path.join(ANALYSIS_DIR, "results", folder + ".npy")
                 np.save(result_file, experiment_results)
+                np.save(result_file, os.path.join(experiment_dir, "results.npy"))
 
         #                 break
         #         print(job_dir_to_filename("%s/../experiments/gradient_passing/"%D+ job_dir))
