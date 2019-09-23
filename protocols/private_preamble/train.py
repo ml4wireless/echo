@@ -1,6 +1,5 @@
 ###PRIVATE PREAMBLE###
 import numpy as np
-
 from protocols.roundtrip_evaluate import roundtrip_evaluate as evaluate
 from utils.util_data import integers_to_symbols, add_cartesian_awgn as add_awgn
 from utils.util_lookup_table import BER_lookup_table
@@ -58,9 +57,9 @@ def train(*,
 
         if prev_preamble is not None:
             # Update mod and demod after a roundtrip pass
-            Bdemod.update(c_signal_backward_noisy, prev_preamble)
             preamble_roundtrip = Bdemod.demodulate(c_signal_backward_noisy)
             Bmod.update(prev_preamble, prev_actions, preamble_roundtrip)
+            Bdemod.update(c_signal_backward_noisy, prev_preamble)
             batches_sent += 2
 
         # guess of new preamble
