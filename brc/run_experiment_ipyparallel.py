@@ -53,19 +53,18 @@ def execute_parallel(jobs_file, echo_symlink_to=None):
     print("executing %d jobs" % len(jobs_dispatch))
     # replace these executes with a direct view synchronous mapping to a function that handles imports
     # check this works...this let's us ensure that all imports are completed before running other code
-    dv.execute('import sys')
+    dv.execute('import torch, random, sys, os, json')
+    dv.execute('from importlib import import_module')
+    dv.execute('import numpy as np')
+    dv.execute('from copy import deepcopy')
     dv.push(dict(ECHO_DIR=ECHO_DIR))
     dv.execute('sys.path.append(\'%s\')' % ECHO_DIR)
+    dv.execute('from models.agent import Agent')
     print('sys.path.append(\'%s\')' % ECHO_DIR)
     res = lv.map_sync(client_dispatch, jobs_dispatch)
 
 
 def client_dispatch(job_description):
-    from importlib import import_module
-    import numpy as np
-    import torch, random, sys, os
-    from copy import deepcopy
-    from models.agent import Agent
     params_copy = deepcopy(job_description)
     meta = job_description.pop('__meta__')
     params = job_description
