@@ -7,7 +7,6 @@ import numpy as np
 
 ECHO_DIR = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(ECHO_DIR)
-from models.agent import Agent
 
 
 
@@ -66,6 +65,7 @@ def client_dispatch(job_description):
     import numpy as np
     import torch, random, sys, os
     from copy import deepcopy
+    from models.agent import Agent
     params_copy = deepcopy(job_description)
     meta = job_description.pop('__meta__')
     params = job_description

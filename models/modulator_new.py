@@ -9,35 +9,33 @@ from utils.util_data import cartesian_2d_to_complex, integers_to_symbols
 
 
 class Modulator():
-    def __init__(self, *,
-                 model,
-                 bits_per_symbol:Union[float,int],
-                 optimizer: Optional[str] = 'adam',
-                 stepsize_mu: float = 0.0,
-                 stepsize_sigma: float = 0.0,
-                 initial_std: float = 0.1,
-                 min_std: float = 1e-5,
-                 max_std: float = 1e2,
-                 epsilon_prob: float = 1e-2,  #used in update method
-                 lambda_center: float = 0.0,  # used in update method
-                 lambda_baseline:float = 0.0,  #used in update method
-                 lambda_l1:float = 0.0,  #used in update method
-                 lambda_l2:float = 0.0,  #used in update method
-                 **kwargs):
+    def __init__(self,*, 
+                model,
+                bits_per_symbol:Union[float,int],
+                optimizer: Optional[str] = 'adam',
+                stepsize_mu: float = 0.0,
+                stepsize_sigma: float = 0.0,
+                initial_std: float = 0.1,
+                min_std: float = 1e-5,
+                max_std: float = 1e2,
+                lambda_baseline:float = 0.0, #used in update method
+                lambda_center:float = 0.0,   #used in update method
+                lambda_l1:float = 0.0,       #used in update method
+                lambda_l2:float = 0.0,       #used in update method
+                **kwargs):
 
         self.model = model(bits_per_symbol = bits_per_symbol, **kwargs)
         self.name = self.model.name
         self.bits_per_symbol = bits_per_symbol
-        self.std_min=min_std * torch.ones(2)
-        self.std_max=max_std * torch.ones(2)
+        self.log_std_min=np.log(min_std) * torch.ones(2)
+        self.log_std_max=np.log(max_std) * torch.ones(2)
         self.lambda_l1=torch.tensor(lambda_l1).float()
         self.lambda_l2=torch.tensor(lambda_l2).float()
         self.lambda_center=torch.tensor(lambda_center).float()
         self.lambda_baseline=torch.tensor(lambda_baseline).float()
-        self.epsilon_prob = epsilon_prob * torch.ones(2)
         self.all_symbols = integers_to_symbols(np.arange(
             0, 2**bits_per_symbol), bits_per_symbol)
-        self.std = nn.Parameter(initial_std * torch.ones(2))
+        self.log_std = nn.Parameter(np.log(initial_std) * torch.ones(2))
         # self.std.register_hook(lambda grad: print(grad))
 
         optimizers = {
@@ -51,7 +49,7 @@ class Modulator():
             print("Modulator %s initialized with %s optimizer."%(self.model.name, optimizer.__name__))
             self.param_dicts = [\
                     {'params': self.model.mu_parameters(), 'lr':stepsize_mu},
-                    {'params': self.std, 'lr':stepsize_sigma}]
+                    {'params': self.log_std, 'lr':stepsize_sigma}]
             self.optimizer = optimizer(self.param_dicts)
         else:
             print("Modulator %s initialized WITHOUT an optimizer"%(self.model.name))
@@ -59,7 +57,7 @@ class Modulator():
             if hasattr(self.model, "mu_parameters"):
                 self.param_dicts = [\
                     {'params': self.model.mu_parameters(), 'lr':stepsize_mu},
-                    {'params': self.std, 'lr':stepsize_sigma}]
+                    {'params': self.log_std, 'lr':stepsize_sigma}]
             else:
                 self.param_dicts = []
 
@@ -70,8 +68,8 @@ class Modulator():
         symbols = torch.from_numpy(symbols).float()
         if mode == 'explore' and not self.model.name.lower() == 'classic':
             means = self.model(symbols)
-            std = torch.min(torch.max(self.std_min, self.std), self.std_max)
-            self.policy = Normal(means, std)
+            # log_std = torch.min(torch.max(self.log_std_min, self.log_std), self.log_std_max)
+            self.policy = Normal(means, self.log_std.exp())
             cartesian_points = self.policy.sample()
         elif self.model.name.lower() == 'classic' or mode == 'exploit':
             cartesian_points = self.model(symbols)
@@ -89,8 +87,8 @@ class Modulator():
     def modulate_tensor(self, symbols:torch.Tensor, mode:str='exploit') -> torch.Tensor:
         if mode == 'explore' and not self.model.name.lower() == 'classic':
             means = self.model(symbols)
-            std = torch.min(torch.max(self.std_min, self.std), self.std_max)
-            self.policy = Normal(means, self.std)
+            # log_std = torch.min(torch.max(self.log_std_min, self.log_std), self.log_std_max)
+            self.policy = Normal(means, self.log_std.exp())
             cartesian_points = self.policy.sample()
         elif self.model.name.lower() == 'classic' or mode == 'exploit':
             cartesian_points = self.model(symbols)
@@ -115,8 +113,7 @@ class Modulator():
                 cartesian_actions = torch.from_numpy(np.stack((actions.real.astype(np.float32), actions.imag.astype(np.float32)), axis=-1))
             reward = torch.from_numpy(-np.sum(symbols ^ received_symbols, axis=1)).float() #correct bits = 0, incorrect bits = -1 #TESTED
             # reward =torch.from_numpy(np.sum(1 - 2 * (symbols ^ received_symbols), axis=1)).float() #correct bits = 1, incorrect bits = -1 #NOT TESTED
-            log_probs = self.policy.log_prob(cartesian_actions).exp() + self.epsilon_prob
-            log_probs = log_probs.sum(dim=1)
+            log_probs = self.policy.log_prob(cartesian_actions).sum(dim=1)
             baseline = torch.mean(reward)
             loss = -torch.mean(log_probs * (reward - self.lambda_baseline * baseline))
             if self.lambda_center > 0:
@@ -183,7 +180,7 @@ class Modulator():
 
     def get_std(self):
         if hasattr(self.model, 'mu_parameters'):
-            return self.std.data.detach().numpy()
+            return self.log_std.exp().data.detach().numpy()
         else:
             return [0.0 , 0.0]
 
