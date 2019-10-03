@@ -115,7 +115,8 @@ class Modulator():
             # reward =torch.from_numpy(np.sum(1 - 2 * (symbols ^ received_symbols), axis=1)).float() #correct bits = 1, incorrect bits = -1 #NOT TESTED
             if rebuild_policy:
                 # Rebuild the policy here for the case where we overlap echo rounds
-                self.policy = Normal(self.model(symbols), self.log_std.exp())
+                tensor_symbols = torch.from_numpy(symbols).float()
+                self.policy = Normal(self.model(tensor_symbols), self.log_std.exp())
             log_probs = self.policy.log_prob(cartesian_actions).sum(dim=1)
             baseline = torch.mean(reward)
             loss = -torch.mean(log_probs * (reward - self.lambda_baseline * baseline))
@@ -158,7 +159,8 @@ class Modulator():
                     np.stack((actions.real.astype(np.float32), actions.imag.astype(np.float32)), axis=-1))
         if rebuild_policy:
             # Rebuild the policy here for the case where we overlap echo rounds
-            self.policy = Normal(self.model(symbols), self.log_std.exp())
+            tensor_symbols = torch.from_numpy(symbols).float()
+            self.policy = Normal(self.model(tensor_symbols), self.log_std.exp())
         prev_log_prob = self.policy.log_prob(cartesian_actions).sum(dim=1).detach()
         reward = torch.from_numpy(-np.sum(symbols ^ received_symbols,
                                           axis=1)).float()  # correct bits = 0, incorrect bits = -1 #TESTED
