@@ -96,9 +96,9 @@ class Modulator():
             raise Exception("modulator.modulate_tensor mode=%s not recognized accepted inputs: 'explore', 'exploit'"%mode)
         return cartesian_points
 
-    #input bit symbols, cartesian/complex actions, bit symbols
+    #input bit symbols, cartesian/complex actions, bit symbols, regenerate Gaussian means
     #Vanilla PG, fine for simulation
-    def update(self, symbols:np.ndarray, actions:np.ndarray, received_symbols:np.ndarray, **kwargs):
+    def update(self, symbols:np.ndarray, actions:np.ndarray, received_symbols:np.ndarray, rebuild_policy:bool=False, **kwargs):
         if hasattr(self.model, "update"):
             kwargs['symbols'] = symbols
             kwargs['actions'] = actions
@@ -113,6 +113,9 @@ class Modulator():
                 cartesian_actions = torch.from_numpy(np.stack((actions.real.astype(np.float32), actions.imag.astype(np.float32)), axis=-1))
             reward = torch.from_numpy(-np.sum(symbols ^ received_symbols, axis=1)).float() #correct bits = 0, incorrect bits = -1 #TESTED
             # reward =torch.from_numpy(np.sum(1 - 2 * (symbols ^ received_symbols), axis=1)).float() #correct bits = 1, incorrect bits = -1 #NOT TESTED
+            if rebuild_policy:
+                # Rebuild the policy here for the case where we overlap echo rounds
+                self.policy = Normal(self.model(symbols), self.log_std.exp())
             log_probs = self.policy.log_prob(cartesian_actions).sum(dim=1)
             baseline = torch.mean(reward)
             loss = -torch.mean(log_probs * (reward - self.lambda_baseline * baseline))
@@ -138,7 +141,8 @@ class Modulator():
                         actions: np.ndarray,
                         received_symbols: np.ndarray,
                         clip_ratio = 0.2,
-                        epochs = 5, **kwargs):
+                        epochs = 5,
+                        rebuild_policy = False, **kwargs):
         if hasattr(self.model, "update"):
             kwargs['symbols'] = symbols
             kwargs['actions'] = actions
@@ -152,6 +156,9 @@ class Modulator():
             elif len(actions.shape) == 1:
                 cartesian_actions = torch.from_numpy(
                     np.stack((actions.real.astype(np.float32), actions.imag.astype(np.float32)), axis=-1))
+        if rebuild_policy:
+            # Rebuild the policy here for the case where we overlap echo rounds
+            self.policy = Normal(self.model(symbols), self.log_std.exp())
         prev_log_prob = self.policy.log_prob(cartesian_actions).sum(dim=1).detach()
         reward = torch.from_numpy(-np.sum(symbols ^ received_symbols,
                                           axis=1)).float()  # correct bits = 0, incorrect bits = -1 #TESTED
