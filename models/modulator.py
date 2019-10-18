@@ -24,12 +24,9 @@ class Modulator():
                  lambda_l1:float = 0.0,  #used in update method
                  lambda_l2:float = 0.0,  #used in update method
                  **kwargs):
-
         self.model = model(bits_per_symbol = bits_per_symbol, **kwargs)
         self.name = self.model.name
         self.bits_per_symbol = bits_per_symbol
-        self.std_min=min_std * torch.ones(2)
-        self.std_max=max_std * torch.ones(2)
         self.lambda_l1=torch.tensor(lambda_l1).float()
         self.lambda_l2=torch.tensor(lambda_l2).float()
         self.lambda_center=torch.tensor(lambda_center).float()
@@ -37,6 +34,8 @@ class Modulator():
         self.epsilon_prob = lambda_prob * torch.ones(2)
         self.all_symbols = integers_to_symbols(np.arange(
             0, 2**bits_per_symbol), bits_per_symbol)
+        self.std_min = min_std * torch.ones(2)
+        self.std_max = max_std * torch.ones(2)
         self.std = nn.Parameter(initial_std * torch.ones(2))
         # self.std.register_hook(lambda grad: print(grad))
 
@@ -115,7 +114,9 @@ class Modulator():
                 cartesian_actions = torch.from_numpy(np.stack((actions.real.astype(np.float32), actions.imag.astype(np.float32)), axis=-1))
             reward = torch.from_numpy(-np.sum(symbols ^ received_symbols, axis=1)).float() #correct bits = 0, incorrect bits = -1 #TESTED
             # reward =torch.from_numpy(np.sum(1 - 2 * (symbols ^ received_symbols), axis=1)).float() #correct bits = 1, incorrect bits = -1 #NOT TESTED
-            log_probs = self.policy.log_prob(cartesian_actions).exp() + self.epsilon_prob
+            log_probs = self.policy.log_prob(cartesian_actions)
+            log_probs = log_probs.exp() + self.epsilon_prob
+            log_probs = log_probs.log()
             log_probs = log_probs.sum(dim=1)
             baseline = torch.mean(reward)
             loss = -torch.mean(log_probs * (reward - self.lambda_baseline * baseline))

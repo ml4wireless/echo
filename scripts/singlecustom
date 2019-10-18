@@ -11,7 +11,7 @@ fi;
 
 MODEL=poly
 PROTOCOL=private_preamble
-EXPNAME=QPSK_${MODEL}_vs_clone_custom_$1
+EXPNAME=QPSK_${MODEL}_vs_clone_paper
 python experiments/create_experiment_params.py \
     --protocol ${PROTOCOL} \
     --mod_order qpsk \
@@ -22,8 +22,8 @@ python experiments/create_experiment_params.py \
     --train_snr_db mid \
     --num_trials 50 \
     --experiment_name ${EXPNAME} \
-    --mod1_param_json="./custom_model_params/${MODEL}_$1_mod_0.json" \
-    --demod1_param_json="./custom_model_params/${MODEL}_$1_demod_0.json" \
+    --mod1_param_json="./custom_model_params/${MODEL}_mod_paper.json" \
+    --demod1_param_json="./custom_model_params/${MODEL}_demod_paper.json" \
     --early_stopping \
     #--mod2_param_json="./work/custom_${MODEL}_mod_params.json" \
     #--demod2_param_json="./work/custom_${MODEL}_demod_params.json" \
