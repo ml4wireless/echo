@@ -1,4 +1,11 @@
-export TEST=polypoly
+Remove all Docker containers that are Exited
+docker rm $(docker ps -a | grep Exited | awk '{print $1}')
+docker image ls
+docker image rm [whatever]
+--- before anything, double check that the docker at the top level in the echo folder is correct ---
+
+
+export TEST=polypolypaper
 export PROJECT_ID=torch-echo
 export BUCKET_NAME=sahai_echo
 export IMAGE_REPO_NAME=echo_tuning_pytorch_container

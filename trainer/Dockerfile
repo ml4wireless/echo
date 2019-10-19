@@ -17,5 +17,5 @@ RUN echo '[GoogleCompute]\nservice_account = default' > /etc/boto.cfg
 COPY . /root/echo
 WORKDIR /root/echo
 
-Sets up the entry point to invoke the trainer.
+# Sets up the entry point to invoke the trainer.
 ENTRYPOINT ["python", "./trainer/task_hyperparam_search.py"]

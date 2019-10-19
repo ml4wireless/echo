@@ -288,7 +288,7 @@ def add_demod_args(parser):
     parser.add_argument(
         '--epochs',
         type=int,
-        default=2,
+        default=1,
         metavar='N',
         help='Num epochs (default: 5)')
     parser.add_argument(

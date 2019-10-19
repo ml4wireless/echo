@@ -18,7 +18,7 @@ class Modulator():
                  initial_std: float = 0.1,
                  min_std: float = 1e-5,
                  max_std: float = 1e2,
-                 lambda_prob: float = 1e-2,  #used in update method
+                 lambda_prob: float = 1e-2,  #used in update method // epsilon prob
                  lambda_center: float = 0.0,  # used in update method
                  lambda_baseline:float = 0.0,  #used in update method
                  lambda_l1:float = 0.0,  #used in update method

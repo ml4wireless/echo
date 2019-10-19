@@ -1,0 +1,10 @@
+{
+  "bits_per_symbol": 2,
+  "optimizer": "adam",
+  "stepsize_cross_entropy": 0.007777871540656561,
+  "cross_entropy_weight": 1.0,
+  "epochs": 1,
+  "degree_polynomial": 1,
+  "lambda_l1": 0.0,
+  "lambda_l2": 0.0
+}

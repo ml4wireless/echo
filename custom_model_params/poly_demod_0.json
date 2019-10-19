@@ -1,9 +1,41 @@
-{
-        "bits_per_symbol": 2,
-        "optimizer": "adam",
-      "stepsize_cross_entropy": 0.10396413094556223,
-        "cross_entropy_weight": 1.0,
-        "epochs": 2,
-        "degree_polynomial": 2,
-        "lambda_l1": 0.04879134238739545,
-        "lambda_l2": 0.0}
+[
+  {
+    "bits_per_symbol": 2,
+    "optimizer": "adam",
+    "stepsize_cross_entropy": 0.007777871540656561,
+    "cross_entropy_weight": 1.0,
+    "epochs": 1,
+    "degree_polynomial": 1,
+    "lambda_l1": 0.0,
+    "lambda_l2": 0.0
+  },
+  {
+    "bits_per_symbol": 2,
+    "optimizer": "adam",
+    "stepsize_cross_entropy": 0.030295267275246684,
+    "cross_entropy_weight": 1.0,
+    "epochs": 2,
+    "degree_polynomial": 1,
+    "lambda_l1": 0.002634439340721174,
+    "lambda_l2": 0.0
+  },
+  {
+    "bits_per_symbol": 2,
+    "optimizer": "adam",
+    "stepsize_cross_entropy": 0.004434486552085519,
+    "cross_entropy_weight": 1.0,
+    "epochs": 2,
+    "degree_polynomial": 3,
+    "lambda_l1": 0.0003289979837861217
+  },
+  {
+    "bits_per_symbol": 2,
+    "optimizer": "adam",
+    "stepsize_cross_entropy": 0.0019142172237640238,
+    "cross_entropy_weight": 1.0,
+    "epochs": 2,
+    "degree_polynomial": 1,
+    "lambda_l1": 0.00468695064645939,
+    "lambda_l2": 0.0
+  }
+]

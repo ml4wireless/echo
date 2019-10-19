@@ -2,7 +2,7 @@ trainingInput:
   hyperparameters:
     goal: MINIMIZE
     hyperparameterMetricTag: "roundtrip_ber"
-    maxTrials: 500
+    maxTrials: 50
     maxParallelTrials: 10
     enableTrialEarlyStopping: True
     params:
@@ -13,48 +13,53 @@ trainingInput:
       scaleType: UNIT_LINEAR_SCALE
     - parameterName: stepsize-mu
       type: DOUBLE
-      minValue: 0.005
-      maxValue: 0.5
+      minValue: 0.0001
+      maxValue: 0.1
       scaleType: UNIT_LINEAR_SCALE
     - parameterName: stepsize-sigma
       type: DOUBLE
-      minValue: 0.00001
-      maxValue: 0.1
+      minValue: 0.000001
+      maxValue: 0.01
       scaleType: UNIT_LINEAR_SCALE
     - parameterName: stepsize-cross-entropy
       type: DOUBLE
       minValue: 0.0001
-      maxValue: 0.3
+      maxValue: 0.1
       scaleType: UNIT_LINEAR_SCALE
     - parameterName: degree-polynomial
       type: INTEGER
       minValue: 1
-      maxValue: 3
-    - parameterName: lambda-center
+      maxValue: 2
+    - parameterName: initial-std
       type: DOUBLE
-      minValue: 0.001
-      maxValue: 1.00
-      scaleType: UNIT_LOG_SCALE
-    - parameterName: lambda-baseline
-      type: DOUBLE
-      minValue: 0.0001
-      maxValue: 0.1
-      scaleType: UNIT_LOG_SCALE
+      minValue: 0.1
+      maxValue: 0.5
+      scaleType: UNIT_LINEAR_SCALE
+#    - parameterName: lambda-center
+#      type: DOUBLE
+#      minValue: 0.0001
+#      maxValue: 0.1
+#      scaleType: UNIT_LOG_SCALE
+#    - parameterName: lambda-baseline
+#      type: DOUBLE
+#      minValue: 0.0001
+#      maxValue: 0.1
+#      scaleType: UNIT_LOG_SCALE
 #    - parameterName: epochs
 #      type: INTEGER
 #      minValue: 1
 #      maxValue: 5
 #      scaleType: UNIT_LINEAR_SCALE
-    - parameterName: lambda-l1-mod
-      type: DOUBLE
-      minValue: 0.001
-      maxValue: 0.01
-      scaleType: UNIT_LOG_SCALE
-    - parameterName: lambda-l1-demod
-      type: DOUBLE
-      minValue: 0.00001
-      maxValue: 0.01
-      scaleType: UNIT_LOG_SCALE
+#    - parameterName: lambda-l1-mod
+#      type: DOUBLE
+#      minValue: 0.001
+#      maxValue: 0.01
+#      scaleType: UNIT_LOG_SCALE
+#    - parameterName: lambda-l1-demod
+#      type: DOUBLE
+#      minValue: 0.00001
+#      maxValue: 0.01
+#      scaleType: UNIT_LOG_SCALE
 #    - parameterName: lambda-l2-mod
 #      type: DOUBLE
 #      minValue: 0.0000001
