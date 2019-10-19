@@ -1,4 +1,4 @@
- datalab connect --zone us-central1-c --port 8081 echo-datalab
+datalab connect --zone us-central1-c --port 8081 echo-datalab
 export BUCKET_NAME=bucket-of-joy-iowa
 
 .... only need this for genomics pipeline, everything else defined in the bash file
