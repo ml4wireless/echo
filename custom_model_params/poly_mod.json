@@ -11,5 +11,5 @@
   "lambda_baseline": 0.0,
   "restrict_energy": 1,
   "max_amplitude": 1.0,
-  "optimizer": 'adam'
+  "optimizer": "adam"
 }
