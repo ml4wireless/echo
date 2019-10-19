@@ -18,8 +18,8 @@ python experiments/create_experiment_params.py \
     --mod_order qpsk \
     --mod1 ${MODEL1} \
     --demod1 ${MODEL1} \
-    --mod1 ${MODEL2} \
-    --demod1 ${MODEL2} \
+    --mod2 ${MODEL2} \
+    --demod2 ${MODEL2} \
     --train_snr_db mid \
     --num_trials 50 \
     --experiment_name ${EXPNAME} \
