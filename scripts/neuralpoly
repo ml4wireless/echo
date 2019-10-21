@@ -12,7 +12,7 @@ fi;
 MODEL1=neural
 MODEL2=poly
 PROTOCOL=private_preamble
-EXPNAME=QPSK_${MODEL1}_vs_${MODEL2}_deg1
+EXPNAME=QPSK_${MODEL1}_vs_${MODEL2}_tune
 python experiments/create_experiment_params.py \
     --protocol ${PROTOCOL} \
     --mod_order qpsk \
