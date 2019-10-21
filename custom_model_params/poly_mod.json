@@ -1,8 +1,8 @@
 {
   "bits_per_symbol": 2,
-  "stepsize_mu": 0.05058909775232011,
-  "stepsize_sigma": 3.8421826506196755e-06,
-  "initial_std": 0.42575593379608,
+  "stepsize_mu": 0.03652100706567462,
+  "stepsize_sigma": 9.210505798101024e-05,
+  "initial_std": 0.2,
   "max_std": 100.0,
   "min_std": 0.0001,
   "lambda_center": 0.0,
