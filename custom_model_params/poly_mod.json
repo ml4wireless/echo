@@ -1,14 +1,14 @@
 {
   "bits_per_symbol": 2,
-  "stepsize_mu": 0.06054952628280805,
+  "stepsize_mu": 0.01054952628280805,
   "stepsize_sigma": 8.628868407486077e-06,
   "initial_std": 0.4022688223612485,
   "max_std": 100.0,
   "min_std": 0.0001,
   "lambda_center": 0.0,
-  "lambda_l1": 0.0,
+  "lambda_l1": 0.0027092126177774194,
   "lambda_l2": 0.0,
-  "lambda_baseline": 0.0,
+  "lambda_baseline": 0.0053180198653549,
   "restrict_energy": 1,
   "max_amplitude": 1.0,
   "optimizer": "adam"
