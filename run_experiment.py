@@ -122,14 +122,15 @@ def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None):
             with open(params_file, 'w') as pf:
                 pf.write(json.dumps(params_copy, indent=4))
 
-            print(protocol, experiment_name)
+            if verbose:
+                print("...running run_experiment.py with:", protocol, experiment_name)
             prepare_environment(meta)
 
             # Load Agents Based on Model
             agents = []
             for agent_key in agent_keys:
                 agent_params = params.pop(agent_key)
-                agents += [Agent(agent_dict=agent_params, name=agent_key)]
+                agents += [Agent(agent_dict=agent_params, name=agent_key, verbose=verbose)]
             params['agents'] = agents
 
             # Load Protocol and Train (Results callback will collect results)
@@ -146,10 +147,9 @@ def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None):
                                'experiment_name': experiment_name,
                                **info})
             np.save(results_file, results)
-            print("Params for this job have been saved into:")
-            print(params_file)
-            print("Results for this job have been saved into:")
-            print(results_file)
+            if verbose:
+                print("...params for this job have been saved into:", params_file)
+                print("...results for this job have been saved into:", results_file)
         # pr.disable()
         # pr.dump_stats('%s%i.pstat'% (experiment_name,job_id) )
         if plot:

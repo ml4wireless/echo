@@ -27,8 +27,8 @@ def train(*,
     br = BER_lookup_table()
     early_stop = False
     integers_to_symbols_map = integers_to_symbols(np.arange(0, 2 ** bits_per_symbol), bits_per_symbol)
-    if verbose:
-        print("private_preamble train.py")
+    if verbose and False:
+        print("...running protocols/private_preamble/train.py")
 
     Amod = agents[0].mod
     Ademod = agents[0].demod
@@ -72,7 +72,7 @@ def train(*,
 
         ############### STATS ##########################
         if i % results_every == 0 or i == num_iterations:
-            if verbose:
+            if verbose and False:
                 print("ITER %i: Train SNR_db:% 5.1f" % (i, train_SNR_db))
 
             result = evaluate(agent1=agents[0],
@@ -88,6 +88,8 @@ def train(*,
             test_bers = result['test_bers']
             db_off_for_test_snr = [testSNR - br.get_optimal_SNR_for_BER_roundtrip(testBER, bits_per_symbol)
                                    for testSNR, testBER in zip(test_SNR_dbs, test_bers)]
+            if verbose and i == num_iterations:
+                print("ITER %i, db off: ", db_off_for_test_snr[4])
             ###ADD TO RESULT
             result['batches_sent'] = batches_sent
             result['db_off'] = db_off_for_test_snr

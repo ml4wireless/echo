@@ -47,13 +47,15 @@ class Modulator():
         if optimizer and hasattr(self.model, "mu_parameters") and not hasattr(self.model, "update"):
             assert optimizer.lower() in optimizers.keys(), "modulator optimizer=%s not supported"%optimizer
             optimizer = optimizers[optimizer.lower()]
-            print("Modulator %s initialized with %s optimizer."%(self.model.name, optimizer.__name__))
+            if kwargs['verbose']:
+                print("Modulator %s initialized with %s optimizer."%(self.model.name, optimizer.__name__))
             self.param_dicts = [\
                     {'params': self.model.mu_parameters(), 'lr':stepsize_mu},
                     {'params': self.std, 'lr':stepsize_sigma}]
             self.optimizer = optimizer(self.param_dicts)
         else:
-            print("Modulator %s initialized WITHOUT an optimizer"%(self.model.name))
+            if kwargs['verbose']:
+                print("Modulator %s initialized WITHOUT an optimizer"%(self.model.name))
             self.optimizer = None
             if hasattr(self.model, "mu_parameters"):
                 self.param_dicts = [\
