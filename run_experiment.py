@@ -100,7 +100,7 @@ def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None, job_date=None)
                 n = len(os.listdir(old_results_dir))
                 os.rename(results_dir, os.path.abspath(os.path.join(old_results_dir, '%i' % n)))
             _experiment_dir = os.path.abspath(os.path.join(echo_symlink_to, 'experiments', protocol, experiment_name))
-            job_date = "results" + job_date if job_date is None else ""
+            job_date = "results" + (job_date if job_date is not None else "")
             _results_dir = os.path.abspath(os.path.join(_experiment_dir, job_date))
             os.makedirs(_results_dir, exist_ok=True)
             if not (os.path.islink(results_dir)
