@@ -94,13 +94,12 @@ def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None, job_date=None)
         # DEAL WITH SYMLINKING FOR RUNNING ON BRC
         if echo_symlink_to is not None:
             assert os.path.isdir(echo_symlink_to), "Invalid symlink path"
-            if os.path.isdir(results_dir):
+            if os.path.isdir(results_dir) and not os.path.islink(results_dir):
                 old_results_dir = os.path.abspath(os.path.join(experiment_dir, 'old_results'))
                 os.makedirs(old_results_dir, exist_ok=True)
                 n = len(os.listdir(old_results_dir))
                 os.rename(results_dir, os.path.abspath(os.path.join(old_results_dir, '%i' % n)))
-            _experiment_dir = os.path.abspath(
-                os.path.join(echo_symlink_to, 'experiments', protocol, experiment_name))
+            _experiment_dir = os.path.abspath(os.path.join(echo_symlink_to, 'experiments', protocol, experiment_name))
             job_date = "results" + job_date if job_date is None else ""
             _results_dir = os.path.abspath(os.path.join(_experiment_dir, job_date))
             os.makedirs(_results_dir, exist_ok=True)
