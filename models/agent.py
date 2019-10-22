@@ -15,7 +15,7 @@ from models.modulator import Modulator
 #     return mod
 
 class Agent():
-    def __init__(self,  *, agent_dict, name):
+    def __init__(self,  *, agent_dict, name, verbose=False):
         self.name = name
         self.to_echo = None
         self.actions = None
@@ -30,8 +30,8 @@ class Agent():
             model_class = getattr(import_module(module_name), model.capitalize())
 
             if function == 'demod':
-                self.demod = Demodulator(model=model_class, **params) 
+                self.demod = Demodulator(model=model_class, verbose=verbose, **params)
             else: # function == 'mod'
-                self.mod = Modulator(model=model_class, **params)
+                self.mod = Modulator(model=model_class, verbose=verbose, **params)
  
 

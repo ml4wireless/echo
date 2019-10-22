@@ -65,7 +65,7 @@ def prepare_environment(params):
 # animated_plot()
 
 
-def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None):
+def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None, job_date=None):
     # pr.enable()
     with open(jobs_file) as jfile:
         jobs = json.load(jfile)
@@ -90,26 +90,22 @@ def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None):
         protocol = meta['protocol']
         experiment_name = meta['experiment_name']
         experiment_dir = os.path.abspath(os.path.join(ECHO_DIR, 'experiments', protocol, experiment_name))
-
         results_dir = os.path.abspath(os.path.join(experiment_dir, 'results'))
         # DEAL WITH SYMLINKING FOR RUNNING ON BRC
         if echo_symlink_to is not None:
             assert os.path.isdir(echo_symlink_to), "Invalid symlink path"
-            if not os.path.islink(results_dir):
-                if os.path.isdir(results_dir):
-                    old_results_dir = os.path.abspath(os.path.join(experiment_dir, 'old_results'))
-                    os.makedirs(old_results_dir, exist_ok=True)
-                    n = len(os.listdir(old_results_dir))
-                    os.rename(results_dir, os.path.abspath(os.path.join(old_results_dir, '%i' % n)))
-                _experiment_dir = os.path.abspath(
-                    os.path.join(echo_symlink_to, 'experiments', protocol, experiment_name))
-                _results_dir = os.path.abspath(os.path.join(_experiment_dir, 'results'))
-                if os.path.isdir(_results_dir):
-                    _old_results_dir = os.path.abspath(os.path.join(_experiment_dir, 'old_results'))
-                    os.makedirs(_old_results_dir, exist_ok=True)
-                    n = len(os.listdir(_old_results_dir))
-                    os.rename(_results_dir, os.path.abspath(os.path.join(_old_results_dir, '%i' % n)))
-                os.makedirs(_results_dir)
+            if os.path.isdir(results_dir):
+                old_results_dir = os.path.abspath(os.path.join(experiment_dir, 'old_results'))
+                os.makedirs(old_results_dir, exist_ok=True)
+                n = len(os.listdir(old_results_dir))
+                os.rename(results_dir, os.path.abspath(os.path.join(old_results_dir, '%i' % n)))
+            _experiment_dir = os.path.abspath(
+                os.path.join(echo_symlink_to, 'experiments', protocol, experiment_name))
+            job_date = "results" + job_date if job_date is None else ""
+            _results_dir = os.path.abspath(os.path.join(_experiment_dir, job_date))
+            os.makedirs(_results_dir, exist_ok=True)
+            if not (os.path.islink(results_dir)
+                    and os.readlink(results_dir) == _results_dir):
                 os.symlink(_results_dir, results_dir)
         else:
             os.makedirs(results_dir, exist_ok=True)
@@ -122,14 +118,15 @@ def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None):
             with open(params_file, 'w') as pf:
                 pf.write(json.dumps(params_copy, indent=4))
 
-            print(protocol, experiment_name)
+            if verbose:
+                print("...running run_experiment.py with:", protocol, experiment_name)
             prepare_environment(meta)
 
             # Load Agents Based on Model
             agents = []
             for agent_key in agent_keys:
                 agent_params = params.pop(agent_key)
-                agents += [Agent(agent_dict=agent_params, name=agent_key)]
+                agents += [Agent(agent_dict=agent_params, name=agent_key, verbose=verbose)]
             params['agents'] = agents
 
             # Load Protocol and Train (Results callback will collect results)
@@ -146,10 +143,9 @@ def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None):
                                'experiment_name': experiment_name,
                                **info})
             np.save(results_file, results)
-            print("Params for this job have been saved into:")
-            print(params_file)
-            print("Results for this job have been saved into:")
-            print(results_file)
+            if verbose:
+                print("...params for this job have been saved into:", params_file)
+                print("...results for this job have been saved into:", results_file)
         # pr.disable()
         # pr.dump_stats('%s%i.pstat'% (experiment_name,job_id) )
         if plot:
@@ -185,8 +181,9 @@ def main():
     requiredNamed.add_argument("--job_id", type=int, required=False, default=None)
     parser.add_argument("--plot", required=False, action='store_true')
     parser.add_argument("--echo_symlink_to", required=False, default=None)
+    parser.add_argument("--job_date", required=False, type=str, default=None)
     args = parser.parse_args()
-    run(jobs_file=args.jobs_file, job_id=args.job_id, plot=args.plot, echo_symlink_to=args.echo_symlink_to)
+    run(jobs_file=args.jobs_file, job_id=args.job_id, plot=args.plot, echo_symlink_to=args.echo_symlink_to, job_date=args.job_date)
 
 
 if __name__ == '__main__':

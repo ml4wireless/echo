@@ -36,14 +36,16 @@ class Demodulator():
         if optimizer and hasattr(self.model, 'parameters') and not hasattr(self.model, "update"):
             assert optimizer.lower() in optimizers.keys(), "demodulator optimizer=%s not supported" % optimizer
             optimizer = optimizers[optimizer.lower()]
-            print("Demodulator %s initialized with %s optimizer." % (self.model.name, optimizer.__name__))
+            if kwargs['verbose']:
+                print("Demodulator %s initialized with %s optimizer." % (self.model.name, optimizer.__name__))
             self.cross_entropy_weight = torch.tensor(cross_entropy_weight).float()
             self.param_dicts = [ \
                 {'params': self.model.parameters(), 'lr': stepsize_cross_entropy},
             ]
             self.optimizer = optimizer(self.param_dicts, lr=stepsize_cross_entropy)
         else:
-            print("Demodulator %s initialized WITHOUT an optimizer" % (self.model.name))
+            if kwargs['verbose']:
+                print("Demodulator %s initialized WITHOUT an optimizer" % (self.model.name))
             self.optimizer = None
             if hasattr(self.model, 'parameters'):
                 self.param_dicts = [ \

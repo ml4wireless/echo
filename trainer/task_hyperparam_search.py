@@ -70,7 +70,7 @@ def test(*,
          bits_per_symbol,
          test_SNR_db,
          signal_power=1.0,
-         test_batch_size=5000,
+         test_batch_size=100000,
          ):
     integers = np.random.randint(low=0, high=2 ** bits_per_symbol, size=[test_batch_size])
     preamble = integers_to_symbols(integers, bits_per_symbol=bits_per_symbol)
@@ -288,7 +288,7 @@ def add_demod_args(parser):
     parser.add_argument(
         '--epochs',
         type=int,
-        default=2,
+        default=1,
         metavar='N',
         help='Num epochs (default: 5)')
     parser.add_argument(
@@ -333,13 +333,13 @@ def add_experiment_args(parser):
     parser.add_argument(
         '--log-interval',
         type=int,
-        default=600,
+        default=2000,
         metavar='N',
         help='how many batches to wait before logging training status (default: 250)')
     parser.add_argument(
         '--total-batches',
         type=int,
-        default=20000,
+        default=10000,
         metavar='N',
         help='how many batches to train for (default: 10000)')
     parser.add_argument(

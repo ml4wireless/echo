@@ -18,4 +18,4 @@ COPY . /root/echo
 WORKDIR /root/echo
 RUN pwd
 #Sets up the entry point to invoke the trainer.
-#ENTRYPOINT ["python", "./trainer/task_hyperparam_search.py"]
+ENTRYPOINT ["python", "./trainer/task_hyperparam_search.py"]

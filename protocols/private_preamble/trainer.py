@@ -35,10 +35,10 @@ def trainer(*,
 
     # B
     if A.to_echo is not None:
-        B.demod.update(c_signal_backward_noisy, B.preamble)
+        # Update mod and demod after a roundtrip pass
         preamble_roundtrip = B.demod.demodulate(c_signal_backward_noisy)
-        # Update mod after a roundtrip pass
         B.mod.update(B.preamble, B.actions, preamble_roundtrip)
+        B.demod.update(c_signal_backward_noisy, B.preamble)
         batches_sent += 2
 
     # guess of new preamble

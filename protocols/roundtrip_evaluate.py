@@ -85,9 +85,9 @@ def roundtrip_evaluate(*,
             for k in range(len(test_SNR_dbs)):
                 print(
                     "Test SNR_db :% 5.1f | BER: %7.6f | SER: %7.6f" %
-                      (test_SNR_dbs[k],
-                       test_bers[0][k],
-                       test_sers[0][k],))
+                    (test_SNR_dbs[k],
+                     test_bers[0][k],
+                     test_sers[0][k],))
         print(" ")
     elif (total_iterations is not None) and (completed_iterations is not None):
         print("[%s]" % ("." * completed_iterations + " " * (total_iterations - completed_iterations)), end='\r',
@@ -113,3 +113,50 @@ def roundtrip_evaluate(*,
         'demod_grid_1': agent1.demod.get_demod_grid(grid_2d),
         **r2
     }
+
+
+if __name__ == '__main__':
+    def test_get_ber():
+        # 2bps
+        s1 = np.array([[0, 0], [1, 0], [1, 0], [1, 1]])
+        s2 = np.array([[0, 0], [1, 0], [1, 0], [1, 1]])
+        assert get_ber(s1, s2) == 0.0
+        s1 = np.array([[0, 0], [1, 0], [1, 0], [1, 1]])
+        s2 = np.array([[0, 1], [1, 1], [1, 1], [1, 0]])
+        assert get_ber(s1, s2) == 0.5
+        s1 = np.array([[0, 0], [1, 0], [1, 0], [1, 1]])
+        s2 = np.array([[0, 0], [0, 0], [1, 0], [1, 1]])
+        assert get_ber(s1, s2) == 0.125
+        # 4bps
+        s1 = np.array([[0, 0, 1, 0], [1, 0, 1, 1]])
+        s2 = np.array([[0, 0, 1, 0], [1, 0, 1, 1]])
+        assert get_ber(s1, s2) == 0.0
+        s1 = np.array([[0, 0, 1, 0], [1, 0, 1, 1]])
+        s2 = np.array([[0, 0, 0, 0], [1, 0, 1, 1]])
+        assert get_ber(s1, s2) == 0.125
+        print("test_get_ber: PASS")
+
+
+    def test_get_ser():
+        # 2bps
+        s1 = np.array([[0, 0], [1, 0], [1, 0], [1, 1]])
+        s2 = np.array([[0, 0], [1, 0], [1, 0], [1, 1]])
+        assert get_ser(s1, s2) == 0.0
+        s1 = np.array([[0, 0], [1, 0], [1, 0], [1, 1]])
+        s2 = np.array([[0, 1], [1, 1], [1, 1], [1, 0]])
+        assert get_ser(s1, s2) == 1.0
+        s1 = np.array([[0, 0], [1, 0], [1, 0], [1, 1]])
+        s2 = np.array([[0, 0], [0, 0], [1, 0], [1, 1]])
+        assert get_ser(s1, s2) == 0.25
+        # 4bps
+        s1 = np.array([[0, 0, 1, 0], [1, 0, 1, 1]])
+        s2 = np.array([[0, 0, 1, 0], [1, 0, 1, 1]])
+        assert get_ser(s1, s2) == 0.0
+        s1 = np.array([[0, 0, 1, 0], [1, 0, 1, 1]])
+        s2 = np.array([[0, 0, 0, 0], [1, 0, 1, 1]])
+        assert get_ser(s1, s2) == 0.5
+        print("test_get_ser: PASS")
+
+
+    test_get_ber()
+    test_get_ser()

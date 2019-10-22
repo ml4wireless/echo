@@ -121,9 +121,6 @@ def client_dispatch(job_description):
     print(results_file)
 
 
-
-
-
 def main():
     import argparse
     parser = argparse.ArgumentParser(description='ipyparallel echo')
