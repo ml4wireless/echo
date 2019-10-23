@@ -1,3 +1,4 @@
+import errno
 import json
 import os
 import sys
@@ -10,7 +11,7 @@ import torch
 
 from models.agent import Agent
 
-#FOR PROFILING SPEED OF CODE
+# FOR PROFILING SPEED OF CODE
 # import cProfile as profile
 # pr = profile.Profile()
 # pr.disable()
@@ -23,12 +24,14 @@ from models.agent import Agent
 
 ECHO_DIR = os.path.dirname(os.path.realpath(__file__))
 
+
 def rm_mkdir(dir):
     if os.path.isdir(dir):
         import shutil
         shutil.rmtree(dir)
     os.makedirs(dir)
     return
+
 
 def prepare_environment(params):
     """
@@ -61,6 +64,7 @@ def prepare_environment(params):
     torch.set_num_threads(1)
 
     sys.path.append(ECHO_DIR)
+
 
 # animated_plot()
 
@@ -100,12 +104,24 @@ def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None, job_date=None)
                 n = len(os.listdir(old_results_dir))
                 os.rename(results_dir, os.path.abspath(os.path.join(old_results_dir, '%i' % n)))
             _experiment_dir = os.path.abspath(os.path.join(echo_symlink_to, 'experiments', protocol, experiment_name))
-            job_date = "results" + job_date if job_date is None else ""
+            job_date = "results" + (job_date if job_date is not None else "")
             _results_dir = os.path.abspath(os.path.join(_experiment_dir, job_date))
             os.makedirs(_results_dir, exist_ok=True)
-            if not (os.path.islink(results_dir)
-                    and os.readlink(results_dir) == _results_dir):
-                os.symlink(_results_dir, results_dir)
+            if os.path.islink(results_dir) and os.readlink(results_dir) != _results_dir:
+                try:
+                    os.remove(results_dir)
+                except OSError:
+                    pass
+
+            if not os.path.islink(results_dir):
+                try:
+                    os.symlink(_results_dir, results_dir)
+                except OSError as e:
+                    if e.errno == errno.EEXIST:
+                        assert os.readlink(results_dir) == _results_dir
+                    else:
+                        raise e
+
         else:
             os.makedirs(results_dir, exist_ok=True)
 
@@ -156,6 +172,7 @@ def run(jobs_file, job_id=None, plot=False, echo_symlink_to=None, job_date=None)
                 print("Cannot plot; matplotlib not found")
     return ()
 
+
 def main():
     import argparse, textwrap
     class MyParser(argparse.ArgumentParser):
@@ -182,7 +199,8 @@ def main():
     parser.add_argument("--echo_symlink_to", required=False, default=None)
     parser.add_argument("--job_date", required=False, type=str, default=None)
     args = parser.parse_args()
-    run(jobs_file=args.jobs_file, job_id=args.job_id, plot=args.plot, echo_symlink_to=args.echo_symlink_to, job_date=args.job_date)
+    run(jobs_file=args.jobs_file, job_id=args.job_id, plot=args.plot, echo_symlink_to=args.echo_symlink_to,
+        job_date=args.job_date)
 
 
 if __name__ == '__main__':
@@ -190,5 +208,6 @@ if __name__ == '__main__':
         main()
     except AssertionError or Exception:
         import sys, traceback
+
         traceback.print_exc()
         sys.exit(3)
