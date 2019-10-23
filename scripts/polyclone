@@ -25,8 +25,8 @@ python experiments/create_experiment_params.py \
     --mod1_param_json="./custom_model_params/${MODEL}_mod.json" \
     --demod1_param_json="./custom_model_params/${MODEL}_demod.json" \
 #    --verbose \
-#    --num_iterations 20000 \
-#    --num_results_logged 2 \
+#    --num_iterations 10000 \
+#    --num_results_logged 5 \
 #    --early_stopping \
 #    --mod2_param_json="./work/custom_${MODEL}_mod_params.json" \
 #    --demod2_param_json="./work/custom_${MODEL}_demod_params.json" \
