@@ -1,3 +1,7 @@
+# Branches
+Paper branch contains the version used for results in the paper
+Master branch includes improvements and additional functionality
+
 # echo
 
 Lost? Try running: 
