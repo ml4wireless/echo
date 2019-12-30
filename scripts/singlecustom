@@ -1,0 +1,44 @@
+## THIS FILE CREATES A SINGLE EXPERIMENT
+## AND ALSO CREATES A JOB FILE WITHIN THAT EXPERIMENT experiment/[protocol]/[experiment] folder
+ECHO_DIR=$(pwd)
+if [[ $ECHO_DIR == */echo/scripts ]]; then
+  cd ..
+fi;
+if [[ $ECHO_DIR != */echo ]]; then
+  echo -e "Please run this script from the 'echo' directory";
+  return 0 2> /dev/null || exit 0
+fi;
+
+MODEL=poly
+PROTOCOL=private_preamble
+EXPNAME=QPSK_${MODEL}_vs_clone_custom_$1
+python experiments/create_experiment_params.py \
+    --protocol ${PROTOCOL} \
+    --mod_order qpsk \
+    --mod1 ${MODEL} \
+    --demod1 ${MODEL} \
+    --mod2 clone \
+    --demod2 clone \
+    --train_snr_db mid \
+    --num_trials 50 \
+    --experiment_name ${EXPNAME} \
+    --mod1_param_json="./custom_model_params/${MODEL}_$1_mod_0.json" \
+    --demod1_param_json="./custom_model_params/${MODEL}_$1_demod_0.json" \
+    --early_stopping \
+    #--mod2_param_json="./work/custom_${MODEL}_mod_params.json" \
+    #--demod2_param_json="./work/custom_${MODEL}_demod_params.json" \
+    #--verbose \
+    #--delete <--- this won't run anything it will just clean up the experiment folder
+
+#### if called create_experiment with --experiment_name ####
+python experiments/make_jobs.py --experiment_folder=./experiments/${PROTOCOL}/${EXPNAME}/
+echo ./experiments/${PROTOCOL}/${EXPNAME}/jobs.json
+
+#if [ "$*" == "" ]; then
+#    #if no arguments given ... just an optional thing so that you can singlecustom
+#    #using runecho to call this will supply a dummy argument
+#    #if you run this script directly, you can put no argument so as to run the experiment
+#    echo "Running...."
+#    python run_experiment.py --jobs_file=./experiments/${PROTOCOL}/${EXPNAME}/jobs.json --job_id=0 --plot
+#fi
+

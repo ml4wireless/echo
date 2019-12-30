@@ -1,0 +1,13 @@
+{
+    "activation_fn_hidden": "tanh",
+    "hidden_layers": [
+        50
+    ],
+    "lambda_center": 0,
+    "restrict_energy": 1,
+    "stepsize_mu": 3e-2,
+    "bits_per_symbol": 2,
+    "loss_function": "vanilla_pg",
+    "max_amplitude": 1,
+    "optimizer": "adam"
+}

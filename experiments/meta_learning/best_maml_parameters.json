@@ -1,0 +1,142 @@
+{
+    "comments": [
+        "Most settings work for demod BPS=2 as long as stepsizes are sufficiently large (>= 0.1)",
+        "The best performing demod BPS=6 was inner_steps=1, but more inner_steps=10 runs did nearly as well, so I went with 10 for stability across parameters/runs",
+        "After 30 shots, mod BPS=6 was still ~3x the baseline BER",
+        "Inner stepsize 0.1 is best for non-MAML BPS=2 PPO, but 0.03 and 0.01 also work well for MAML"
+    ],
+    "demodulator": [
+        {
+            "bits_per_symbol": 2,
+            "SNR_db": 8.4,
+            "inner_batch_size": 256,
+            "outer_batch_size": 1024,
+            "stepsize_inner": 0.1,
+            "stepsize_meta": 0.2,
+            "inner_steps": 5,
+            "optimizer": "sgd",
+            "ntasks": 16,
+            "first_order": false,
+            "epochs": 5000,
+            "hidden_layers": [50, 50],
+            "loss_function":
+        },
+        {
+            "bits_per_symbol": 4,
+            "SNR_db": 15,
+            "inner_batch_size": 256,
+            "outer_batch_size": 1024,
+            "stepsize_inner": 0.2,
+            "stepsize_meta": 0.2,
+            "inner_steps": 10,
+            "optimizer": "sgd",
+            "ntasks": 16,
+            "first_order": true,
+            "epochs": 5000,
+            "hidden_layers": [100, 100]
+        },
+        {
+            "bits_per_symbol": 6,
+            "SNR_db": 20,
+            "inner_batch_size": 256,
+            "outer_batch_size": 1024,
+            "stepsize_inner": 0.2,
+            "stepsize_meta": 0.1,
+            "inner_steps": 10,
+            "optimizer": "sgd",
+            "ntasks": 16,
+            "first_order": true,
+            "epochs": 5000,
+            "hidden_layers": [128, 128]
+        }
+    ],
+    "modulator": [
+        {
+            "bits_per_symbol": 2,
+            "SNR_db": 8.4,
+            "inner_batch_size": 256,
+            "outer_batch_size": 1024,
+            "stepsize_inner": 0.1,
+            "stepsize_meta": 0.2,
+            "inner_steps": 10,
+            "optimizer": "sgd",
+            "ntasks": 16,
+            "first_order": true,
+            "epochs": 5000,
+            "hidden_layers": [50, 50],
+            "std_explore": 0.3,
+            "restrict_energy": 1,
+            "loss_function": "vanilla_pg"
+        },
+        {
+            "bits_per_symbol": 2,
+            "SNR_db": 8.4,
+            "inner_batch_size": 256,
+            "outer_batch_size": 1024,
+            "stepsize_inner": 0.1,
+            "stepsize_meta": 0.03,
+            "inner_steps": 10,
+            "optimizer": "sgd",
+            "ntasks": 16,
+            "first_order": true,
+            "epochs": 250,
+            "hidden_layers": [50, 50],
+            "std_explore": 0.3,
+            "restrict_energy": 1,
+            "loss_function": "ppo"
+        },
+        {
+            "bits_per_symbol": 4,
+            "SNR_db": 15,
+            "inner_batch_size": 256,
+            "outer_batch_size": 1024,
+            "stepsize_inner": 0.1,
+            "stepsize_meta": 0.2,
+            "inner_steps": 10,
+            "optimizer": "sgd",
+            "ntasks": 16,
+            "first_order": true,
+            "epochs": 5000,
+            "hidden_layers": [100, 100],
+            "std_explore": 0.3,
+            "restrict_energy": 1,
+            "loss_function": "vanilla_pg"
+        },
+        {
+            "bits_per_symbol": 4,
+            "SNR_db": 15,
+            "inner_batch_size": 256,
+            "outer_batch_size": 1024,
+            "stepsize_inner": 0.1,
+            "stepsize_meta": 0.2,
+            "inner_steps": 10,
+            "optimizer": "sgd",
+            "ntasks": 16,
+            "first_order": true,
+            "epochs": 250,
+            "hidden_layers": [100, 100],
+            "std_explore": 0.3,
+            "restrict_energy": 1,
+            "loss_function": "ppo"
+        },
+        {
+            "bits_per_symbol": 6,
+            "SNR_db": 20.8,
+            "inner_batch_size": 256,
+            "outer_batch_size": 1024,
+            "stepsize_inner": 0.2,
+            "stepsize_meta": 0.1,
+            "inner_steps": 5,
+            "optimizer": "sgd",
+            "ntasks": 16,
+            "first_order": false,
+            "epochs": 5000,
+            "hidden_layers": [128, 128],
+            "std_explore": 0.3,
+            "restrict_energy": 1,
+            "loss_function": "vanilla_pg"
+        }
+    ]
+}
+
+

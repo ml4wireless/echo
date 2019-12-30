@@ -1,0 +1,11 @@
+{
+    "cross_entropy_weight": 1,
+    "degree_polynomial": 1,
+    "epochs": 1,
+    "lambda_l1": 0.001,
+    "loss_type": "l2",
+    "stepsize_cross_entropy": 0.01,
+    "bits_per_symbol": 2,
+    "max_amplitude": 1,
+    "optimizer": "adam"
+}

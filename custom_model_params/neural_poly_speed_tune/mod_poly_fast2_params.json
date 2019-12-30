@@ -1,0 +1,13 @@
+{
+    "initial_std": 1,
+    "lambda_center": 0,
+    "lambda_l1": 0.0,
+    "lambda_prob": 1e-10,
+    "restrict_energy": 1,
+    "stepsize_mu": 0.04,
+    "stepsize_sigma": 0.002,
+    "bits_per_symbol": 2,
+    "loss_function": "vanilla_pg",
+    "max_amplitude": 1,
+    "optimizer": "adam"
+}

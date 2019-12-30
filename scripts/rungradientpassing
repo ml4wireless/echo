@@ -1,0 +1,36 @@
+## THIS FILE CREATES A SINGLE EXPERIMENT
+## AND ALSO CREATES A JOB FILE WITHIN THAT EXPERIMENT experiment/[protocol]/[experiment] folder
+ECHO_DIR=$(pwd)
+if [[ $ECHO_DIR == */echo/scripts ]]; then
+  cd ..
+  ECHO_DIR=$(pwd)
+fi;
+if [[ $ECHO_DIR != */echo ]]; then
+  echo -e "Please run this script from the 'echo' directory";
+  return 0 2> /dev/null || exit 0
+fi;
+
+
+MODEL1=$1
+MODEL2=$2
+EXPNAME=QPSK_${MODEL1}_${MODEL2}
+
+PROTOCOL=gradient_passing
+python experiments/create_experiment_params.py \
+    --protocol ${PROTOCOL} \
+    --mod_order qpsk \
+    --mod1 ${MODEL1} \
+    --demod1 ${MODEL2} \
+    --train_snr_db mid \
+    --num_trials 48 \
+    --batch_size 256 \
+    --experiment_name ${EXPNAME} \
+    --model_params_template $ECHO_DIR/custom_model_params/model_params_gp.libsonnet \
+    #--mod1_param_json="./custom_model_params/gp_${MODEL1}_mod_params.json" \
+    #--demod1_param_json="./custom_model_params/gp_${MODEL2}_demod_params.json" \
+    #--early_stopping \
+    #--delete <--- this won't run anything it will just clean up the experiment folder
+python experiments/make_jobs.py --experiment_folder=./experiments/${PROTOCOL}/${EXPNAME}/
+echo ./experiments/${PROTOCOL}/${EXPNAME}/jobs.json
+#python run_experiment.py --jobs_file=./experiments/${PROTOCOL}/${EXPNAME}/jobs.json --job_id=0
+./runecho_args -b -n 2 -j ./experiments/${PROTOCOL}/${EXPNAME}

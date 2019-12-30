@@ -1,0 +1,18 @@
+
+ cd experiments/
+ python create_experiment_params.py --mod_order 8psk --protocol shared_preamble --mod1 neural --mod2 neural --model_params_template $(pwd)/../custom_model_params/${1}_model_params.libsonnet --train_snr_db mid --num_trials 50 --batch_size 256 --experiment_name 8PSK_test_${1} --num_results_logged 30
+ python create_experiment_params.py --mod_order qam16 --protocol shared_preamble --mod1 neural --mod2 neural --model_params_template $(pwd)/../custom_model_params/${1}_model_params.libsonnet --train_snr_db mid --num_trials 50 --batch_size 256 --experiment_name QAM16_test_${1} --num_results_logged 30
+ python create_experiment_params.py --mod_order 8psk --protocol private_preamble --mod1 neural --mod2 neural --model_params_template $(pwd)/../custom_model_params/${1}_model_params.libsonnet --train_snr_db mid --num_trials 50 --batch_size 256 --experiment_name 8PSK_test_${1} --num_results_logged 30
+ python create_experiment_params.py --mod_order qam16 --protocol private_preamble --mod1 neural --mod2 neural --model_params_template $(pwd)/../custom_model_params/${1}_model_params.libsonnet --train_snr_db mid --num_trials 50 --batch_size 256 --experiment_name QAM16_test_${1} --num_results_logged 30
+
+ python make_jobs.py --experiment_folder shared_preamble/8PSK_test_${1}
+ python make_jobs.py --experiment_folder shared_preamble/QAM16_test_${1}
+ python make_jobs.py --experiment_folder private_preamble/8PSK_test_${1}
+ python make_jobs.py --experiment_folder private_preamble/QAM16_test_${1}
+
+ cd ..
+
+ ./runecho_args -b -n 1 -j experiments/shared_preamble/8PSK_test_${1}
+ ./runecho_args -b -n 1 -j experiments/shared_preamble/QAM16_test_${1}
+ ./runecho_args -b -n 1 -j experiments/private_preamble/8PSK_test_${1}
+ ./runecho_args -b -n 1 -j experiments/private_preamble/QAM16_test_${1}

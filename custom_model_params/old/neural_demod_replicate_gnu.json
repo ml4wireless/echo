@@ -1,0 +1,7 @@
+{
+      "hidden_layers":            [50],
+      "activation_fn_hidden":     "tanh",
+      "loss_type":                "l2",
+      "stepsize_cross_entropy":   1.0e-2,
+      "cross_entropy_weight":     1.0
+}

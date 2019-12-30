@@ -1,18 +1,18 @@
 #
-slurm*
 .idea/
 _tmp_/*
-brc/out/
+brc/
+analysis/
+custom_model_params/
+experiments/
+scripts/
 experiments/*/*/results
 experiments/*/*/*.jsonnet
-experiments/jobs.json
 experiments/*/jobs.json
 experiments/*/*/jobs.json
-trainer/work/
-trainer/*work*/*/
-trainer/*work*/
+
 *.pstat
-**/vs_plot_results.ipynb
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -117,22 +117,3 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-
-# Vim
-.*.swp
-
-# VSCode
-.vscode/
-
-# Generated files
-*.png
-*.mdl
-data/
-*.bak
-.DS_Store
-*.zip
-*.npy
-*.npz
-analysis/*.pdf
-
-**/meta_learning_vignesh_local/**
