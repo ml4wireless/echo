@@ -1,6 +1,7 @@
 # Branches
-- `paper` branch contains the version used for results in the paper
 - `master` branch includes improvements and additional functionality
+- `arxiv-paper` branch contains the version used for results in the arxiv paper
+- `ieee-paper` branch contains the version used for results in the ieee paper
 
 # echo
 
